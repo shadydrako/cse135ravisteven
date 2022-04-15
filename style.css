@@ -1,0 +1,12 @@
+.hwDetails{
+    background-color: gray;
+    color: white;
+}
+
+ .topcorner{
+   position:absolute;
+   top:0;
+   right:1vw;
+   width: 15vw;
+   height: 10vh;
+  }

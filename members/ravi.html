@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title> Ravi Website</title>
+    <meta name="description" content="HTML remake of Og website CSE 110">
+    <meta name="author" content="Ravindran Gabriel Tapia">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+    <body>
+        <header> 
+           <h1> Hi :D </h1> 
+        </header>
+        <nav> 
+            <a href="../index.html"> Home Page </a>
+        </nav>
+        <main>
+            <div id="AboutMe">
+                <section>
+                    <h2> Who Am I? </h2> 
+                        <p>
+                            My name is Ravindran Tapia, but I go by Ravi for short! I am currently a 3rd year Computer Science major at UCSD. This is for my cse135 class assignments now
+                        </p>
+                    <hr>
+                </section>
+                <section>
+                    <h2> Why Computer Science?? </h2>
+                    <p> 
+                        I like beep boops they are cool
+                    </p>
+                    <hr>
+                </section>
+                <section>
+                    <h2>Languages</h2>
+                    <p> These are the languages I have learned over the years </p>
+                    <ol>
+                        <li> Javascript</li>
+                        <li> Java </li>
+                        <li> C++</li>
+                        <li> C</li>
+                        <li> HTML (Currently Relearning ) </li>
+                    </ol>
+                    <hr>
+                </section>
+            </div>
+            <div>
+                I am currently <i> relearning</i> and trying to <b> improve </b> my skills in CS and Web Dev has personally been an interest of mine.
+                I have been creating website since I was <em> little</em> but this is my first time doing it from scratch. <pre> This is pre </pre>
+                <br>
+                Anways, please use my social media if you would like to connect! 
+                <br> 
+                Follow me on <a href="https://www.instagram.com/rravi.tpia/"> Instagram </a> to reach out to me fast!
+            </div>
+            <input type="button" id="button" value="butt" style="background-color: aqua;" onclick="changeColor()">
+        </main>
+
+        <footer> Created by Ravi Tapia </footer> 
+        <script>
+            let mode = 0;
+            function changeColor(){
+                let bt = document.getElementById("button");
+                if(mode == 0){
+                    mode = 1;
+                    bt.style.backgroundColor = "green";
+                }else{
+                    mode = 0;
+                    bt.style.backgroundColor = "aqua";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -17,8 +17,12 @@ print('</p>')
 
 
 dumped = open('test.txt', 'wb')
+print('<p>')
 for line in sys.stdin.readline():
-dumped.write(line)
+    dumped.write(line)
+    print(line)
+print(</p>)
+
 
 
 #what i need to do

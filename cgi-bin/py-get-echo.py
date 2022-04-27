@@ -25,9 +25,9 @@ print('</p>')
 things = (parse_qs(URLagain.query))
 
 print ('<ul>')
-for item in things:
+for label,value in things:
     print ('<li>')
-    print ("EAT ME")
+    print (f'{name}={value}')
     print ('</li>')
 print ('</ul>')
 

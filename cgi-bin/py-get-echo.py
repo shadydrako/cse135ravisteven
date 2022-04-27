@@ -10,7 +10,7 @@ print('<p>')
 print("RAW QUERY STRING:", URL)
 print('</p>')
 
-for param in os.environ.keys()
+for param in os.environ.keys():
     print('<p>')
     print(param,os.environ[param])
     print('</p>')

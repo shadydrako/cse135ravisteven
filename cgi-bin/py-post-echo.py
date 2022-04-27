@@ -26,7 +26,6 @@ print('</p>')
 
 
 
-# once it is made
 # read from it 
 # then put it into html
 

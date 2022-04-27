@@ -4,9 +4,8 @@ print ("Content-type:text/html\r\n\r\n")
 
 #urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
 #path_info = request.META.get('PATH_INFO')
-print('<p>')
-print(urlparse(os.environ[PATH_INFO]))
-print('</p>')
+for param in os.environ.keys():
+       print "<b>%20s</b>: %s<\br>" % (param, os.environ[param])
 
 #hi
 

@@ -9,7 +9,7 @@ print ("Content-type:text/html\r\n\r\n")
 #path_info = request.META.get('PATH_INFO')
 URLQUERY = os.environ['QUERY_STRING']
 URL = 'https://cse135ravisteven.site/'+ os.environ['REQUEST_URI']
-QUERYs = urlparse(URL)
+QUERYs = urlparse(URL.query)
 
 print('<p>')
 print("RAW QUERY STRING:", URLQUERY)

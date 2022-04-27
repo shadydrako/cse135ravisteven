@@ -6,7 +6,7 @@ from urllib.parse import parse_qs
 import sys
 import os
 
-
+#h1
 print ("Content-type:text/html\r\n\r\n")
 
 print('<p>')

@@ -1,3 +1,4 @@
+$url = 'www.cse135ravisteven.site/cgi-bin/php-get-echo.php?query';
 <?php
-echo 'Hello ' . htmlspecialchars($_GET["name"]) . '!';
+echo $_GET['query'];
 ?>

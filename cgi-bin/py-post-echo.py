@@ -21,7 +21,7 @@ print('<p>')
 for line in sys.stdin.readline():
     dumped.write(line)
     print(line)
-print(</p>)
+print('</p>')
 
 
 

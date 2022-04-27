@@ -19,7 +19,7 @@ print('</p>')
 
 for line in sys.stdin.readline():
     print(line)
-    print("HELP")
+    print("HELSSSP")
 print('</p>')
 
 

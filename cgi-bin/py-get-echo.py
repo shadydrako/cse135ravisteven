@@ -14,15 +14,18 @@ URLQUERY = os.environ['QUERY_STRING']
 URL = 'https://cse135ravisteven.site/'+ os.environ['REQUEST_URI']
 URLagain = urlparse(URL)
 
-print('<p>')
+print('<p> <b>')
 print("RAW QUERY STRING:", URLQUERY)
-print('</p>')
+print('</b></p>')
 
-print('<p>')
-print("QUERY:", URLagain)
-print('</p>')
 
 things = (parse_qs(URLagain.query))
+
+print('<p>')
+print('<b>')
+print("FORMATED LIST")
+print('</b>')
+print('<p>')
 
 print ('<ul>')
 for items in things:

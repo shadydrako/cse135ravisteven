@@ -27,7 +27,7 @@ things = (parse_qs(URLagain.query))
 print ('<ul>')
 for items in things:
     print ('<li>')
-    print (items)
+    print (items.value)
     print ('</li>')
     print ('<li>')
     print ("bruh what")

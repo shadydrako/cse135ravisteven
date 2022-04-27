@@ -2,10 +2,10 @@
 from urllib.parse import urlparse
 print ("Content-type:text/html\r\n\r\n")
 
-urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
-path_info = request.META.get('PATH_INFO')
+#urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
+#path_info = request.META.get('PATH_INFO')
 print('<p>')
-print(urlparse(path_info))
+print(urlparse(os.environ[PATH_INFO]))
 print('</p>')
 
 #urlparse('www.cwi.nl/%7Eguido/Python.html')

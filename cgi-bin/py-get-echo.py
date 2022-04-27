@@ -7,7 +7,7 @@ print ("Content-type:text/html\r\n\r\n")
 #path_info = request.META.get('PATH_INFO')
 for param in os.environ.keys():
        print ('<p>')
-       print (os.environ['PATH_INFO'])
+       print ($PATH_INFO)
        print ('</p>')
 
 #test

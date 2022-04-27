@@ -8,10 +8,12 @@ import os
 
 
 print ("Content-type:text/html\r\n\r\n")
-for name, value in os.environ.items():
-    print('<p>')
-    print(f'{name}={value}')
-    print('<p>')
+
+print('<p>')
+print('<b>')
+print(os.environ['REQUEST_METHOD'])
+print('</b>')
+print('</p>')
 
 
 #what i need to do
@@ -21,13 +23,4 @@ for name, value in os.environ.items():
 # read from it 
 # then put it into html
 
-from flask import Flask, request
-app = Flask(__name__)
-@app.route('/',methods=['POST'])
-
-def result():
-    print('<p>')
-    print(request.json)
-    print('</p>')
-    return 'Recieved'
 

@@ -18,6 +18,14 @@ print("<h1>")
 print("GENERAL ECHO! ")
 print("</h1>")
 
+
+print("<h2>")
+print("<b>")
+print("HTTP Protocol:")
+print("</b>")
+print(os.environ['SERVER_PROTOCOL'])
+print("</h2>")
+
 print('<p> <b>')
 print("RAW QUERY STRING:", URLQUERY)
 print('</b></p>')
@@ -38,8 +46,24 @@ for items in things:
     print ('</li>')
 print ('</ul>')
 
+
+
+print('<p>')
+print('<b>')
+print(os.environ['REQUEST_METHOD'])
+print('</b>')
+print('</p>')
+
+
+print('<h2>')
+print("MESSAGE BODY ")
+print('</h2>')
+print('<p>')
+print( sys.stdin.readline())
+print('<p>')
+
 #for param in os.environ.keys():
   #  print('<p>')
    # print(param,os.environ[param])
     #print('</p>')
-#test
+#testm

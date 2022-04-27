@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-import requests
+from flask import Flask, request, jsonify
+app = Flask(__name__)
 
-response = requests.post('https://cse135ravisteven.site/cgi-bin/py-post-echo.py')
+@app.route/('/', methods=['POST'])
+
+def parse_request():
+    data = request.data
+    return jsonify(data)
+
 
 print ("Content-type:text/html\r\n\r\n")
-print ('<html>')
-print ('<body>')
-print ('<h1>')
-print ( 'POST ECHO PYTHON')
 print ('<p>')
-print (response.request.body)
-print ('<p>')
-print ('</h1>')
+print (parse_request)
+print ('</p>')
 
-print ('</body>')
-print ('</html>')

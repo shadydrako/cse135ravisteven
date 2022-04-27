@@ -1,5 +1,4 @@
-cse135ravisteven.site/cgi-bin/php-get-echo.php?que=query;
-<?php
-echo $_GET['que'];  
+<?php 
+echo "<b> Query String: </b>";
 echo $_SERVER['QUERY_STRING']
 ?>

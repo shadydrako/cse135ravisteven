@@ -9,7 +9,7 @@ print ('<body>')
 print ('<h1>')
 print ( 'POST ECHO PYTHON')
 print ('<p>')
-print ("response.request.body")
+print (response.request.body)
 print ('<p>')
 print ('</h1>')
 

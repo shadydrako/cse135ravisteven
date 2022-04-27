@@ -1,4 +1,4 @@
-www.cse135ravisteven.site/cgi-bin/php-get-echo.php?query;
+www.cse135ravisteven.site/cgi-bin/php-get-echo.php?que=query;
 <?php
-echo $_GET['query']; 
+echo $_GET['que']; 
 ?>

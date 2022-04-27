@@ -26,6 +26,8 @@ app = Flask(__name__)
 @app.route('/',methods=['POST'])
 
 def result():
+    print('<p>')
     print(request.json)
+    print('</p>')
     return 'Recieved'
 

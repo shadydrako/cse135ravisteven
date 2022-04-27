@@ -8,10 +8,3 @@ for param in os.environ.keys():
        print "<b>%20s</b>: %s<\br>" % (param, os.environ[param])
 
 #hi
-
-#urlparse('www.cwi.nl/%7Eguido/Python.html')
-#ParseResult(scheme='', netloc='', path='www.cwi.nl/%7Eguido/Python.html',
-           # params='', query='', fragment='')
-#urlparse('help/Python.html')
-#ParseResult(scheme='', netloc='', path='help/Python.html', params='',
-           # query='', fragment='')

@@ -14,6 +14,11 @@ print('<b>')
 print(os.environ['REQUEST_METHOD'])
 print('</b>')
 print('</p>')
+print('<p>')
+print('<b>')
+print(os.environ['CONTENT_LENGTH'])
+print('</b>')
+print('</p>')
 
 
 #what i need to do

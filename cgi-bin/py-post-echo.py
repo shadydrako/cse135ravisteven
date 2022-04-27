@@ -3,10 +3,10 @@
 
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
-
+import sys
 import os
 
-
+#h1
 print ("Content-type:text/html\r\n\r\n")
 
 print('<p>')
@@ -14,12 +14,11 @@ print('<b>')
 print(os.environ['REQUEST_METHOD'])
 print('</b>')
 print('</p>')
-print('<p>')
-print('<b>')
-print(os.environ['CONTENT_LENGTH'])
-print("I")
-print('</b>')
-print('</p>')
+
+
+dumped = open('test.txt', 'wb')
+for line in sys.stdin.readline():
+dumped.write(line)
 
 
 #what i need to do

@@ -8,6 +8,8 @@ print('<p>')
 print(urlparse(os.environ[PATH_INFO]))
 print('</p>')
 
+#hi
+
 #urlparse('www.cwi.nl/%7Eguido/Python.html')
 #ParseResult(scheme='', netloc='', path='www.cwi.nl/%7Eguido/Python.html',
            # params='', query='', fragment='')

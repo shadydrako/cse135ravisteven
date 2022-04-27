@@ -34,8 +34,4 @@ for items in things:
     print ('</li>')
 print ('</ul>')
 
-#for param in os.environ.keys():
-  #  print('<p>')
-   # print(param,os.environ[param])
-    #print('</p>')
-#test
+# now to do the post stuff

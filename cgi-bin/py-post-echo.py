@@ -16,11 +16,11 @@ print('</b>')
 print('</p>')
 
 
-dumped = open('test.txt', 'wb')
 print('<p>')
 for line in sys.stdin.readline():
     dumped.write(line)
     print(line)
+    print("HELP")
 print('</p>')
 
 

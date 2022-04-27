@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from urllib.parse import urlparse
+import os
 print ("Content-type:text/html\r\n\r\n")
 
 #urlparse('//www.cwi.nl:80/%7Eguido/Python.html')

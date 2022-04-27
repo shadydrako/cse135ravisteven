@@ -3,8 +3,9 @@ from urllib.parse import urlparse
 print ("Content-type:text/html\r\n\r\n")
 
 urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
+path_info = request.META.get('PATH_INFO')
 print('<p>')
-print(urlparse('//www.cwi.nl:80/%7Eguido/Python.html'))
+print(urlparse(path_info))
 print('</p>')
 
 #urlparse('www.cwi.nl/%7Eguido/Python.html')

@@ -12,3 +12,20 @@ for name, value in os.environ.items():
     print('<p>')
     print(f'{name}={value}')
     print('<p>')
+
+
+#what i need to do
+
+# listen for a post request to be made
+# once it is made
+# read from it 
+# then put it into html
+
+from flask import Flask, request
+app = Flask(__name__)
+@app.route('/',methods=['POST'])
+
+def result():
+    print(request.json)
+    return 'Recieved'
+

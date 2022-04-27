@@ -26,7 +26,6 @@ print(</p>)
 
 
 
-# listen for a post request to be made
 # once it is made
 # read from it 
 # then put it into html

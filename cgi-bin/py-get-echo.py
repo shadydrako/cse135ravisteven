@@ -20,10 +20,14 @@ print('</p>')
 
 print('<p>')
 print("QUERY:", URLagain)
-print(parse_qs(URLagain.query))
 print('</p>')
 
-print
+things = (parse_qs(URLagain.query))
+
+print ('<ul>')
+for item in things:
+    print ("EAT ME")
+print ('</ul>')
 
 #for param in os.environ.keys():
   #  print('<p>')

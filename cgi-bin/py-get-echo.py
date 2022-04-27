@@ -29,6 +29,9 @@ for label,value in things:
     print ('<li>')
     print (f'{name}={value}')
     print ('</li>')
+    print ('<li>')
+    print ("bruh what")
+    print ('</li>')
 print ('</ul>')
 
 #for param in os.environ.keys():

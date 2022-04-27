@@ -26,7 +26,9 @@ things = (parse_qs(URLagain.query))
 
 print ('<ul>')
 for item in things:
+    print ('<li>')
     print ("EAT ME")
+    print ('</li>')
 print ('</ul>')
 
 #for param in os.environ.keys():

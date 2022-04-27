@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
-@app.route/('/', methods=['POST'])
+@app.route('/', methods=['POST'])
 
 def parse_request():
     data = request.data

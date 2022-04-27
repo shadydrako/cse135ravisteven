@@ -3,7 +3,7 @@
 
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
-
+import sys
 import os
 
 
@@ -14,16 +14,11 @@ print('<b>')
 print(os.environ['REQUEST_METHOD'])
 print('</b>')
 print('</p>')
-print('<p>')
-print('<b>')
-print("Is")
-print('</b>')
-print('</p>')
-print('<p>')
-print('<b>')
-print(os.environ['CONTENT_LENGTH'])
-print('</b>')
-print('</p>')
+
+
+dumped = open('test.txt', 'wb')
+for line in sys.stdin.readline():
+dumped.write(line)
 
 
 #what i need to do

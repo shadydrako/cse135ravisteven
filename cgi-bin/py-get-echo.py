@@ -29,9 +29,6 @@ for items in things:
     print ('<li>')
     print (items,":",things[items][0])
     print ('</li>')
-    print ('<li>')
-    print ("bruh what")
-    print ('</li>')
 print ('</ul>')
 
 #for param in os.environ.keys():

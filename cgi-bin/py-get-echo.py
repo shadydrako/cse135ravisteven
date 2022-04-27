@@ -1,13 +1,8 @@
-#!/usr/bin/python3
-from urllib.parse import urlparse
+#!/usr/bin/python
+
 import os
-print ("Content-type:text/html\r\n\r\n")
 
-#urlparse('//www.cwi.nl:80/%7Eguido/Python.html')
-#path_info = request.META.get('PATH_INFO')
+print "Content-type: text/html\r\n\r\n";
+print "<font size=+1>Environment</font><\br>";
 for param in os.environ.keys():
-       print ('<p>')
-       print ($PATH_INFO)
-       print ('</p>')
-
-#test
+   print "<b>%20s</b>: %s<\br>" % (param, os.environ[param])

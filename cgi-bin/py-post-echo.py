@@ -23,9 +23,9 @@ print('</p>')
 print('<h1>')
 print("MESSAGE BODY ")
 print('</h1>')
-
-for line in sys.stdin.readline():
-    print(line)
+print('<p>')
+print( sys.stdin.readline())
+print('<p>')
 print('</p>')
 
 

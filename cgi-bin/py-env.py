@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import os
+#mmffdfdfss
 print ("Content-type:text/html\r\n\r\n")
-for name, value in os.environ.items():
+for items in os.environ.items():
     print('<p>')
-    print(f'{name}={value}')
+    print(items[0],": ", items[1])
     print('<p>')

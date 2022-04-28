@@ -6,7 +6,7 @@ print "Content-type: text/html \n\n";
 print <<END;
 <!DOCTYPE html>
 <html><head><title>Ravi and Steven's Environment Variables</title>
-</head><body><h1 align="center">Environment Variables</h1>
+</head><body><h1 align="center">RAVI STEVEN Environment Variables</h1>
 <hr>
 END
 

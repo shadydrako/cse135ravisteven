@@ -14,6 +14,10 @@ URLQUERY = os.environ['QUERY_STRING']
 URL = 'https://cse135ravisteven.site/'+ os.environ['REQUEST_URI']
 URLagain = urlparse(URL)
 
+print('<h1>')
+print("GET ECHO RAVI STEVEN")
+print('<h1>')
+
 print('<p> <b>')
 print("RAW QUERY STRING:", URLQUERY)
 print('</b></p>')

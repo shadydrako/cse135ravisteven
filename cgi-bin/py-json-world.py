@@ -6,7 +6,7 @@ import socket
 import json
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.connect(("8.8.8.8", 80))
+.connect(("137.184.225.4", 1))
 
 
 time = datetime.now()

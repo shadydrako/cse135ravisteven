@@ -1,6 +1,6 @@
 {
     "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
+      { "id": 1, "title": "json-server", "author": "typicode" }, { "id": 1, "title": "server ", "author": "ravi and steven test" }
     ],
     "comments": [
       { "id": 1, "body": "some comment", "postId": 1 }

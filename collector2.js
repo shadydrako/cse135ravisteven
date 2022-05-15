@@ -33,6 +33,12 @@ localStorage.setItem('user_cookie_enabled',userCookieEnabled );
 
 let windowDimension = "w:" +  window.screen.width  +  ", h: " + window.screen.height;
 
+let windowDimension2 = "w:" +  window.innerWidth  +  ", h: " +  window.innerHeight;
+
 localStorage.setItem('user_screen_dimension', windowDimension);
+
+localStorage.setItem('user_window_dimension', windowDimension2);
+
+
 
 

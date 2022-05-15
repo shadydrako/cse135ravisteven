@@ -3,13 +3,12 @@ Static (collected after the page has loaded)
 user agent string (DONE)
 the user's language (DONE)
 if the user accepts cookies (DONE)
-if the user allows JavaScript (you will have to manually figure this one out)
+if the user allows JavaScript (you will have to manually figure this one out) 
 if the user allows images  (you will have to manually figure this one out)
 if the user allows CSS (you will have to manually figure this one out)
-User's screen dimensions
-User's window dimensions
-User's network connection type
-
+User's screen dimensions (DONE)
+User's window dimensions (DONE)
+User's network connection type (DONE) 
 
 */
 
@@ -38,6 +37,13 @@ let windowDimension2 = "w:" +  window.innerWidth  +  ", h: " +  window.innerHeig
 localStorage.setItem('user_screen_dimension', windowDimension);
 
 localStorage.setItem('user_window_dimension', windowDimension2);
+
+
+let userEnableJS = true;
+localStorage.setItem('user_js_enabled', userEnableJS);
+
+
+
 
 
 

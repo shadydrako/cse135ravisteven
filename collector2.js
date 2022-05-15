@@ -2,7 +2,7 @@
 Static (collected after the page has loaded)
 user agent string (DONE)
 the user's language (DONE)
-if the user accepts cookies
+if the user accepts cookies (DONE)
 if the user allows JavaScript (you will have to manually figure this one out)
 if the user allows images  (you will have to manually figure this one out)
 if the user allows CSS (you will have to manually figure this one out)
@@ -29,3 +29,10 @@ localStorage.setItem('user_language', userLanguage);
 
 let userCookieEnabled = navigator.cookieEnabled;
 localStorage.setItem('user_cookie_enabled',userCookieEnabled );
+
+
+let windowDimension = "w:" +  window.screen.width  +  ", h: " + window.screen.height;
+
+localStorage.setItem('user_screen_dimension', windowDimension);
+
+

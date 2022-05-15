@@ -1,4 +1,4 @@
-/*
+
 
 
 //w3schools
@@ -8,15 +8,16 @@ localStorage.setItem('user_agent_string',userString);
 
 // sending the user String a json data
 //the user's agent
-let agent = navigator.userAgent;
+
+let userLanguage = navigator.userLanguage;
+
+localStorage.setItem('user_language', userLanguage);
 
 /*
 //the user's language
-<script> 
         var userLanguage = navigator.userLanguage || navigator.language;
         document.write(
             "The User's preferred language is: "+ userlanguage);
-</script> 
 //if the user accepts cookies
 if(navigator.cookieEnabled) {
     document.write("Cookies are enabled")
@@ -38,4 +39,3 @@ var height = window.innerHeight||  document.body.clientHeight|| document.documen
 
 
 //User's network connection type
-*/

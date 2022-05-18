@@ -14,6 +14,8 @@ router.get('/', (req, res) => {
     res.jsonp({ msg: 'hello' })
   });
 
+app.use(router);
+
 
   http.createServer(app).listen(3001);
   https.createServer(app).listen(3000);

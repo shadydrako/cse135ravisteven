@@ -45,18 +45,26 @@ localStorage.setItem('user_enable_img', userEnableJS);
 
 
 const data ={
- user_language : userLanguage,
- user_cookie_enabled : userCookieEnabled,
- user_screen_dimension : windowDimension,
- user_window_dimension : windowDimension2,
- user_js_enabled : userEnableJS,
- user_enable_img : userEnableJS
+ user_language : 'userLanguage',
+ user_cookie_enabled : 'userCookieEnabled',
+ user_screen_dimension : 'windowDimension',
+ user_window_dimension : 'windowDimension2',
+ user_js_enabled : 'userEnableJS',
+ user_enable_img : 'userEnableJS'
 };
 
-fetch('https://cse135ravisteven.site/') 
-    .then(res => res.json())
-    .then(data => console.log(data))
+fetch('https://cse135ravisteven.site/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
 
+}.then(res => {
+        return res.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log('ERROR')));
 
 
 

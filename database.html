@@ -19,5 +19,13 @@
   <h1> Activity </h1>
   <zing-grid src="https://cse135ravisteven.site/json/activity"> </zing-grid>  
 </body>
+
+<script>
+    const zgRef = document.querySelector('zing-grid');
+    fetch('https://cse135ravisteven.site/json/static')
+    .then(res => res.json())
+    .then(data => zgRef.setData(data))
+    .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+  </script>
  
 </html>

@@ -46,11 +46,12 @@ localStorage.setItem('user_js_enabled', userEnableJS);
 
 let imageLoads = false;
 
+/* bugged on console
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
     imageLoads = img.complete && img.naturalHeight !== 0;
 })
-
+*/
 
 localStorage.setItem('user_enable_img', userEnableJS);
 

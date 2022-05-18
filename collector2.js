@@ -88,7 +88,8 @@ window.addEventListener('click', (event) => {
   })
   
 //Scrolling (coordinates of the scroll)
-
+let scrollCoord = document.body.getBoundingClientRect().top;
+localStorage.setItem = ('Scolling_coordinate', scrollCoord);
 
 
 

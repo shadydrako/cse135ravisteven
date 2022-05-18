@@ -64,7 +64,7 @@ fetch('https://cse135ravisteven.site/', {
     .then(res =>  res.json())
     .then(data => {
         console.log('Success', data);
-    })  
+    })   
     .catch(error => console.log('ERROR'));
 
 

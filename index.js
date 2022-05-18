@@ -31,11 +31,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+/*
 app.get('/static', (req,res) => {
     let rawdata = fs.readFileSync('static.json');
     let static = JSON.parse(rawdata);
     res.send(static);
 })
+*/
 
 app.get('/static/:id', (req, res) => {
     res.send(req.params['id']);
@@ -43,7 +45,7 @@ app.get('/static/:id', (req, res) => {
 
 
 app.post('/static', (req, res) => {
-    res.send(req.body);
+    res.send('Hi there nerd');
   })
 
 app.listen(port, () => {

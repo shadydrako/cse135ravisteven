@@ -70,7 +70,7 @@ fetch('https://cse135ravisteven.site/json/static', {
     .then(test => {  
         console.log('Success', test);
     })   
-    .catch(error => console.log('ERROR'));
+    .catch(error => console.log('ERROR')); 
 
 
 let timing = performance.getEntriesByType("navigation");

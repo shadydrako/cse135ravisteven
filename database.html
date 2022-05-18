@@ -21,11 +21,22 @@
 </body>
 
 <script>
-    const zgRef = document.querySelector('zing-grid');
+window.addEventListener('load', () => {
+  // Javascript code to execute after DOM content
+  const zgRef = document.querySelector('zing-grid');
+  let intervalTimeoutId = setInterval(() => {
     fetch('https://cse135ravisteven.site/json/static')
-    .then(res => res.json())
-    .then(data => zgRef.setData(data))
-    .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+      .then(res => res.json())
+      .then(data => {
+        // in this use case our endpoint is not updating so
+        // we fake an endpoint update by manipulating the data
+        // update data
+        zgRef.setData(data);
+      })
+      .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+  }, 1000);
+ 
+});
   </script>
  
 </html>

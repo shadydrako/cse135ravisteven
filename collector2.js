@@ -61,8 +61,8 @@ let timing = performance.getEntriesByType("navigation");
 
 
 //let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
-let pageLoad = timing[0].domContentLoadedEventEnd- timing[0].domContentLoadedEventStart;
-
+//let pageLoad = timing[0].domContentLoadedEventEnd- timing[0].domContentLoadedEventStart;
+let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
 localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object
 

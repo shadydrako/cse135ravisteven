@@ -34,7 +34,7 @@ localStorage.setItem('user_window_dimension', windowDimension2);
 let userEnableJS = true;
 localStorage.setItem('user_js_enabled', userEnableJS);
 
-//check if the image loads
+//check if the image loads 
 let imageLoads = false;
 window.addEventListener("load", event => {
     let img = document.querySelector('img');

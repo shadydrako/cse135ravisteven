@@ -10,8 +10,8 @@ const app = express();
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.jsonp({ msg: 'hello' })
+app.get('/', (req, res) => {
+    res.send('hello world')
   });
 
 app.use(router);

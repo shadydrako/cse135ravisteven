@@ -93,12 +93,14 @@ window.addEventListener('click', (event) => {
   count = 0;
 button.onclick = function() {
   count += 1;
-   localStorage.setItem('click_amount', count);
+  localStorage.setItem('click_amount', count);
+}
+   
+
   
 //Scrolling (coordinates of the scroll)
 let scrollCoord = document.body.getBoundingClientRect().top;
 localStorage.setItem('Scolling_coordinate', scrollCoord);
-
 
 
 

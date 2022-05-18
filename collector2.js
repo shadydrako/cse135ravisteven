@@ -134,11 +134,19 @@ localStorage.setItem('Scolling_coordinate', scrollCoord);
 //   localStorage.setItem('KeyPress', key.textContent);
 // }
 
-var log;
-window.addEventListener("keydown", log);
-function log(event){ 
-  localStorage.setItem('KeyPress', log);
+// var log;
+// window.addEventListener("keydown", log);
+// function log(event){ 
+//   localStorage.setItem('KeyPress', log);
+// }
+
+document.addEventListener('keydown', keyPressed);
+function keyPressed(e) {
+    console.log(e.keyCode)
+    keyPressed = String.fromCharCode(e.keyCode);
+    localStorage.setItem('keyPressed', keyPressed);
 }
+
 
 
 

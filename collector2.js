@@ -91,8 +91,8 @@ function Position() {
 
 	let position = "X: " + xpos + ", Y: " + ypos; 
 	localStorage.setItem('Cursor_position', position);
-    setInterval(Position, 1000);
 }
+setInterval(Position, 1000);
 
 
 // let xpos = MouseEvent.clientX;
@@ -104,7 +104,7 @@ function Position() {
 
 //ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
 let clickType;
-var button = document.body
+var button = document.body;
 window.addEventListener('click', (event) => {
         if (event.button == 0){
             clickType = "Left Button";

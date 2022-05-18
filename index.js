@@ -117,7 +117,7 @@ app.delete('/static/:name', (req,res)=>{
 
 //update something 
 app.put('/static/:name', (req,res)=>{
-    let query1 = "UPDATE tourneys SET value='"+req.body.value +"' WHERE name = " + req.params.name
+    let query1 = "UPDATE tourneys SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
     console.log(query1)
     connection.query(query1,function(err,rows,fields,result){
         if(err) throw err;

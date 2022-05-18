@@ -23,6 +23,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const router = express.Router()
 
 'use strict';
 const fs = require('fs');
@@ -31,22 +32,21 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-/*
+app.post('/', (req, res) => {
+    res.send('POST request to the homepage')
+  })
+
+
 app.get('/static', (req,res) => {
     let rawdata = fs.readFileSync('static.json');
     let static = JSON.parse(rawdata);
     res.send(static);
 })
-*/
 
 app.get('/static/:id', (req, res) => {
     res.send(req.params['id']);
 })
 
-
-app.post('/static', (req, res) => {
-    res.send('Hi there nerd');
-  })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

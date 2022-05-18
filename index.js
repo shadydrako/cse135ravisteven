@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/static/', (req,res) => {
+app.get('/static', (req,res) => {
     let rawdata = fs.readFileSync('static.json');
     let static = JSON.parse(rawdata);
     res.send(static);

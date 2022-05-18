@@ -52,17 +52,17 @@ const data = {
     'userEnableJS' : user_js_enabled,
     'userEnableJS' : user_enable_img
 };
-
+//fetch
 fetch('https://cse135ravisteven.site/json/static', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
     },
     body: JSON.stringify(data) 
-
+    
 })
     .then(res =>  res.json())
-    .then(data => {
+    .then(data => {  
         console.log('Success', data);
     })   
     .catch(error => console.log('ERROR'));

@@ -90,9 +90,10 @@ function Position() {
     }
 
 	let position = "X: " + xpos + ", Y: " + ypos; 
-	localStorage.setItem('Cursor_position', position)
+	localStorage.setItem('Cursor_position', position);
+    setInterval(Position, 1000);
 }
-setInterval(Position, 1000);
+
 
 // let xpos = MouseEvent.clientX;
 // let ypos = MouseEvent.clientY;

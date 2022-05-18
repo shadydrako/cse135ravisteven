@@ -187,17 +187,14 @@ var timeInactive = function () {
 
     if(idleTime >= 2000){
         idleFinal = idleTime;
-        current = current.toLocaleTimeString();
-        localStorage.setItem('Break_Ended', current);
-        localStorage.setItem('BreakTime', idleFinal);  
+        current = current.toLocaleTimeString();  
     }
 
 
     if(idleTime >= 2000){
         idleFinal = idleTime;
         current = current.toLocaleTimeString();
-        localStorage.setItem('Break_Ended', current);
-        localStorage.setItem('BreakTime', idleFinal);  
+          
     }
 
 function incrTimer(){
@@ -205,6 +202,11 @@ function incrTimer(){
 }
 
 function clearTimer(){
+    if(idleTime >= 2000){
+        current = current.toLocaleTimeString();
+    }
+    localStorage.setItem('Break_Ended', current);
+    localStorage.setItem('BreakTime', idleFinal);
     clearTimeout(idleTime);
 }
 };

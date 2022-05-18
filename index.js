@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/static/poop', (req,res) => {
+app.get('/static/', (req,res) => {
     res.send('Dear god')
 })
 

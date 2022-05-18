@@ -164,6 +164,33 @@ app.route('/performance')
     })
 
 
+app.route('/performance/:name')
+    .get((req, res) => {
+    let query1 = "SELECT name,value FROM stuff WHERE name='"+req.params.name+"'"
+    console.log(query1)
+    connection.query(query1,function(err,rows,fields,result){
+        if(err) throw err;
+        res.send(rows)
+    })
+    console.log("GET REQUEST ID HANDLED ");
+    return;
+    })
+    .delete((req,res)=>{
+        let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
+        console.log(query1)
+        connection.query(query1,function(err,rows,fields,result){
+            if(err) throw err;
+        })
+        res.send('update shit')
+    })
+    .put((req,res)=>{
+        let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
+        console.log(query1)
+        connection.query(query1,function(err,rows,fields,result){
+            if(err) throw err;
+        })
+        res.send('update shit')
+    })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

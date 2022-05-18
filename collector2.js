@@ -214,16 +214,18 @@ function clearTimer(){
 
 // Any idle time where no activity happened for a period of 2 or more seconds:
 // Record when the break ended
-localStorage.setItem('Break_Ended', current);
+//localStorage.setItem('Break_Ended', current);
 // Record how long it lasted (in milliseconds)
-localStorage.setItem('BreakTime', idleFinal);  
+//localStorage.setItem('BreakTime', idleFinal);  
 // When the user entered the page
+
 let userEnters = timing[0].loadEventEnd;
     localStorage.setItem('User_Enters_Page', userEnters);
 // When the user left the page
+let now = new Date();
 document.addEventListener("visibilitychange", function() {
     if (document.visibilityState === 'hidden') {
-      current = current.toLocaleTimeString;
+      now = now.toLocaleTimeString;
       localStorage.setItem('User_Left_Time', current);
     }
   });

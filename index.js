@@ -64,6 +64,7 @@ app.route('/static')
 
 app.get('/static/:id', (req, res) => {
     let query1 = "SELECT * FROM tourneys WHERE name="+req.body.id+";"
+    console.log(query1)
     connection.query(query1,function(err,result){
         if(err) throw err;
         console.log("specific id grabbed")

@@ -163,10 +163,10 @@ button.onclick = function() {
 
 //Scrolling (coordinates of the scroll works when u refresh page)
 let scrollCoord;
-function(scroll){
+function scroll(){
     scrollCoord = document.body.getBoundingClientRect().top;
     localStorage.setItem('Scolling_coordinate', scrollCoord);
-})
+}
 setInterval(scroll, 100);
 
 

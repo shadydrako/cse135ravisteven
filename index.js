@@ -6,14 +6,20 @@ const router = express.Router()
 const mysql = require('mysql')
 
 const connection = mysql.createConnection({
-    host: 'cse135ravisteven.site:3000',
+    host: 'localhost',
     user: 'root',
     password: '(Water1)s',
     database: 'birthdays'
 })
 
 
-connection.connect()
+connection.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected!')
+});
 
 
 'use strict';

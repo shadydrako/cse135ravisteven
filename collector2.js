@@ -82,8 +82,8 @@ localStorage.setItem('Cursor_position', cursor_position);
 
 //Clicks (and which mouse button it was)
 window.addEventListener('click', (event) => {
-    console.log(event.button)
-    let clickAmount = (event.button)
+    //console.log(event.button)
+    let clickAmount = event.button
     localStorage.setItem('amount of clicks', clickAmount);
   })
   

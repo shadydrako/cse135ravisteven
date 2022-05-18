@@ -179,7 +179,7 @@ document.onmousemove(function(e){
     }
     idleTime = 0;
 });
-onkeydown(function(e){
+onkeydown(function(e){ 
     if(idleTime >= 2000){
         idleFinal = idleTime;
         current = current.toLocaleTimeString();

@@ -38,7 +38,7 @@ app.get('/static', (req,res) => {
 })
 
 app.get('/static/:id', (req, res) => {
-    res.send(id);
+    res.send(req.params['id']);
 })
 
 app.listen(port, () => {

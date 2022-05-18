@@ -176,7 +176,6 @@ function keyPressed(e) {
 
 var timeInactive = function () {
     let idleTime = 0;
-    let idleFinal = 0;
     let idleTimer = setInterval(incrTimer,1000)
     let current = new Date();
 
@@ -186,15 +185,12 @@ var timeInactive = function () {
     
 
     if(idleTime >= 2000){
-        idleFinal = idleTime;
         current = current.toLocaleTimeString();  
     }
 
 
     if(idleTime >= 2000){
-        idleFinal = idleTime;
-        current = current.toLocaleTimeString();
-          
+        current = current.toLocaleTimeString();  
     }
 
 function incrTimer(){
@@ -206,7 +202,7 @@ function clearTimer(){
         current = current.toLocaleTimeString();
     }
     localStorage.setItem('Break_Ended', current);
-    localStorage.setItem('BreakTime', idleFinal);
+    localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
 }
 };

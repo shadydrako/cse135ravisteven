@@ -45,7 +45,7 @@ localStorage.setItem('user_enable_img', userEnableJS);
 
 const formData = new FormData();
 formData.append('name', 'user_agent_string');
-formData.append('value'.userString);
+formData.append('value', userString);
 
 const test = {
     'name': 'user_agent_string',

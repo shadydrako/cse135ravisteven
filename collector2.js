@@ -81,7 +81,7 @@ document.onmousemove = function(event) {
 	xpos = event.pageX;
 	ypos = event.pageY;
 }
-setInterval(pointerCheck, 500);
+setInterval(pointerCheck, 10);
 function pointerCheck() {
 	let position = "X: " + xpos + "Y: " + ypos;
     localStorage.setItem('Cursor_position', position)

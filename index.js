@@ -12,3 +12,5 @@ const router = express.Router()
 router.get('/', (req, res) => {
     res.jsonp({ msg: 'hello' })
   });
+
+  app.listen(3000);

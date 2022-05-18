@@ -37,6 +37,23 @@ connection.connect((err) => {
 });
 
 
+connection2.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected2!')
+});
+
+connection3.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected3!')
+});
+
+
 'use strict';
 const fs = require('fs');
 
@@ -72,7 +89,7 @@ app.route('/static')
         connection.query( query1, function(err,rows,fields,result){
             if(err) throw err;
             console.log("1 record inserted");
-            res.send(rows)
+            res.send("POST HANDLED")
         })
         console.log("POST REQUEST HANDLED");
         return;
@@ -105,22 +122,51 @@ app.post('/static', (req, res) => {
 
 //delete something
 
-app.delete('/static/:id', (req,res)=>{
-    res.send('delete smtn');
+app.delete('/static/:name', (req,res)=>{
+    let query1 = "DELETE FROM tourneys WHERE name='" +req.params.name+"';"
+    console.log(query1)
+    connection.query(query1,function(err,rows,fields,result){
+        if(err) throw err;
+    })
+    res.send("DELETE REQUEST ID HANDLED ");
+    return;
 })
 
 //update something 
-app.put('/static/:id', (req,res)=>{
+app.put('/static/:name', (req,res)=>{
+    let query1 = "UPDATE tourneys SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
+    console.log(query1)
+    connection.query(query1,function(err,rows,fields,result){
+        if(err) throw err;
+    })
     res.send('update shit')
 })
+
+
+app.route('/performance')
+    .get((req,res) => {
+        connection2.query('SELECT * FROM stuff', (err, rows, fields) => {
+            if(err) throw err
+            res.send(rows);
+        })
+        console.log("GET REQUEST HANDLED");
+        return;
+    })
+    .post((req, res) => {
+        let query1 = "INSERT INTO stuff (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
+        connection2.query( query1, function(err,rows,fields,result){
+            if(err) throw err;
+            console.log("1 record inserted");
+            res.send("POST HANDLED")
+        })
+        console.log("POST REQUEST HANDLED");
+        return;
+    })
+
 
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-  
-  
-
-app.route
 
 

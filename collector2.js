@@ -142,7 +142,6 @@ localStorage.setItem('Scolling_coordinate', scrollCoord);
 
 document.addEventListener('keydown', keyPressed);
 function keyPressed(e) {
-    console.log(e.keyCode)
     keyPressed = String.fromCharCode(e.keyCode);
     localStorage.setItem('keyPressed', keyPressed);
 }

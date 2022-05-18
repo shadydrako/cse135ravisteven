@@ -53,7 +53,7 @@ const data = {
     'userEnableJS' : user_enable_img
 };
 
-fetch('https://cse135ravisteven.site/', {
+fetch('https://cse135ravisteven.site/json/static', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

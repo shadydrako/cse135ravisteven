@@ -229,7 +229,7 @@ document.addEventListener("visibilitychange", function() {
     if (document.visibilityState === 'hidden') {
       now = now.toLocaleTimeString();
       localStorage.setItem('User_Left_Time', now);
-    }
+    } 
   });
 // Which page the user was on
 // You should be able to tie this data to a specific user session

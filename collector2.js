@@ -127,11 +127,11 @@ let scrollCoord = document.body.getBoundingClientRect().top;
 localStorage.setItem('Scolling_coordinate', scrollCoord);
 
 //Key down or Key up events
-key = document.body;
+let key = document.body;
 document.addEventListener('keydown', keyPress);
 function keyPress(e) {
-  key.what += ` ${e.code}`;
-  localStorage.setItem('KeyPress' key.what)
+  key.textContent += ` ${e.code}`;
+  localStorage.setItem('KeyPress', key.textContent);
 }
 
 

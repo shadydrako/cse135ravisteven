@@ -12,7 +12,8 @@ User's network connection type (DONE)
 
 */
 fetch('https://cse135ravisteven.site/') 
-    .then(res => console.log(res))
+    .then(res => res.json())
+    .then(data => console.log(data))
 //w3schools
 let userString = navigator.userAgent;
 

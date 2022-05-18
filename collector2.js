@@ -45,13 +45,11 @@ localStorage.setItem('user_js_enabled', userEnableJS);
 //check if the image loads
 
 let imageLoads = false;
-
-/* bugged on console
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
     imageLoads = img.complete && img.naturalHeight !== 0;
 })
-*/
+
 
 localStorage.setItem('user_enable_img', userEnableJS);
 
@@ -62,11 +60,10 @@ let timing = performance.getEntriesByType("navigation");
 
 //let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
 //let pageLoad = timing[0].domContentLoadedEventEnd- timing[0].domContentLoadedEventStart;
-let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
-localStorage.setItem('timing_page_load', pageLoad);
-//The whole timing object
-
-//Specifically when the page started loading
+setTimeout(function(){
+    let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
+    localStorage.setItem('timing_page_load', pageLoad);
+    //Specifically when the page started loading
 let pageStart = timing[0].domContentLoadedEventStart;
 localStorage.setItem('page_start_load_time', pageStart);
 //Specifically when the page ended loading
@@ -75,6 +72,20 @@ localStorage.setItem('page_end_time', pageEnd);
 //The total load time (manually calculated - in milliseconds)
 let totalLoad = timing[0].duration; //returns timestamp in milliseconds
 localStorage.setItem('total_load_time',totalLoad); 
+}, 5000);
+//let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
+//localStorage.setItem('timing_page_load', pageLoad);
+//The whole timing object
+
+//Specifically when the page started loading
+// let pageStart = timing[0].domContentLoadedEventStart;
+// localStorage.setItem('page_start_load_time', pageStart);
+// //Specifically when the page ended loading
+// let pageEnd = timing[0].domContentLoaded;
+// localStorage.setItem('page_end_time', pageEnd);
+// //The total load time (manually calculated - in milliseconds)
+// let totalLoad = timing[0].duration; //returns timestamp in milliseconds
+// localStorage.setItem('total_load_time',totalLoad); 
 
 //GO BACK TO FIX PERFORMANCE
 //Activity (continuously collected)

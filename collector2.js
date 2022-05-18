@@ -84,7 +84,7 @@ window.addEventListener('click', (event) => {
     console.log(event.button)
     let clickAmount = (event.button)
   })
-  localStorage('amount of clicks', clickAmount)
+  localStorage('amount of clicks', clickAmount);
 //Scrolling (coordinates of the scroll)
 
 

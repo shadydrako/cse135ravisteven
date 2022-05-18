@@ -35,6 +35,7 @@ app.get('/static', (req,res) => {
 
         res.send(rows);
     })
+    console.log("GET REQUEST HANDLED");
 })
 
 app.get('/static/:id', (req, res) => {
@@ -50,6 +51,7 @@ app.post('/static', (req, res) => {
         if(err) throw err;
         console.log("1 record inserted");
     })
+    console.log("POST REQUEST HANDLED");
 })
 
 //delete something

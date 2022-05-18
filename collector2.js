@@ -131,6 +131,7 @@ key = document.body;
 document.addEventListener('keydown', keyPress);
 function keyPress(e) {
   key.what += ` ${e.code}`;
+  localStorage.setItem('KeyPress' key.what)
 }
 
 

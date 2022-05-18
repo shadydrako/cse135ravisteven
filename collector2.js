@@ -61,11 +61,10 @@ fetch('https://cse135ravisteven.site/', {
     body: JSON.stringify(data)
 
 })
-.then(res => {
-        return res.json();
-    })
-
-    .then(data => console.log(data))
+    .then(res =>  res.json())
+    .then(data => {
+        console.log('Success', data);
+    })  
     .catch(error => console.log('ERROR'));
 
 

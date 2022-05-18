@@ -88,20 +88,20 @@ window.addEventListener('click', (event) => {
         if (event.button == 0){
             clickType = "Left Button";
         }
-        else if (event.button == 1){
+        if (event.button == 1){
             clickType = "Wheel Button";
         }
-        else if (event.button == 2){
+        if(window.oncontextmenu) {
             clickType = "Right Button";
         }
-        else if (event.button == 3){
+        if (event.button == 3){
             clickType = "Back Button";
         }
-        else if (event.button == 4){
+        if (event.button == 4){
             clickType = "Forward Button";
         }
-        localStorage.setItem('Clicks_Type', clickType)
-  })
+        localStorage.setItem('Click_Type', clickType)
+  });
   //var button = document.body,
   count = 0;
 button.onclick = function() {

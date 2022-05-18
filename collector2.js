@@ -45,13 +45,11 @@ localStorage.setItem('user_js_enabled', userEnableJS);
 //check if the image loads
 
 let imageLoads = false;
-
-/* bugged on console
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
     imageLoads = img.complete && img.naturalHeight !== 0;
 })
-*/
+
 
 localStorage.setItem('user_enable_img', userEnableJS);
 
@@ -62,7 +60,10 @@ let timing = performance.getEntriesByType("navigation");
 
 //let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
 //let pageLoad = timing[0].domContentLoadedEventEnd- timing[0].domContentLoadedEventStart;
-let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
+setTimeout(function(){
+    let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
+}, 2000);
+//let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
 localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object
 

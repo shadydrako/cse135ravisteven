@@ -167,11 +167,45 @@ function keyPressed(e) {
     localStorage.setItem('keyPressed', keyPressed);
 }
  
+let idleTime = 0;
+let idleFinal = 0;
+let idleTimer = setInterval(incrTimer,1000)
+let current = new Date();
+
+onmousemove(function(e){
+    if(idleTime >= 2000){
+        idleFinal = idleTime;
+        current = current.toLocaleTimeString();
+    }
+    idleTime = 0;
+});
+onkeydown(function(e){
+    if(idleTime >= 2000){
+        idleFinal = idleTime;
+        current = current.toLocaleTimeString();
+    }
+    idleTime = 0;
+})
+
+function incrTimer(){
+    idleTime++; 
+}
+
 // Any idle time where no activity happened for a period of 2 or more seconds:
 // Record when the break ended
-// Record how long it lasted (in milliseconds)  
+localStorage.setItem('Break_Ended', current);
+// Record how long it lasted (in milliseconds)
+localStorage.setItem('BreakTime', idleFinal);  
 // When the user entered the page
+let userEnters = timing[0].loadEventEnd;
+    localStorage.setItem('User_Enters_Page', userEnters);
 // When the user left the page
+document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === 'hidden') {
+      current = current.toLocaleTimeString;
+      localStorage.setItem('User_Left_Time', current);
+    }
+  });
 // Which page the user was on
 // You should be able to tie this data to a specific user session
 

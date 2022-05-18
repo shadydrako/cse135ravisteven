@@ -41,9 +41,15 @@ app.get('/static/:id', (req, res) => {
     res.send(req.params['id']);
 })
 
+
+//
 //adding new items to static
 app.post('/static', (req, res) => {
-    res.send('POST request to the homepage')
+    let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
+    connection.query( query1, function(err,result){
+        if(err) throw err;
+        console.log("1 record inserted");
+    })
 })
 
 //delete something

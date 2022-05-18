@@ -169,12 +169,17 @@ function keyPressed(e) {
 
 
 
-let idleTime = 0;
-let idleFinal = 0;
-let idleTimer = setInterval(incrTimer,1000)
-let current = new Date();
+// let idleTime = 0;
+// let idleFinal = 0;
+// let idleTimer = setInterval(incrTimer,1000)
+// let current = new Date();
 
 var timeInactive = function () {
+    let idleTime = 0;
+    let idleFinal = 0;
+    let idleTimer = setInterval(incrTimer,1000)
+    let current = new Date();
+    
     window.onload = clearTimer;
     document.onmousemove = clearTimer;
     document.onkeydown = clearTimer;

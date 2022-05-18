@@ -72,7 +72,7 @@ localStorage.setItem('page_end_time', pageEnd);
 //The total load time (manually calculated - in milliseconds)
 let totalLoad = timing[0].duration; //returns timestamp in milliseconds
 localStorage.setItem('total_load_time',totalLoad); 
-}, 3000);
+}, 5000);
 //let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
 //localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object

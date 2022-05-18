@@ -166,12 +166,15 @@ function keyPressed(e) {
     keyPressed = String.fromCharCode(e.keyCode);
     localStorage.setItem('keyPressed', keyPressed);
 }
- 
+
+
+
 let idleTime = 0;
 let idleFinal = 0;
 let idleTimer = setInterval(incrTimer,1000)
 let current = new Date();
 
+document.addEventListener("DOMContentLoaded", function(){
 document.onmousemove(function(e){
     if(idleTime >= 2000){
         idleFinal = idleTime;
@@ -185,11 +188,13 @@ onkeydown(function(e){
         current = current.toLocaleTimeString();
     }
     idleTime = 0;
-})
+});
+});
 
 function incrTimer(){
     idleTime++; 
 }
+
 
 // Any idle time where no activity happened for a period of 2 or more seconds:
 // Record when the break ended

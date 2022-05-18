@@ -83,28 +83,26 @@ localStorage.setItem('Cursor_position', cursor_position);
 //Clicks (and which mouse button it was)
 
 let clickType;
-var click = document.body;
+var button = document.body
 window.addEventListener('click', (event) => {
-        if (event.click == 0){
+        if (event.button == 0){
             clickType = "Left Button";
         }
-        else if (event.click == 1){
+        else if (event.button == 1){
             clickType = "Wheel Button";
         }
-        else if (event.click == 2){
+        else if (event.button == 2){
             clickType = "Right Button";
         }
-        else if (event.click == 3){
+        else if (event.button == 3){
             clickType = "Back Button";
         }
-        else if (event.click == 4){
+        else if (event.button == 4){
             clickType = "Forward Button";
         }
         localStorage.setItem('Clicks_Type', clickType)
   })
-  
-  
- var button = document.body,
+  //var button = document.body,
   count = 0;
 button.onclick = function() {
   count += 1;

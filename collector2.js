@@ -45,13 +45,13 @@ localStorage.setItem('user_enable_img', userEnableJS);
 
 
 const data ={
- user_language : 'userLanguage',
- user_cookie_enabled : 'userCookieEnabled',
- user_screen_dimension : 'windowDimension',
- user_window_dimension : 'windowDimension2',
- user_js_enabled : 'userEnableJS',
- user_enable_img : 'userEnableJS'
-}
+ user_language : userLanguage,
+ user_cookie_enabled : userCookieEnabled,
+ user_screen_dimension : windowDimension,
+ user_window_dimension : windowDimension2,
+ user_js_enabled : userEnableJS,
+ user_enable_img : userEnableJS
+};
 
 fetch('https://cse135ravisteven.site/') 
     .then(res => res.json())
@@ -227,9 +227,9 @@ let userEnters = timing[0].loadEventEnd;
 let now = new Date();
 document.addEventListener("visibilitychange", function() {
     if (document.visibilityState === 'hidden') {
-      now = now.toLocaleTimeString;
-      localStorage.setItem('User_Left_Time', current);
-    }
+      now = now.toLocaleTimeString();
+      localStorage.setItem('User_Left_Time', now);
+    } 
   });
 // Which page the user was on
 // You should be able to tie this data to a specific user session

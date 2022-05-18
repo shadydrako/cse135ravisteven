@@ -54,7 +54,7 @@ app.route('/static')
         return;
     })
     .post((req, res) => {
-        let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.wins + "');" 
+        let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.wins + "')" 
         connection.query( query1, function(err,result){
             if(err) throw err;
             console.log("1 record inserted");
@@ -64,7 +64,7 @@ app.route('/static')
     })
 
 app.get('/static/:id', (req, res) => {
-    let query1 = "SELECT * FROM tourneys WHERE name='"+req.params.id+"';"
+    let query1 = "SELECT name,value FROM tourneys WHERE name='"+req.params.id+"'"
     console.log(query1)
     connection.query(query1,function(err,result){
         if(err) throw err;

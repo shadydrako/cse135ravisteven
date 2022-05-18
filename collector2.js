@@ -81,21 +81,36 @@ let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;
 localStorage.setItem('Cursor_position', cursor_position);
 
 //Clicks (and which mouse button it was)
-/*
-var clickAmount = 0;
+
+let clickType;
 window.addEventListener('click', (event) => {
     //console.log(event.button) idk how to turn this into a counter
-        clickAmount = event.button;
+        if (event.button == 0){
+            clickType = "Left Button";
+        }
+        else if (event.button == 1){
+            clickType = "Wheel Button";
+        }
+        else if (event.button == 2){
+            clickType = "Right Button";
+        }
+        else if (event.button == 3){
+            clickType = "Back Button";
+        }
+        else if (event.button == 4){
+            clickType = "Forward Button";
+        }
   })
-  localStorage.setItem('amount of clicks', clickAmount);
-  */
+  
+  
  var button = document.body,
   count = 0;
 button.onclick = function() {
   count += 1;
-  localStorage.setItem('click_amount', count);
+  //localStorage.setItem('click_amount', count);
 }
-   
+let clicks = "Amount of Clicks: " + count + "The Button clicked was: " + clickType;
+localStorage.setItem('Clicks_Type', clicks);
 
   
 //Scrolling (coordinates of the scroll)

@@ -83,7 +83,7 @@ document.onmousemove = function(event) {
 }
 setInterval(Position, 1000);
 function Position() {
-	let position = "X: " + xpos + "Y: " + ypos;
+	let position = "X: " + xpos + ", Y: " + ypos;
 	localStorage.setItem('Cursor_position', position)
 }
 

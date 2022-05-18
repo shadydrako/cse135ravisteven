@@ -192,6 +192,58 @@ app.route('/performance/:name')
         res.send('update shit')
     })
 
+
+    //------------------------ACTIVITY
+    app.route('/activity')
+    .get((req,res) => {
+        connection3.query('SELECT * FROM stuff', (err, rows, fields) => {
+            if(err) throw err
+            res.send(rows);
+        })
+        console.log("GET REQUEST HANDLED");
+        return;
+    })
+    .post((req, res) => {
+        let query1 = "INSERT INTO stuff (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
+        connection3.query( query1, function(err,rows,fields,result){
+            if(err) throw err;
+            console.log("1 record inserted");
+            res.send("POST HANDLED")
+        })
+        console.log("POST REQUEST HANDLED");
+        return;
+    })
+
+
+    app.route('/activity/:name')
+    .get((req, res) => {
+    let query1 = "SELECT name,value FROM stuff WHERE name='"+req.params.name+"'"
+    console.log(query1)
+    connection2.query(query1,function(err,rows,fields,result){
+        if(err) throw err;
+        res.send(rows)
+    })
+    console.log("GET REQUEST ID HANDLED ");
+    return;
+    })
+    .delete((req,res)=>{
+        let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
+        console.log(query1)
+        connection2.query(query1,function(err,rows,fields,result){
+            if(err) throw err;
+        })
+        res.send('update shit')
+    })
+    .put((req,res)=>{
+        let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
+        console.log(query1)
+        connection2.query(query1,function(err,rows,fields,result){
+            if(err) throw err;
+        })
+        res.send('update shit')
+    })
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

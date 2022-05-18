@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
     database: 'static'
 })
 
-/*
+
 connection.connect((err) => {
     if (err) {
         console.log('Connection error message: ' + err.message);
@@ -21,7 +21,6 @@ connection.connect((err) => {
     }
     console.log('Connected!')
 });
-*/
 
 
 'use strict';
@@ -47,27 +46,24 @@ app.get('/static', (req,res) => {
 
 app.route('/static')
     .get((req,res) => {
-        connection.connect()
         connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
             if(err) throw err
             res.send(rows);
         })
         console.log("GET REQUEST HANDLED");
-        connection.end()
+        return;
     })
     .post((req, res) => {
-        connection.connect()
         let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.wins + "');" 
         connection.query( query1, function(err,result){
             if(err) throw err;
             console.log("1 record inserted");
         })
         console.log("POST REQUEST HANDLED");
-        connection.end()
+        return;
     })
 
 app.get('/static/:id', (req, res) => {
-    connection.connect()
     let query1 = "SELECT * FROM tourneys WHERE name='"+req.params.id+"';"
     console.log(query1)
     connection.query(query1,function(err,result){
@@ -75,7 +71,7 @@ app.get('/static/:id', (req, res) => {
         console.log("specific id grabbed")
     })
     console.log("POST REQUEST ID HANDLED ");
-    connection.end()
+    return;
 })
 
 
@@ -107,3 +103,7 @@ app.put('/static/:id', (req,res)=>{
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+  
+  
+
+

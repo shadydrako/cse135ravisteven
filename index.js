@@ -25,6 +25,20 @@ const app = express()
 const port = 3000
 const router = express.Router()
 
+
+const mysql = require('mysql')
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '(Water1)s',
+    database: 'birthdays'
+})
+
+
+connection.connect()
+
+
 'use strict';
 const fs = require('fs');
 
@@ -32,12 +46,12 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-
-
 app.get('/static', (req,res) => {
-    let rawdata = fs.readFileSync('static.json');
-    let static = JSON.parse(rawdata);
-    res.send(static);
+    connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
+        if(err) throw err
+
+        res.send( JSON.stringify(rows[0].name));
+    })
 })
 
 app.get('/static/:id', (req, res) => {

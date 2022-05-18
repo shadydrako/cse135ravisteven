@@ -58,7 +58,7 @@ const data = {
     'user_enable_img': userEnableJS
 };
 //fetch
-fetch('/static', {
+fetch('/json/static', {
     credentials: 'same-origin',
     method: 'POST',
     headers: {

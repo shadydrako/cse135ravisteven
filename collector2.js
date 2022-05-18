@@ -83,9 +83,8 @@ localStorage.setItem('Cursor_position', cursor_position);
 //Clicks (and which mouse button it was)
 
 let clickType;
-let click = document.body;
+var click = document.body;
 window.addEventListener('click', (event) => {
-    //console.log(event.button) idk how to turn this into a counter
         if (event.click == 0){
             clickType = "Left Button";
         }

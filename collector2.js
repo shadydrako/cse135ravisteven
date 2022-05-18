@@ -45,12 +45,13 @@ localStorage.setItem('user_enable_img', userEnableJS);
 
 
 const data = {
-    'userLanguage': user_language ,
-    'userCookieEnabled' :user_cookie_enabled,
-    'windowDimension': user_screen_dimension ,
-    'windowDimension2': user_window_dimension,
-    'userEnableJS' : user_js_enabled,
-    'userEnableJS' : user_enable_img
+    'user_agent_string' : userString,
+    'user_language': userLanguage ,
+    'user_cookie_enabled' : userCookieEnabled,
+    'user_screen_dimension' : windowDimension ,
+    'user_window_dimension': windowDimension2, 
+    'user_js_enabled' : userEnableJS,
+    'user_enable_img': userEnableJS
 };
 //fetch
 fetch('https://cse135ravisteven.site/json/static', {

@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 
 const mysql = require('mysql')
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',

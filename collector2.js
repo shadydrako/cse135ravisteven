@@ -180,9 +180,9 @@ var timeInactive = function () {
     let idleTimer = setInterval(incrTimer,1000)
     let current = new Date();
 
-    window.onload = clearTimer;
-    document.onmousemove = clearTimer;
-    document.onkeydown = clearTimer;
+    window.onload = clearTimer();
+    document.onmousemove = clearTimer();
+    document.onkeydown = clearTimer();
     
 
     if(idleTime >= 2000){

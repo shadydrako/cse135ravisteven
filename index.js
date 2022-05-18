@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '(Water1)s',
-    database: 'birthdays'
+    database: 'static'
 })
 
 
@@ -48,22 +48,29 @@ app.route('/static')
     .get((req,res) => {
         connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
             if(err) throw err
-    
             res.send(rows);
         })
         console.log("GET REQUEST HANDLED");
+        return;
     })
     .post((req, res) => {
-        let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
+        let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.wins + "');" 
         connection.query( query1, function(err,result){
             if(err) throw err;
             console.log("1 record inserted");
         })
         console.log("POST REQUEST HANDLED");
+        return;
     })
 
 app.get('/static/:id', (req, res) => {
-    res.send(req.params['id']);
+    let query1 = "SELECT * FROM tourneys WHERE name='"+req.params.id+"';"
+    console.log(query1)
+    connection.query(query1,function(err,result){
+        if(err) throw err;
+    })
+    console.log("POST REQUEST ID HANDLED ");
+    return;
 })
 
 
@@ -97,3 +104,5 @@ app.listen(port, () => {
 })
   
   
+
+

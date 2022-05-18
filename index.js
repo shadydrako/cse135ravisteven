@@ -10,5 +10,5 @@ const app = express();
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.json({ msg: 'hello' })
+    res.jsonp({ msg: 'hello' })
   });

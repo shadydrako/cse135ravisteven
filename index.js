@@ -3,11 +3,10 @@ const app = express()
 const port = 3000
 const router = express.Router()
 
-/*
 const mysql = require('mysql')
 
 const connection = mysql.createConnection({
-    host: 'cse135ravisteven.site',
+    host: 'cse135ravisteven.site:3000',
     user: 'root',
     password: '(Water1)s',
     database: 'birthdays'
@@ -15,7 +14,7 @@ const connection = mysql.createConnection({
 
 
 connection.connect()
-*/
+
 
 'use strict';
 const fs = require('fs');

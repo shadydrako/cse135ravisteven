@@ -86,11 +86,11 @@ document.onmousemove = function(event) {
 	xpos = event.pageX;
 	ypos = event.pageY;
 }
-setInterval(Position, 1000);
 function Position() {
 	let position = "X: " + xpos + ", Y: " + ypos;
 	localStorage.setItem('Cursor_position', position)
 }
+setInterval(Position, 1000);
 
 // let xpos = MouseEvent.clientX;
 // let ypos = MouseEvent.clientY;

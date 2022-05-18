@@ -56,7 +56,8 @@ window.addEventListener("load", event => {
 localStorage.setItem('user_enable_img', userEnableJS);
 
 //The timing of the page load
-let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming.loadEventEnd;
+//let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
+let pageLoad = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
 localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object
 
@@ -65,7 +66,7 @@ let pageStart = PerformanceNavigationTiming.domContentLoadedEventStart;
 localStorage.setItem('page_start_load_time', pageStart);
 //Specifically when the page ended loading
 let pageEnd = PerformanceNavigationTiming.loadEventEnd;
-localStorage.setItem('page_end_time');
+localStorage.setItem('page_end_time', pageEnd);
 //The total load time (manually calculated - in milliseconds)
 let totalLoad = PerformanceEntry.duration; //returns timestamp in milliseconds
 localStorage.setItem('total_load_time',totalLoad);

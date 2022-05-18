@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
         // in this use case our endpoint is not updating so
         // we fake an endpoint update by manipulating the data
         // update data
-        zgRef.setData(data);
+        zgRef1.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
     fetch('https://cse135ravisteven.site/json/performance')
@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
         // in this use case our endpoint is not updating so
         // we fake an endpoint update by manipulating the data
         // update data
-        zgRef.setData(data);
+        zgRef2.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
     fetch('https://cse135ravisteven.site/json/activity')
@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
         // in this use case our endpoint is not updating so
         // we fake an endpoint update by manipulating the data
         // update data
-        zgRef.setData(data);
+        zgRef3.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
   }, 1000);

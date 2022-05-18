@@ -30,14 +30,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/static', (req,res) => {
-    /*
     connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
         if(err) throw err
 
         res.send( JSON.stringify(rows[0].name));
     })
-    */
-   res.send('fuck');
 })
 
 app.get('/static/:id', (req, res) => {

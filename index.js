@@ -41,6 +41,11 @@ app.get('/static/:id', (req, res) => {
     res.send(req.params['id']);
 })
 
+
+app.post('/static', (req, res) => {
+    res.send(req.body);
+  })
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

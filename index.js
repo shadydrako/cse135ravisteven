@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '(Water1)s',
-    database: 'birthdays'
+    database: 'static'
 })
 
 
@@ -54,7 +54,7 @@ app.route('/static')
         console.log("GET REQUEST HANDLED");
     })
     .post((req, res) => {
-        let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
+        let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.wins + "');" 
         connection.query( query1, function(err,result){
             if(err) throw err;
             console.log("1 record inserted");
@@ -63,7 +63,12 @@ app.route('/static')
     })
 
 app.get('/static/:id', (req, res) => {
-    res.send(req.params['id']);
+    let query1 = "SELECT * FROM tourneys WHERE name="+req.body.id+";"
+    connection.query(query1,function(err,result){
+        if(err) throw err;
+        console.log("specific id grabbed")
+    })
+    console.log("POST REQUEST ID HANDLED ");
 })
 
 

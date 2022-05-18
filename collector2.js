@@ -67,7 +67,7 @@ let pageEnd = PerformanceNavigationTiming.loadEventEnd;
 localStorage.setItem('page_end_time');
 //The total load time (manually calculated - in milliseconds)
 let totalLoad = PerformanceEntry.duration; //returns timestamp in milliseconds
-localStorage.setItem('total_load_time',totalLoad)
+localStorage.setItem('total_load_time',totalLoad);
 
 
 

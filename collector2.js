@@ -84,7 +84,7 @@ localStorage.setItem('Cursor_position', cursor_position);
 var clickAmount = 0;
 window.addEventListener('click', (event) => {
     //console.log(event.button)
-    clickAmount + 1;
+    clickAmount = clickAmount + 1;
   })
   localStorage.setItem('amount of clicks', clickAmount);
   

@@ -219,7 +219,7 @@ app.route('/performance/:name')
     .get((req, res) => {
     let query1 = "SELECT name,value FROM stuff WHERE name='"+req.params.name+"'"
     console.log(query1)
-    connection2.query(query1,function(err,rows,fields,result){
+    connection3.query(query1,function(err,rows,fields,result){
         if(err) throw err;
         res.send(rows)
     })
@@ -229,7 +229,7 @@ app.route('/performance/:name')
     .delete((req,res)=>{
         let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
         console.log(query1)
-        connection2.query(query1,function(err,rows,fields,result){
+        connection3.query(query1,function(err,rows,fields,result){
             if(err) throw err;
         })
         res.send('update shit')
@@ -237,7 +237,7 @@ app.route('/performance/:name')
     .put((req,res)=>{
         let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
         console.log(query1)
-        connection2.query(query1,function(err,rows,fields,result){
+        connection3.query(query1,function(err,rows,fields,result){
             if(err) throw err;
         })
         res.send('update shit')

@@ -74,7 +74,7 @@ let pageEnd = timing[0].domContentLoaded;
 localStorage.setItem('page_end_time', pageEnd);
 //The total load time (manually calculated - in milliseconds)
 let totalLoad = timing[0].duration; //returns timestamp in milliseconds
-localStorage.setItem('total_load_time',totalLoad);
+localStorage.setItem('total_load_time',totalLoad); 
 
 //GO BACK TO FIX PERFORMANCE
 //Activity (continuously collected)

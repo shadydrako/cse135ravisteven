@@ -32,9 +32,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/', (req, res) => {
-    res.send('POST request to the homepage')
-  })
 
 
 app.get('/static', (req,res) => {
@@ -45,6 +42,22 @@ app.get('/static', (req,res) => {
 
 app.get('/static/:id', (req, res) => {
     res.send(req.params['id']);
+})
+
+//adding new items to static
+app.post('/static', (req, res) => {
+    res.send('POST request to the homepage')
+})
+
+//delete something
+
+app.delete('/static/:id', (req,res)=>{
+    res.send('delete smtn');
+})
+
+//update something 
+app.put('/static/:id', (req,res)=>{
+    res.send('update shit')
 })
 
 

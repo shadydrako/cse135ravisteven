@@ -1,9 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid Demo</title>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js"></script>
+</head>
+ 
 <body>
-    <zing-grid src="https://examples.zingsoft.com/my-user-data"></zing-grid>
+  <zing-grid id="example-grid" data='[
+        {
+          "firstName": "John",
+          "lastName": "Doe",
+          "age": 45
+        },
+        {
+          "firstName": "Jane",
+          "lastName": "Doe",
+          "age": 44
+        }
+      ]' theme="default" caption="Meet the Doe Family">
+  </zing-grid>
 </body>
-
-
-
+ 
 </html>

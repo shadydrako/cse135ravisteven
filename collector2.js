@@ -174,26 +174,31 @@ let idleFinal = 0;
 let idleTimer = setInterval(incrTimer,1000)
 let current = new Date();
 
-document.addEventListener("DOMContentLoaded", function(){
-document.onmousemove(function(e){
+var timeInactive = function () {
+    window.onload = clearTimer;
+    document.onmousemove = clearTimer;
+    document.onkeydown = clearTimer;
+    
+
     if(idleTime >= 2000){
         idleFinal = idleTime;
         current = current.toLocaleTimeString();
     }
-    idleTime = 0;
-});
-onkeydown(function(e){ 
+
+
     if(idleTime >= 2000){
         idleFinal = idleTime;
         current = current.toLocaleTimeString();
     }
-    idleTime = 0;
-});
-});
 
 function incrTimer(){
     idleTime++; 
 }
+
+function clearTimer(){
+    clearTimeout(idleTime);
+}
+};
 
 
 // Any idle time where no activity happened for a period of 2 or more seconds:

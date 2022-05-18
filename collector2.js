@@ -82,11 +82,13 @@ localStorage.setItem('total_load_time',totalLoad);
 //Cursor positions (coordinates) (CURRENTLY ONLY WORKS ON CLICK)
 var xpos = -1;
 var ypos = -1;
-document.onmousemove = function(event) {
-	xpos = event.pageX;
-	ypos = event.pageY;
-}
+
 function Position() {
+    document.onmousemove = function(event) {
+        xpos = event.pageX;
+        ypos = event.pageY;
+    }
+    
 	let position = "X: " + xpos + ", Y: " + ypos;
 	localStorage.setItem('Cursor_position', position)
 }

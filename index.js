@@ -37,6 +37,10 @@ app.get('/static', (req,res) => {
     res.send(static);
 })
 
+app.get('/static/:id', (req, res) => {
+    res.send(id);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

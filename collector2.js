@@ -94,6 +94,7 @@ function Position() {
 
 //Clicks (and which mouse button it was)
 
+//ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
 let clickType;
 var button = document.body
 window.addEventListener('click', (event) => {
@@ -121,14 +122,16 @@ button.onclick = function() {
   localStorage.setItem('click_amount', count);
 }
 
-
-//let clicks = "Amount of Clicks: " + count + "The Button clicked was: " + clickType;
-//localStorage.setItem('Clicks_Type', clicks);
-
-  
-//Scrolling (coordinates of the scroll)
+//Scrolling (coordinates of the scroll works when u refresh page)
 let scrollCoord = document.body.getBoundingClientRect().top;
 localStorage.setItem('Scolling_coordinate', scrollCoord);
+
+//Key down or Key up events
+key = document.body;
+document.addEventListener('keydown', keyPress);
+function keyPress(e) {
+  key.what += ` ${e.code}`;
+}
 
 
 

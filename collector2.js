@@ -81,11 +81,12 @@ let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;
 localStorage.setItem('Cursor_position', cursor_position);
 
 //Clicks (and which mouse button it was)
+var clickAmount = 0;
 window.addEventListener('click', (event) => {
     //console.log(event.button)
-    let clickAmount = event.button
-    localStorage.setItem('amount of clicks', clickAmount);
+    clickAmount + 1;
   })
+  localStorage.setItem('amount of clicks', clickAmount);
   
 //Scrolling (coordinates of the scroll)
 let scrollCoord = document.body.getBoundingClientRect().top;

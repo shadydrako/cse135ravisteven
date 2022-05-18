@@ -1,13 +1,22 @@
-const express = require('express')
+const express = require("express")
+const axios = require("axios")
 
-const app = express();
+const PORT = process.env.PORT || 5000
+const app = express()
 
-const port = 3000;
+app.get("/", (req, res) => {
+  res.send("Welcome to your App!")
+})
 
+app.get("/users", (req, res) => {
+  axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(function(response) {
+      res.json(response.data)
+    }).catch(function(error) {
+      res.json("Error occured!")
+  })
+})
 
-app.get('/', (req, res) => {
-    res.send('Hello World, from express');
-});
-
-
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
+app.listen(PORT, function () {
+  console.log(`Express server listening on port ${PORT}`)
+})

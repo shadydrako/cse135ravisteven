@@ -91,8 +91,8 @@ function Position() {
 
 	let position = "X: " + xpos + ", Y: " + ypos; 
 	localStorage.setItem('Cursor_position', position);
-    setInterval(Position, 1000);
 }
+setInterval(Position, 1000);
 
 
 // let xpos = MouseEvent.clientX;
@@ -104,7 +104,7 @@ function Position() {
 
 //ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
 let clickType;
-var button = document.body
+var button = document.body;
 window.addEventListener('click', (event) => {
         if (event.button == 0){
             clickType = "Left Button";
@@ -158,7 +158,7 @@ function keyPressed(e) {
  
 // Any idle time where no activity happened for a period of 2 or more seconds:
 // Record when the break ended
-// Record how long it lasted (in milliseconds)
+// Record how long it lasted (in milliseconds) 
 // When the user entered the page
 // When the user left the page
 // Which page the user was on

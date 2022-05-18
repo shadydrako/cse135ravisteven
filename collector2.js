@@ -75,10 +75,21 @@ localStorage.setItem('total_load_time',totalLoad);
 //Activity (continuously collected)
 //All mouse activity
 //Cursor positions (coordinates)
-let xpos = MouseEvent.clientX;
-let ypos = MouseEvent.clientY;
-let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;
-localStorage.setItem('Cursor_position', cursor_position);
+var xpos = -1;
+var ypos = -1;
+document.onmousemove = function(event) {
+	xpos = event.pageX;
+	ypos = event.pageY;
+}
+setInterval(pointerCheck, 500);
+function pointerCheck() {
+	let position = "X: " + xpos + "Y: " + ypos;
+    localStorage.setItem('Cursor_position', position)
+}
+// let xpos = MouseEvent.clientX;
+// let ypos = MouseEvent.clientY;
+// let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;
+// localStorage.setItem('Cursor_position', cursor_position);
 
 //Clicks (and which mouse button it was)
 

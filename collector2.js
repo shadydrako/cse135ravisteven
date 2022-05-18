@@ -86,7 +86,7 @@ let clickType;
 window.addEventListener('click', (event) => {
     //console.log(event.button) idk how to turn this into a counter
         if (event.button == 0){
-            clickType = "Left Button";
+            //clickType = "Left Button";
         }
         else if (event.button == 1){
             clickType = "Wheel Button";
@@ -100,6 +100,7 @@ window.addEventListener('click', (event) => {
         else if (event.button == 4){
             clickType = "Forward Button";
         }
+        localStorage.setItem('Clicks_Type', clickType)
   })
   
   
@@ -107,10 +108,12 @@ window.addEventListener('click', (event) => {
   count = 0;
 button.onclick = function() {
   count += 1;
-  //localStorage.setItem('click_amount', count);
+  localStorage.setItem('click_amount', count);
 }
-let clicks = "Amount of Clicks: " + count + "The Button clicked was: " + clickType;
-localStorage.setItem('Clicks_Type', clicks);
+
+
+//let clicks = "Amount of Clicks: " + count + "The Button clicked was: " + clickType;
+//localStorage.setItem('Clicks_Type', clicks);
 
   
 //Scrolling (coordinates of the scroll)

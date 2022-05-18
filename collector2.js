@@ -34,7 +34,7 @@ localStorage.setItem('user_window_dimension', windowDimension2);
 let userEnableJS = true;
 localStorage.setItem('user_js_enabled', userEnableJS);
 
-//check if the image loads
+//check if the image loads 
 let imageLoads = false;
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
@@ -43,30 +43,35 @@ window.addEventListener("load", event => {
 
 localStorage.setItem('user_enable_img', userEnableJS);
 
+const test = {
+    'name': 'user_agent_string',
+    'value': userString
+}
 
 const data = {
-    'userLanguage': user_language ,
-    'userCookieEnabled' :user_cookie_enabled,
-    'windowDimension': user_screen_dimension ,
-    'windowDimension2': user_window_dimension,
-    'userEnableJS' : user_js_enabled,
-    'userEnableJS' : user_enable_img
+    'user_agent_string' : userString,
+    'user_language': userLanguage,
+    'user_cookie_enabled' : userCookieEnabled,
+    'user_screen_dimension' : windowDimension,
+    'user_window_dimension': windowDimension2, 
+    'user_js_enabled' : userEnableJS,
+    'user_enable_img': userEnableJS
 };
-
-fetch('https://cse135ravisteven.site/', {
+//fetch
+fetch('/json/static', {
+    credentials: 'same-origin',
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
-
+    body: JSON.stringify(test) 
+    
 })
-.then(res => {
-        return res.json();
-    })
-
-    .then(data => console.log(data))
-    .catch(error => console.log('ERROR'));
+    .then(res =>  res.json())
+    .then(test => {  
+        console.log('Success', test);
+    })   
+    .catch(error => console.log('ERROR')); 
 
 
 let timing = performance.getEntriesByType("navigation");

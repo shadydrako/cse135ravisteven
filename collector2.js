@@ -46,16 +46,116 @@ localStorage.setItem('user_js_enabled', userEnableJS);
 
 let imageLoads = false;
 
+/* bugged on console
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
     imageLoads = img.complete && img.naturalHeight !== 0;
 })
-
+*/
 
 localStorage.setItem('user_enable_img', userEnableJS);
 
+//The timing of the page load
+//let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
+let pageLoad = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
+localStorage.setItem('timing', window.performance);
+localStorage.setItem('timing_page_load', pageLoad);
+//The whole timing object
+
+//Specifically when the page started loading
+let pageStart = performance.getEntriesByType("navigation")[0].domContentLoadedEventStart;
+localStorage.setItem('page_start_load_time', pageStart);
+//Specifically when the page ended loading
+let pageEnd = performance.getEntriesByType("navigation")[0].domContentLoadedEventEnd;
+localStorage.setItem('page_end_time', pageEnd);
+//The total load time (manually calculated - in milliseconds)
+let totalLoad = performance.getEntriesByType("navigation")[0].duration; //returns timestamp in milliseconds
+localStorage.setItem('total_load_time',totalLoad);
+
+//GO BACK TO FIX PERFORMANCE
+//Activity (continuously collected)
+//All mouse activity
+//Cursor positions (coordinates) (CURRENTLY ONLY WORKS ON CLICK)
+var xpos = -1;
+var ypos = -1;
+document.onmousemove = function(event) {
+	xpos = event.pageX;
+	ypos = event.pageY;
+}
+setInterval(Position, 1000);
+function Position() {
+	let position = "X: " + xpos + ", Y: " + ypos;
+	localStorage.setItem('Cursor_position', position)
+}
+
+// let xpos = MouseEvent.clientX;
+// let ypos = MouseEvent.clientY;
+// let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;
+// localStorage.setItem('Cursor_position', cursor_position);
+
+//Clicks (and which mouse button it was)
+
+//ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
+let clickType;
+var button = document.body
+window.addEventListener('click', (event) => {
+        if (event.button == 0){
+            clickType = "Left Button";
+        }
+        if (event.button == 1){
+            clickType = "Wheel Button";
+        }
+        if(window.oncontextmenu) {
+            clickType = "Right Button";
+        }
+        if (event.button == 3){
+            clickType = "Back Button";
+        }
+        if (event.button == 4){
+            clickType = "Forward Button";
+        }
+        localStorage.setItem('Click_Type', clickType)
+  });
+  //var button = document.body,
+  count = 0;
+button.onclick = function() {
+  count += 1;
+  localStorage.setItem('click_amount', count);
+}
+
+//Scrolling (coordinates of the scroll works when u refresh page)
+let scrollCoord = document.body.getBoundingClientRect().top;
+localStorage.setItem('Scolling_coordinate', scrollCoord);
+
+//Key down or Key up events
+// let key = document.body;
+// document.addEventListener('keydown', keyPress);
+// function keyPress(e) {
+//   key.textContent += ` ${e.code}`;
+//   localStorage.setItem('KeyPress', key.textContent);
+// }
+
+// var log;
+// window.addEventListener("keydown", log);
+// function log(event){ 
+//   localStorage.setItem('KeyPress', log);
+// }
 
 
+
+document.addEventListener('keydown', keyPressed);
+function keyPressed(e) {
+    keyPressed = String.fromCharCode(e.keyCode);
+    localStorage.setItem('keyPressed', keyPressed);
+}
+ 
+// Any idle time where no activity happened for a period of 2 or more seconds:
+// Record when the break ended
+// Record how long it lasted (in milliseconds)
+// When the user entered the page
+// When the user left the page
+// Which page the user was on
+// You should be able to tie this data to a specific user session
 
 
 

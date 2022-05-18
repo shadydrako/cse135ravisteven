@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+/*
 app.get('/static', (req,res) => {
     connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
         if(err) throw err
@@ -37,6 +38,25 @@ app.get('/static', (req,res) => {
     })
     console.log("GET REQUEST HANDLED");
 })
+*/
+
+app.route('/static')
+    .get('/static', (req,res) => {
+        connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
+            if(err) throw err
+    
+            res.send(rows);
+        })
+        console.log("GET REQUEST HANDLED");
+    })
+    .post('/static', (req, res) => {
+        let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
+        connection.query( query1, function(err,result){
+            if(err) throw err;
+            console.log("1 record inserted");
+        })
+        console.log("POST REQUEST HANDLED");
+    })
 
 app.get('/static/:id', (req, res) => {
     res.send(req.params['id']);
@@ -44,6 +64,7 @@ app.get('/static/:id', (req, res) => {
 
 
 //
+/*
 //adding new items to static
 app.post('/static', (req, res) => {
     let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
@@ -53,6 +74,7 @@ app.post('/static', (req, res) => {
     })
     console.log("POST REQUEST HANDLED");
 })
+*/
 
 //delete something
 

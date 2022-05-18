@@ -11,7 +11,7 @@ User's window dimensions (DONE)
 User's network connection type (DONE) 
 
 */
-fetch('https://cse135ravisteven.site/')
+fetch('https://cse135ravisteven.site/') 
     .then(res => console.log(res))
 //w3schools
 let userString = navigator.userAgent;

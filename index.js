@@ -7,15 +7,14 @@ var http = require('http');
 var https = require('https');
 const express = require('express');
 const app = express();
-
 const router = express.Router()
+app.use(router);
+
 
 router.get('/', (req, res) => {
     res.json({ msg: 'hello' })
   });
 
-app.use(router);
 
 
-http.createServer(app).listen(3001);
-https.createServer(app).listen(3000);
+http.createServer(app).listen(300);

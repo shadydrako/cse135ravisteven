@@ -37,6 +37,23 @@ connection.connect((err) => {
 });
 
 
+connection2.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected2!')
+});
+
+connection3.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected3!')
+});
+
+
 'use strict';
 const fs = require('fs');
 
@@ -124,6 +141,28 @@ app.put('/static/:name', (req,res)=>{
     })
     res.send('update shit')
 })
+
+
+app.route('/performance')
+    .get((req,res) => {
+        connection2.query('SELECT * FROM tourneys', (err, rows, fields) => {
+            if(err) throw err
+            res.send(rows);
+        })
+        console.log("GET REQUEST HANDLED");
+        return;
+    })
+    .post((req, res) => {
+        let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
+        connection2.query( query1, function(err,rows,fields,result){
+            if(err) throw err;
+            console.log("1 record inserted");
+            res.send("POST HANDLED")
+        })
+        console.log("POST REQUEST HANDLED");
+        return;
+    })
+
 
 
 app.listen(port, () => {

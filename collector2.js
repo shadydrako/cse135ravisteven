@@ -158,7 +158,7 @@ function keyPressed(e) {
  
 // Any idle time where no activity happened for a period of 2 or more seconds:
 // Record when the break ended
-// Record how long it lasted (in milliseconds) 
+// Record how long it lasted (in milliseconds)  
 // When the user entered the page
 // When the user left the page
 // Which page the user was on

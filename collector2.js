@@ -88,8 +88,8 @@ function Position() {
         xpos = event.pageX;
         ypos = event.pageY;
     }
-    
-	let position = "X: " + xpos + ", Y: " + ypos;
+
+	let position = "X: " + xpos + ", Y: " + ypos; 
 	localStorage.setItem('Cursor_position', position)
 }
 setInterval(Position, 1000);

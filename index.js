@@ -142,7 +142,7 @@ app.put('/static/:name', (req,res)=>{
     res.send('update shit')
 })
 
-
+//-----------------------performance
 app.route('/performance')
     .get((req,res) => {
         connection2.query('SELECT * FROM stuff', (err, rows, fields) => {

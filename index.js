@@ -33,7 +33,7 @@ app.get('/static', (req,res) => {
     connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
         if(err) throw err
 
-        res.send( JSON.stringify(rows[0]));
+        res.send( JSON.stringify(rows));
     })
 })
 

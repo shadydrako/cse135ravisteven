@@ -58,7 +58,7 @@ fetch('https://cse135ravisteven.site/', {
     headers: {
         'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data) 
 
 })
     .then(res =>  res.json())

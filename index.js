@@ -41,7 +41,7 @@ app.get('/static', (req,res) => {
 */
 
 app.route('/static')
-    .get('/static', (req,res) => {
+    .get((req,res) => {
         connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
             if(err) throw err
     
@@ -49,7 +49,7 @@ app.route('/static')
         })
         console.log("GET REQUEST HANDLED");
     })
-    .post('/static', (req, res) => {
+    .post((req, res) => {
         let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
         connection.query( query1, function(err,result){
             if(err) throw err;

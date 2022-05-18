@@ -74,18 +74,19 @@ localStorage.setItem('total_load_time',totalLoad);
 //GO BACK TO FIX PERFORMANCE
 //Activity (continuously collected)
 //All mouse activity
-//Cursor positions (coordinates)
+//Cursor positions (coordinates) (CURRENTLY ONLY WORKS ON CLICK)
 var xpos = -1;
 var ypos = -1;
 document.onmousemove = function(event) {
 	xpos = event.pageX;
 	ypos = event.pageY;
 }
-setInterval(pointerCheck, 10);
-function pointerCheck() {
+setInterval(Position, 1000);
+function Position() {
 	let position = "X: " + xpos + "Y: " + ypos;
-    localStorage.setItem('Cursor_position', position)
+	localStorage.setItem('Cursor_position', position)
 }
+
 // let xpos = MouseEvent.clientX;
 // let ypos = MouseEvent.clientY;
 // let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;

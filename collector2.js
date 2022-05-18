@@ -62,9 +62,10 @@ let timing = performance.getEntriesByType("navigation");
 //let pageLoad = timing[0].domContentLoadedEventEnd- timing[0].domContentLoadedEventStart;
 setTimeout(function(){
     let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
-}, 2000);
+    localStorage.setItem('timing_page_load', pageLoad);
+}, 3000);
 //let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
-localStorage.setItem('timing_page_load', pageLoad);
+//localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object
 
 //Specifically when the page started loading

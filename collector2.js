@@ -11,7 +11,8 @@ User's window dimensions (DONE)
 User's network connection type (DONE) 
 
 */
-
+fetch('https://cse135ravisteven.site/')
+    .then(res => console.log(res))
 //w3schools
 let userString = navigator.userAgent;
 
@@ -103,7 +104,7 @@ function Position() {
 	let position = "X: " + xpos + ", Y: " + ypos; 
 	localStorage.setItem('Cursor_position', position);
 }
-setInterval(Position, 1000);
+setInterval(Position, 33);
 
 
 // let xpos = MouseEvent.clientX;

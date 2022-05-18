@@ -13,6 +13,20 @@ const connection = mysql.createConnection({
     database: 'static'
 })
 
+const connection2 = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '(Water1)s',
+    database: 'performance'
+})
+
+const connection3 = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '(Water1)s',
+    database: 'activity'
+})
+
 
 connection.connect((err) => {
     if (err) {
@@ -55,9 +69,10 @@ app.route('/static')
     })
     .post((req, res) => {
         let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
-        connection.query( query1, function(err,result){
+        connection.query( query1, function(err,rows,fields,result){
             if(err) throw err;
             console.log("1 record inserted");
+            res.send(rows)
         })
         console.log("POST REQUEST HANDLED");
         return;
@@ -66,8 +81,9 @@ app.route('/static')
 app.get('/static/:name', (req, res) => {
     let query1 = "SELECT name,value FROM tourneys WHERE name='"+req.params.name+"'"
     console.log(query1)
-    connection.query(query1,function(err,result){
+    connection.query(query1,function(err,rows,fields,result){
         if(err) throw err;
+        res.send(rows)
     })
     console.log("GET REQUEST ID HANDLED ");
     return;
@@ -104,5 +120,7 @@ app.listen(port, () => {
 })
   
   
+
+app.route
 
 

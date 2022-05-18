@@ -11,9 +11,7 @@ User's window dimensions (DONE)
 User's network connection type (DONE) 
 
 */
-fetch('https://cse135ravisteven.site/') 
-    .then(res => res.json())
-    .then(data => console.log(data))
+
 //w3schools
 let userString = navigator.userAgent;
 
@@ -23,37 +21,43 @@ localStorage.setItem('user_agent_string',userString);
 //the user's agent
 
 let userLanguage = navigator.userLanguage || navigator.language;;
-
 localStorage.setItem('user_language', userLanguage);
-
-
 
 let userCookieEnabled = navigator.cookieEnabled;
 localStorage.setItem('user_cookie_enabled',userCookieEnabled );
 
-
 let windowDimension = "w:" +  window.screen.width  +  ", h: " + window.screen.height;
-
 let windowDimension2 = "w:" +  window.innerWidth  +  ", h: " +  window.innerHeight;
-
 localStorage.setItem('user_screen_dimension', windowDimension);
-
 localStorage.setItem('user_window_dimension', windowDimension2);
-
 
 let userEnableJS = true;
 localStorage.setItem('user_js_enabled', userEnableJS);
 
 //check if the image loads
-
 let imageLoads = false;
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
     imageLoads = img.complete && img.naturalHeight !== 0;
 })
 
-
 localStorage.setItem('user_enable_img', userEnableJS);
+
+
+const data ={
+ user_language : 'userLanguage',
+ user_cookie_enabled : 'userCookieEnabled',
+ user_screen_dimension : 'windowDimension',
+ user_window_dimension : 'windowDimension2',
+ user_js_enabled : 'userEnableJS',
+ user_enable_img : 'userEnableJS'
+}
+
+fetch('https://cse135ravisteven.site/') 
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+
 
 
 let timing = performance.getEntriesByType("navigation");

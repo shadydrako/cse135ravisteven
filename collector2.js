@@ -91,7 +91,7 @@ setTimeout(function(){
 //Activity (continuously collected)
 //All mouse activity
 //Cursor positions (coordinates) (CURRENTLY ONLY WORKS ON CLICK)
-var xpos = -1;
+var xpos = -1; 
 var ypos = -1;
 
 function Position() {

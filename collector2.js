@@ -172,7 +172,7 @@ let idleFinal = 0;
 let idleTimer = setInterval(incrTimer,1000)
 let current = new Date();
 
-onmousemove(function(e){
+document.onmousemove(function(e){
     if(idleTime >= 2000){
         idleFinal = idleTime;
         current = current.toLocaleTimeString();

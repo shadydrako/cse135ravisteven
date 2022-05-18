@@ -158,6 +158,7 @@ button.onclick = function() {
 
 //Scrolling (coordinates of the scroll works when u refresh page)
 let scrollCoord = document.body.getBoundingClientRect().top;
+setInterval(ScrollCoord = document.body.getBoundingClientRect().top, 100);
 localStorage.setItem('Scolling_coordinate', scrollCoord);
 
 //Key down or Key up events

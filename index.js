@@ -68,7 +68,7 @@ app.get('/static/:id', (req, res) => {
     console.log(query1)
     connection.query(query1,function(err,result){
         if(err) throw err;
-        console.log("specific id grabbed")
+        console.log("specific id grabbed");
     })
     console.log("POST REQUEST ID HANDLED ");
     return;

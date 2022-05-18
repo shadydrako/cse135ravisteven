@@ -43,12 +43,16 @@ window.addEventListener("load", event => {
 
 localStorage.setItem('user_enable_img', userEnableJS);
 
+const test = {
+    'name': 'user_agent_string',
+    'value': userString
+}
 
 const data = {
     'user_agent_string' : userString,
-    'user_language': userLanguage ,
+    'user_language': userLanguage,
     'user_cookie_enabled' : userCookieEnabled,
-    'user_screen_dimension' : windowDimension ,
+    'user_screen_dimension' : windowDimension,
     'user_window_dimension': windowDimension2, 
     'user_js_enabled' : userEnableJS,
     'user_enable_img': userEnableJS
@@ -59,12 +63,12 @@ fetch('https://cse135ravisteven.site/json/static', {
     headers: {
         'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data) 
+    body: JSON.stringify(test) 
     
 })
     .then(res =>  res.json())
-    .then(data => {  
-        console.log('Success', data);
+    .then(test => {  
+        console.log('Success', test);
     })   
     .catch(error => console.log('ERROR'));
 

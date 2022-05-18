@@ -6,14 +6,20 @@ const router = express.Router()
 const mysql = require('mysql')
 
 const connection = mysql.createConnection({
-    host: 'cse135ravisteven.site:3000',
+    host: 'localhost',
     user: 'root',
     password: '(Water1)s',
     database: 'birthdays'
 })
 
 
-connection.connect()
+connection.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected!')
+});
 
 
 'use strict';
@@ -24,14 +30,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/static', (req,res) => {
-    /*
     connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
         if(err) throw err
 
-        res.send( JSON.stringify(rows[0].name));
+        res.send( JSON.stringify(rows[0]));
     })
-    */
-   res.send('fuck');
 })
 
 app.get('/static/:id', (req, res) => {

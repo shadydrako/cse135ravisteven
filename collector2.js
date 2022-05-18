@@ -57,18 +57,19 @@ localStorage.setItem('user_enable_img', userEnableJS);
 
 //The timing of the page load
 //let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
-let pageLoad = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart; 
+let pageLoad = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
+localStorage.setItem('timing, window.performance');
 localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object
 
 //Specifically when the page started loading
-let pageStart = PerformanceNavigationTiming.domContentLoadedEventStart;
+let pageStart = performance.getEntriesByType("navigation")[0].domContentLoadedEventStart;
 localStorage.setItem('page_start_load_time', pageStart);
 //Specifically when the page ended loading
-let pageEnd = PerformanceNavigationTiming.loadEventEnd;
+let pageEnd = performance.getEntriesByType("navigation")[0].domContentLoadedEventEnd;
 localStorage.setItem('page_end_time', pageEnd);
 //The total load time (manually calculated - in milliseconds)
-let totalLoad = PerformanceEntry.duration; //returns timestamp in milliseconds
+let totalLoad = performance.getEntriesByType("navigation")[0].duration; //returns timestamp in milliseconds
 localStorage.setItem('total_load_time',totalLoad);
 
 //GO BACK TO FIX PERFORMANCE
@@ -140,13 +141,21 @@ localStorage.setItem('Scolling_coordinate', scrollCoord);
 //   localStorage.setItem('KeyPress', log);
 // }
 
+
+
 document.addEventListener('keydown', keyPressed);
 function keyPressed(e) {
     keyPressed = String.fromCharCode(e.keyCode);
     localStorage.setItem('keyPressed', keyPressed);
 }
  
-
+// Any idle time where no activity happened for a period of 2 or more seconds:
+// Record when the break ended
+// Record how long it lasted (in milliseconds)
+// When the user entered the page
+// When the user left the page
+// Which page the user was on
+// You should be able to tie this data to a specific user session
 
 
 

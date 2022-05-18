@@ -56,16 +56,17 @@ const data = {
 fetch('https://cse135ravisteven.site/', {
     method: 'POST',
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     },
     body: JSON.stringify(data)
 
-}.then(res => {
+})
+.then(res => {
         return res.json();
     })
 
     .then(data => console.log(data))
-    .catch(error => console.log('ERROR')));
+    .catch(error => console.log('ERROR'));
 
 
 let timing = performance.getEntriesByType("navigation");

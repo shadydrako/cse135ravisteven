@@ -78,13 +78,13 @@ localStorage.setItem('total_load_time',totalLoad);
 let xpos = Event.clientX;
 let ypos = Event.clientY;
 let cursor_position = "X-Coordinate:" + xpos + "Y-Coordinate:" + ypos;
-localStorage('Cursor_position', cursor_position);
+localStorage.setItem('Cursor_position', cursor_position);
 //Clicks (and which mouse button it was)
 window.addEventListener('click', (event) => {
     console.log(event.button)
     let clickAmount = (event.button)
   })
-  localStorage('amount of clicks', clickAmount);
+  localStorage.setItem('amount of clicks', clickAmount);
 //Scrolling (coordinates of the scroll)
 
 

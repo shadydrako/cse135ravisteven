@@ -43,6 +43,10 @@ window.addEventListener("load", event => {
 
 localStorage.setItem('user_enable_img', userEnableJS);
 
+const formData = new FormData();
+formData.append('name', 'user_agent_string');
+formData.append('value'.userString);
+
 const test = {
     'name': 'user_agent_string',
     'value': userString
@@ -59,20 +63,16 @@ const data = {
 };
 //fetch
 fetch('/json/static', {
-    credentials: 'same-origin',
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(test) 
-    
+  method: 'POST',
+  body: formData
 })
-    .then(res =>  res.json())
-    .then(test => {  
-        console.log('Success', test);
-    })   
-    .catch(error => console.log('ERROR')); 
-
+.then(response => response.json())
+.then(result => {
+  console.log('Success:', result);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
 
 let timing = performance.getEntriesByType("navigation");
 //The timing of the page load

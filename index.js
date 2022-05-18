@@ -72,7 +72,7 @@ app.route('/static')
         connection.query( query1, function(err,rows,fields,result){
             if(err) throw err;
             console.log("1 record inserted");
-            res.send(rows)
+            res.send("POST HANDLED")
         })
         console.log("POST REQUEST HANDLED");
         return;
@@ -105,12 +105,23 @@ app.post('/static', (req, res) => {
 
 //delete something
 
-app.delete('/static/:id', (req,res)=>{
-    res.send('delete smtn');
+app.delete('/static/:name', (req,res)=>{
+    let query1 = "DELETE FROM static WHERE name='" +req.params.name+"';"
+    console.log(query1)
+    connection.query(query1,function(err,rows,fields,result){
+        if(err) throw err;
+    })
+    res.send("DELETE REQUEST ID HANDLED ");
+    return;
 })
 
 //update something 
-app.put('/static/:id', (req,res)=>{
+app.put('/static/:name', (req,res)=>{
+    let query1 = "UPDATE static SET value='"+req.body.value +"' WHERE name = " + req.params.name
+    console.log(query1)
+    connection.query(query1,function(err,rows,fields,result){
+        if(err) throw err;
+    })
     res.send('update shit')
 })
 
@@ -118,9 +129,5 @@ app.put('/static/:id', (req,res)=>{
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-  
-  
-
-app.route
 
 

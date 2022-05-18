@@ -24,12 +24,17 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+'use strict';
+const fs = require('fs');
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.get('/static/', (req,res) => {
-    res.send('Dear god')
+    let rawdata = fs.readFileSync('static.json');
+    let static = JSON.parse(rawdata);
+    res.send(static);
 })
 
 app.listen(port, () => {

@@ -58,7 +58,7 @@ localStorage.setItem('user_enable_img', userEnableJS);
 //The timing of the page load
 //let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
 let pageLoad = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
-localStorage.setItem('timing, window.performance');
+localStorage.setItem('timing', window.performance);
 localStorage.setItem('timing_page_load', pageLoad);
 //The whole timing object
 

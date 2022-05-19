@@ -372,7 +372,7 @@ for(let i = 0; i < localStorage.length; i++){
       body: urlencoded,
    };
 
-  fetch("https://cse135ravisteven.site/json/performance", requestOptions)
+  fetch("https://cse135ravisteven.site/json/activity", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

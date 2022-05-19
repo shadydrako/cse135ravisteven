@@ -114,8 +114,9 @@ fetch('/json/static', {
 */
 
 //The whole timing object
+// const time = performance.getEntriesByType("navigation");
 let timing = performance.getEntriesByType("navigation");
-localStorage.setItem('timing_object', timing);
+localStorage.setItem('timing_object', performance.getEntriesByType("navigation"));
 //The timing of the page load
 setTimeout(function(){
     let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;

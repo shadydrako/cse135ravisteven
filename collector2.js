@@ -67,8 +67,8 @@ myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 var urlencoded = new URLSearchParams();
-urlencoded.append("name", "poop_de_scoop23");
-urlencoded.append("value", "poop2");
+urlencoded.append("name", "user_agent_string");
+urlencoded.append("value", userString);
 
 var requestOptions = {
   method: 'POST',

@@ -134,7 +134,7 @@ setInterval(Position, 33);
 //Clicks (and which mouse button it was)
 
 //ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
-let clickType;
+/*let clickType;
 let button = document.body;
 button.addEventListener('click', (event) => {
         if (event.button == 0){
@@ -154,6 +154,32 @@ button.addEventListener('click', (event) => {
         }
         localStorage.setItem('Click_Type', clickType)
   });
+  */
+
+  let button = document.body;
+  let clickType;
+  button.addEventListener('mouseup', buttonType);
+
+  function buttonType(e)
+    if (typeof e === 'object') {
+        switch (e.button) {
+            case 0:
+                clickType = 'Left Button';
+                break;
+            case 1:
+                clickType = 'Middle Mouse Button';
+                break;
+            case 2: 
+                clickType = 'Right Mouse Button';
+                break;
+            case 3:
+                clickType = 'Back Mouse Button';
+            case 4:
+                clickType = 'Foward Mouse Button';
+                break;
+        localStorage.setItem('Click_Type', clickType)    
+        }
+    }
   //var button = document.body,
   count = 0;
 button.onclick = function() {

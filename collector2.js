@@ -68,21 +68,20 @@ var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+var urlencoded = new URLSearchParams();
+urlencoded.append("name", "test_name");
+urlencoded.append("value", "value1");
 
-for(const key in data){
-    var urlencoded = new URLSearchParams();
-    urlencoded.append("name", `${key}`);
-    urlencoded.append("value", `${data[key]}`);
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: urlencoded,
-    };    
-    fetch("https://cse135ravisteven.site/json/static", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-}
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: urlencoded,
+};
+
+fetch("https://cse135ravisteven.site/json/static", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 /*
 fetch('/json/static', {
   method: 'POST',

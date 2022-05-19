@@ -368,3 +368,23 @@ for(let i = 0; i < localStorage.length; i++){
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }
+
+
+
+for(let i = 0; i < localStorage.length; i++){
+    let key = localStorage.key(i);
+    let item = localStorage.getItem(key);
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("name", String(key));
+    urlencoded.append("value", String(item));
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: urlencoded,
+   };
+
+  fetch("https://cse135ravisteven.site/json/performance", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}

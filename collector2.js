@@ -97,8 +97,19 @@ fetch('/json/static', {
 });
 */
 
+
+
+const dataTiming = {
+    "timing_object" : timing,
+    "page_start_load_time" : pageStart,
+    "page_end_time": pageEnd,
+    "total_load_time": totalLoad
+};
+
+
 //The whole timing object
-// const time = performance.getEntriesByType("navigation");
+// const time = 
+console.log(timing);
 let timing = performance.getEntriesByType("navigation");
 localStorage.setItem('timing_object', performance.getEntriesByType("navigation"));
 //The timing of the page load

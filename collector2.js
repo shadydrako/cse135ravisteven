@@ -136,7 +136,7 @@ setInterval(Position, 33);
 //ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
 let clickType;
 let button = document.body;
-window.addEventListener('click', (event) => {
+button.addEventListener('click', (event) => {
         if (event.button == 0){
             clickType = "Left Button";
         }

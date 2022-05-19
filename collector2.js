@@ -12,6 +12,8 @@ User's network connection type (DONE)
 
 */
 
+//const { btoa } = require("buffer");
+
 //w3schools
 let userString = navigator.userAgent;
 
@@ -61,6 +63,7 @@ const data = {
 console.log(data);
 //remove ips from trusted sources list from digital ocean
 //fetch
+/*
 fetch('https://cse135ravisteven.site/json/static', {
   method: 'POST', 
   headers: {
@@ -72,29 +75,28 @@ fetch('https://cse135ravisteven.site/json/static', {
 .then(data => {
   console.log('Success:', data);
 })
-.catch((error) => {
-  console.error('Error:', error);
-});
+*/
 
-// var myHeaders = new Headers();
-// myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-// myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+var myHeaders = new Headers();
+//myHeaders.append("Authorization", "Basic " +btoa('ravi:(Water1)s') );
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+myHeaders.append('mode', 'cors');
 
-// var urlencoded = new URLSearchParams();
-// urlencoded.append("name", "test_name");
-// urlencoded.append("value", "value1");
+var urlencoded = new URLSearchParams();
+urlencoded.append("name", "user_agent_string");
+urlencoded.append("value", userString);
 
-// var requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-//   body: urlencoded,
-//   redirect: 'follow'
-// };
+var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: urlencoded,
+};
 
-// fetch("http://cse135ravisteven.site/json/static", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
+ fetch("/json/static", requestOptions)
+   .then(response => response.text())
+   .then(result => console.log(result))
+   .catch(error => console.log('error', error));
+
 /*
 fetch('/json/static', {
   method: 'POST',

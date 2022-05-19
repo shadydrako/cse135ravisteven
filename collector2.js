@@ -231,10 +231,11 @@ function keyPressed(e) {
 // let idleTimer = setInterval(incrTimer,1000)
 // let current = new Date();
 
+
+var timeInactive = function () {
     let idleTime = 0; 
     let current = new Date();
-    let idleTimer = 0;
-var timeInactive = function () {
+    let curr;
     setInterval(incrTimer, 1000);
 
     window.onload = clearTimer();
@@ -246,7 +247,7 @@ var timeInactive = function () {
 
     function twoseconds(){
         if(idleTime >= 2){
-            current = current.toLocaleTimeString;
+            curr = current.toLocaleTimeString();
             window.onload = clearTimer();
             document.onmousemove = clearTimer();
             document.onkeydown = clearTimer();

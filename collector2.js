@@ -240,6 +240,9 @@ var timeInactive = function () {
     window.onload = clearTimer();
     document.onmousemove = clearTimer();
     document.onkeydown = clearTimer();
+    document.onkeyup = clearTimer();
+    document.onmousedown = clearTimer();
+    document.onmouseup = clearTimer();
 
 function incrTimer(){
     idleTime++; 
@@ -258,7 +261,7 @@ function clearTimer(){
     timeInactive();
 }
 };
-//setInterval(timeInactive, 1000);
+setInterval(timeInactive, 1000);
 
 
 // Any idle time where no activity happened for a period of 2 or more seconds:

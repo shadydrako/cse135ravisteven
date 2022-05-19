@@ -23,9 +23,9 @@
 <script>
 window.addEventListener('load', () => {
   // Javascript code to execute after DOM content
-  const zgRef1 = document.getElementById("table1");
-  const zgRef2 = document.getElementById("table2");
-  const zgRef3 = document.getElementById("table3");
+  const ref1 = document.getElementById("table1");
+  const ref2 = document.getElementById("table2");
+  const ref3 = document.getElementById("table3");
 
   let intervalTimeoutId = setInterval(() => {
     fetch('https://cse135ravisteven.site/api/static')
@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
         // in this use case our endpoint is not updating so
         // we fake an endpoint update by manipulating the data
         // update data
-        zgRef1.setData(data);
+        ref1.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
     fetch('https://cse135ravisteven.site/api/performance')
@@ -43,7 +43,7 @@ window.addEventListener('load', () => {
         // in this use case our endpoint is not updating so
         // we fake an endpoint update by manipulating the data
         // update data
-        zgRef2.setData(data);
+        ref2.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
     fetch('https://cse135ravisteven.site/api/activity')
@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
         // in this use case our endpoint is not updating so
         // we fake an endpoint update by manipulating the data
         // update data
-        zgRef3.setData(data);
+        ref3.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
   }, 5000);

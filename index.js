@@ -159,7 +159,6 @@ app.route('/performance')
         let query1 = "INSERT INTO stuff (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
         connection2.query( query1, function(err,rows,fields,result){
             if(err) throw err;
-            console.log("1 record inserted");
             res.send("POST HANDLED")
         })
         console.log("POST REQUEST HANDLED");
@@ -184,7 +183,7 @@ app.route('/performance/:name')
         connection2.query(query1,function(err,rows,fields,result){
             if(err) throw err;
         })
-        res.send('update shit')
+        res.send('delete shit')
     })
     .put((req,res)=>{
         let query1 = "UPDATE stuff SET value='"+req.body.value +"' WHERE name ='" +req.params.name+"';"
@@ -210,7 +209,6 @@ app.route('/performance/:name')
         let query1 = "INSERT INTO stuff (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
         connection3.query( query1, function(err,rows,fields,result){
             if(err) throw err;
-            console.log("1 record inserted");
             res.send("POST HANDLED")
         })
         console.log("POST REQUEST HANDLED");

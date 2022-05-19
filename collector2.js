@@ -1,4 +1,5 @@
-   /*
+
+/* 
 Static (collected after the page has loaded)
 user agent string (DONE)
 the user's language (DONE)
@@ -411,40 +412,30 @@ const congiguration = {
         label: {
           text: 'Static'
         },
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        labels: ['place labels here']
     },
     scaleY: {
       // scale label with unicode character
       label: {
-        text: 'Temperature (°F)'
+        text: 'cs'
       }
     },
-    plot: {
-      // animation docs here:
-      // https://www.zingchart.com/docs/tutorials/design-and-styling/chart-animation/#animation__effect
-      animation: {
-        effect: 'ANIMATION_EXPAND_BOTTOM',
-        method: 'ANIMATION_STRONG_EASE_OUT',
-        sequence: 'ANIMATION_BY_NODE',
-        speed: 275,
-      }
-    },
+
     series: [{
-        // plot 1 values, linear data
-        values: [23, 20, 27, 29, 25, 17, 15],
-        text: 'Week 1',
+        values: ['values'],
+        text: 'Series 1',
         backgroundColor: '#4d80a6'
       },
       {
         // plot 2 values, linear data
-        values: [35, 42, 33, 49, 35, 47, 35],
-        text: 'Week 2',
+        values: ['values'],
+        text: 'Series 2',
         backgroundColor: '#70cfeb'
       },
       {
         // plot 2 values, linear data
-        values: [15, 22, 13, 33, 44, 27, 31],
-        text: 'Week 3',
+        values: ['values'],
+        text: 'series 3',
         backgroundColor: '#8ee9de'
       }
     ]

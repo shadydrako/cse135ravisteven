@@ -324,7 +324,9 @@ document.addEventListener("visibilitychange", function() {
 // You should be able to tie this data to a specific user session
 })
 
-var myHeaders = new Headers();
+
+window.addEventListener('load', (event) => {
+    var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -377,3 +379,4 @@ for(let i = 0; i < 5; i++){
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 }
+});

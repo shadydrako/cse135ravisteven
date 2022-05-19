@@ -51,18 +51,18 @@ const test = {
 }
 
 const data = {
-    'user_agent_string' : userString,
-    'user_language': userLanguage,
-    'user_cookie_enabled' : userCookieEnabled,
-    'user_screen_dimension' : windowDimension,
-    'user_window_dimension': windowDimension2, 
-    'user_js_enabled' : userEnableJS,
-    'user_enable_img': userEnableJS
+    "user_agent_string" : userString,
+    "user_language" : userLanguage,
+    "user_cookie_enabled" : userCookieEnabled,
+    "user_screen_dimension" : windowDimension,
+    "user_window_dimension": windowDimension2, 
+    "user_js_enabled" : userEnableJS,
+    "user_enable_img": userEnableJS
 };
 console.log(data);
 //remove ips from trusted sources list from digital ocean
 //fetch
-/*
+
 fetch('https://cse135ravisteven.site/json/static', {
   method: 'POST', 
   headers: {
@@ -74,28 +74,28 @@ fetch('https://cse135ravisteven.site/json/static', {
 .then(data => {
   console.log('Success:', data);
 })
-*/
-window.Buffer = window.Buffer;
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic " +Buffer.from('ravi:(Water1)s').toString('base64'));
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-myHeaders.append('mode', 'cors');
+// window.Buffer = window.Buffer;
 
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", userString);
+// var myHeaders = new Headers();
+// myHeaders.append("Authorization", "Basic " +Buffer.from('ravi:(Water1)s').toString('base64'));
+// myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+// myHeaders.append('mode', 'cors');
 
-var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: urlencoded,
-};
+// var urlencoded = new URLSearchParams();
+// urlencoded.append("name", "user_agent_string");
+// urlencoded.append("value", userString);
 
- fetch("/json/static", requestOptions)
-   .then(response => response.text())
-   .then(result => console.log(result))
-   .catch(error => console.log('error', error));
+// var requestOptions = {
+//     method: 'POST',
+//     headers: myHeaders,
+//     body: urlencoded,
+// };
+
+//  fetch("/json/static", requestOptions)
+//    .then(response => response.text())
+//    .then(result => console.log(result))
+//    .catch(error => console.log('error', error));
 
 /*
 fetch('/json/static', {

@@ -374,7 +374,7 @@ for(let i = 0; i < localStorage.length; i++){
 
 
 
-for(let i = 0; i < 5; i++){
+for(let i = 0; i < localStorage.length; i++){
     let key = localStorage.key(i);
     let item = localStorage.getItem(key);
     var urlencoded = new URLSearchParams();
@@ -391,6 +391,11 @@ for(let i = 0; i < 5; i++){
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 }
+
+fetch("https://cse135ravisteven.site/api/performance", requestOptions)
+.then(response => response.text())
+.then(result => console.log(result))
+.catch(error => console.log('error', error))
 
 };
 

@@ -68,7 +68,7 @@ myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 var urlencoded = new URLSearchParams();
 urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", "hellor sir");
+urlencoded.append("value", String(userString));
 
 var requestOptions = {
   method: 'POST',

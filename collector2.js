@@ -78,7 +78,7 @@ fetch('https://cse135ravisteven.site/json/static', {
 */
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic " +btoa('ravi:(Water1)s') );
+//myHeaders.append("Authorization", "Basic " +btoa('ravi:(Water1)s') );
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 myHeaders.append('mode', 'cors');
 

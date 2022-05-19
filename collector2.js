@@ -357,7 +357,7 @@ fetch("https://cse135ravisteven.site/json/static", requestOptions)
         headers: myHeaders,
         body: urlencoded,
      };
-    fetch("https://cse135ravisteven.site/json/static", requestOptions)
+    fetch("https://cse135ravisteven.site/json/performance", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

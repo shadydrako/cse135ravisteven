@@ -60,24 +60,6 @@ const data = {
 console.log(data);
 //remove ips from trusted sources list from digital ocean
 //fetch
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", String(userString));
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: urlencoded,
-};
-
-fetch("https://cse135ravisteven.site/json/static", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
 
 // window.Buffer = window.Buffer;
 
@@ -342,3 +324,23 @@ document.addEventListener("visibilitychange", function() {
 // You should be able to tie this data to a specific user session
 
 })
+
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+var urlencoded = new URLSearchParams();
+urlencoded.append("name", "user_agent_string");
+urlencoded.append("value", String(localStorage.getItem('user_agent_string')));
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: urlencoded,
+};
+
+fetch("https://cse135ravisteven.site/json/static", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));

@@ -12,6 +12,8 @@ User's network connection type (DONE)
 
 */
 
+const { btoa } = require("buffer");
+
 
 //w3schools
 let userString = navigator.userAgent;
@@ -78,7 +80,7 @@ fetch('https://cse135ravisteven.site/json/static', {
 window.Buffer = window.Buffer;
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic " +Buffer.from('ravi:(Water1)s').toString('base64'));
+myHeaders.append("Authorization", "Basic " +btoa('ravi:(Water1)s'))
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 myHeaders.append('mode', 'cors');
 

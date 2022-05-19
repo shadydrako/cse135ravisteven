@@ -12,8 +12,6 @@ User's network connection type (DONE)
 
 */
 
-const { btoa } = require("buffer");
-
 
 //w3schools
 let userString = navigator.userAgent;

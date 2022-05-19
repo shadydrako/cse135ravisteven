@@ -109,12 +109,10 @@ fetch('/json/static', {
 });
 */
 
+//The whole timing object
 let timing = performance.getEntriesByType("navigation");
+localStorage.setItem('timing_object', timing);
 //The timing of the page load
-
-
-//let pageLoad = PerformanceNavigationTiming.domContentLoadedEventEnd- window.PerformanceNavigationTiming;
-//let pageLoad = timing[0].domContentLoadedEventEnd- timing[0].domContentLoadedEventStart;
 setTimeout(function(){
     let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
     localStorage.setItem('timing_page_load', pageLoad);
@@ -128,9 +126,8 @@ setTimeout(function(){
     let totalLoad = timing[0].duration; //returns timestamp in milliseconds
     localStorage.setItem('total_load_time',totalLoad); 
 }, 5000);
-//let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
-//localStorage.setItem('timing_page_load', pageLoad);
-//The whole timing object
+
+
 
 //Specifically when the page started loading
 // let pageStart = timing[0].domContentLoadedEventStart;

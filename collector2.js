@@ -76,10 +76,9 @@ var requestOptions = {
   method: 'POST',
   headers: myHeaders,
   body: urlencoded,
-  redirect: 'follow'
 };
 
-fetch("http://cse135ravisteven.site/json/static", requestOptions)
+fetch("https://cse135ravisteven.site/json/static", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));

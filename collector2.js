@@ -246,7 +246,7 @@ var timeInactive = function () {
     }
 
 function incrTimer(){
-    idleTime; 
+    idleTime++; 
 }
 
 function clearTimer(){

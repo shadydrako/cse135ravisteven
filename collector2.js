@@ -36,16 +36,14 @@ localStorage.setItem('user_js_enabled', userEnableJS);
 
 //check if the image loads 
 let imageLoads = false;
+/*
 window.addEventListener("load", event => {
     let img = document.querySelector('img');
     imageLoads = img.complete && img.naturalHeight !== 0;
 })
-
+*/
 localStorage.setItem('user_enable_img', userEnableJS);
 
-const formData = new FormData();
-formData.append('name', 'user_agent_string');
-formData.append('value', userString);
 
 const test = {
     'name': 'user_agent_string',
@@ -61,7 +59,32 @@ const data = {
     'user_js_enabled' : userEnableJS,
     'user_enable_img': userEnableJS
 };
+
+
+
 //fetch
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+var urlencoded = new URLSearchParams();
+urlencoded.append("name", 'user_agent_string');
+urlencoded.append("value", userString);
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: urlencoded,
+  redirect: 'follow'
+};
+
+fetch("/json/static/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log('Fetch Successful'))
+  .catch(error => console.log('error', error));
+
+/*
 fetch('/json/static', {
   method: 'POST',
   body: formData
@@ -73,6 +96,7 @@ fetch('/json/static', {
 .catch(error => {
   console.error('Error:', error);
 });
+*/
 
 let timing = performance.getEntriesByType("navigation");
 //The timing of the page load
@@ -134,26 +158,58 @@ setInterval(Position, 33);
 //Clicks (and which mouse button it was)
 
 //ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
-let clickType;
-var button = document.body;
-window.addEventListener('click', (event) => {
+/*let clickType;
+let button = document.body;
+button.addEventListener('click', (event) => {
         if (event.button == 0){
             clickType = "Left Button";
         }
-        if (event.button == 1){
+        else if (event.button == 1){
             clickType = "Wheel Button";
         }
-        if(window.oncontextmenu) {
+        else if(window.oncontextmenu) {
             clickType = "Right Button";
         }
-        if (event.button == 3){
+        else if (event.button == 3){
             clickType = "Back Button";
         }
-        if (event.button == 4){
+        else if (event.button == 4){
             clickType = "Forward Button";
         }
         localStorage.setItem('Click_Type', clickType)
   });
+  */
+
+  let button = document.body;
+  let clickType;
+  button.addEventListener('mouseup', buttonType);
+
+  function buttonType(e){
+    if (typeof e === 'object') {
+        switch (e.button) {
+            case 0:
+                clickType = 'Left Button';
+                localStorage.setItem('Click_Type', clickType);
+                break;
+            case 1:
+                clickType = 'Middle Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
+                break;
+            case 2: 
+                clickType = 'Right Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
+                break;
+            case 3:
+                clickType = 'Back Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
+            case 4:
+                clickType = 'Foward Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
+                break;
+                
+            }
+        }
+    }
   //var button = document.body,
   count = 0;
 button.onclick = function() {
@@ -163,7 +219,7 @@ button.onclick = function() {
 
 //Scrolling (coordinates of the scroll works when u refresh page)
 let scrollCoord;
-function scroll (scrollCoord){
+function scroll(){
     scrollCoord = document.body.getBoundingClientRect().top;
     localStorage.setItem('Scolling_coordinate', scrollCoord);
 }
@@ -199,38 +255,55 @@ function keyPressed(e) {
 // let idleTimer = setInterval(incrTimer,1000)
 // let current = new Date();
 
+
 var timeInactive = function () {
-    let idleTime = 0;
-    let idleTimer = setInterval(incrTimer,1000)
+    let idleTime = 0; 
     let current = new Date();
+    let curr;
+    setInterval(incrTimer, 1000);
 
     window.onload = clearTimer();
     document.onmousemove = clearTimer();
     document.onkeydown = clearTimer();
-    
+    document.onkeyup = clearTimer();
+    document.onmousedown = clearTimer();
+    document.onmouseup = clearTimer();
 
-    if(idleTime >= 2000){
-        current = current.toLocaleTimeString();  
-    }
-
-
-    if(idleTime >= 2000){
-        current = current.toLocaleTimeString();  
-    }
+    // function twoseconds(){
+    //     if(idleTime >= 2){
+    //         curr = current.toLocaleTimeString();
+    //         window.onload = clearTimer();
+    //         document.onmousemove = clearTimer();
+    //         document.onkeydown = clearTimer();
+    //         document.onkeyup = clearTimer();
+    //         document.onmousedown = clearTimer();
+    //         document.onmouseup = clearTimer();
+    //     }
+    // }
 
 function incrTimer(){
     idleTime++; 
+    //twoseconds();
+    if(idleTime >= 2){
+        curr = current.toLocaleTimeString();
+        window.onload = clearTimer();
+        document.onmousemove = clearTimer();
+        document.onkeydown = clearTimer();
+        document.onkeyup = clearTimer();
+        document.onmousedown = clearTimer();
+        document.onmouseup = clearTimer();
+    }
 }
 
 function clearTimer(){
-    if(idleTime >= 2000){
-        current = current.toLocaleTimeString();
-    }
+    // if(idleTime >= 2000){
+    //     current = current.toLocaleTimeString();
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
 }
 };
+setInterval(timeInactive, 10000);
 
 
 // Any idle time where no activity happened for a period of 2 or more seconds:

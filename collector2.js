@@ -74,6 +74,7 @@ fetch('https://cse135ravisteven.site/json/static', {
 .then(data => {
   console.log('Success:', data);
 })
+<<<<<<< HEAD
 
 // window.Buffer = window.Buffer;
 
@@ -97,6 +98,27 @@ fetch('https://cse135ravisteven.site/json/static', {
 //    .then(result => console.log(result))
 //    .catch(error => console.log('error', error));
 
+=======
+*/
+
+fetch('/json/static', {
+    method: 'POST',
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    credentials: 'include',
+    body: 'name=bar&value=ipsum'
+  })
+  .then(res.json())
+  .then(res => {
+    // Handle response 
+    console.log('Response: ', res);
+  })
+  .catch(err => {
+    // Handle error 
+    console.log('Error message: ', error);
+  });
+>>>>>>> 27edc55c4e019731e1fefcef344c9b00a30e4508
 /*
 fetch('/json/static', {
   method: 'POST',

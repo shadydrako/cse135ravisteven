@@ -343,10 +343,6 @@ myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", localStorage.getItem("user_agent_string"));
-
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,

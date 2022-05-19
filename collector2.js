@@ -354,7 +354,7 @@ for(let i = 0; i < localStorage.length; i++){
         body: urlencoded,
      };
 
-    fetch("https://cse135ravisteven.site/json/static", requestOptions)
+    fetch("https://cse135ravisteven.site/api/static", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
@@ -374,9 +374,10 @@ for(let i = 0; i < 5; i++){
       body: urlencoded,
    };
 
-  fetch("https://cse135ravisteven.site/json/activity", requestOptions)
+  fetch("https://cse135ravisteven.site/api/activity", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 }
+
 };

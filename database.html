@@ -9,15 +9,15 @@
  
 <body>
     <h1> Static  </h1>
-  <zing-grid id="table1" src="https://cse135ravisteven.site/json/static"> </zing-grid>
+  <zing-grid id="table1" src="https://cse135ravisteven.site/api/static"> </zing-grid>
   <br>
   <br>
   <h1> Performance </h1>
-  <zing-grid id="table2" src="https://cse135ravisteven.site/json/performance"> </zing-grid>
+  <zing-grid id="table2" src="https://cse135ravisteven.site/api/performance"> </zing-grid>
   <br>
   <br>
   <h1> Activity </h1>
-  <zing-grid id="table3" src="https://cse135ravisteven.site/json/activity"> </zing-grid>  
+  <zing-grid id="table3" src="https://cse135ravisteven.site/api/activity"> </zing-grid>  
 </body>
 
 <script>
@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
   const zgRef3 = document.getElementById("table3");
 
   let intervalTimeoutId = setInterval(() => {
-    fetch('https://cse135ravisteven.site/json/static')
+    fetch('https://cse135ravisteven.site/api/static')
       .then(res => res.json())
       .then(data => {
         // in this use case our endpoint is not updating so
@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
         zgRef1.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
-    fetch('https://cse135ravisteven.site/json/performance')
+    fetch('https://cse135ravisteven.site/api/performance')
       .then(res => res.json())
       .then(data => {
         // in this use case our endpoint is not updating so
@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
         zgRef2.setData(data);
       })
       .catch(err => console.error('--- Error In Fetch Occurred ---', err));
-    fetch('https://cse135ravisteven.site/json/activity')
+    fetch('https://cse135ravisteven.site/api/activity')
       .then(res => res.json())
       .then(data => {
         // in this use case our endpoint is not updating so

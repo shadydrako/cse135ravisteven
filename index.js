@@ -87,7 +87,7 @@ app.route('/static')
         console.log("GET REQUEST HANDLED");
         return;
     })
-    .put((req, res) => {
+    .post((req, res) => {
         let query1 = "INSERT INTO tourneys (name, value ) VALUES ('" + req.body.name + "','" + req.body.value + "')" 
         connection.query( query1, function(err,rows,fields,result){
             if(err) throw err;

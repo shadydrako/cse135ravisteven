@@ -244,18 +244,6 @@ var timeInactive = function () {
     document.onmousedown = clearTimer();
     document.onmouseup = clearTimer();
 
-function incrTimer(){
-    idleTime++; 
-    twoseconds();
-}
-
-function clearTimer(){
-    // if(idleTime >= 2000){
-    //     current = current.toLocaleTimeString();
-    localStorage.setItem('Break_Ended', current);
-    localStorage.setItem('BreakTime', idleTime);
-    clearTimeout(idleTime);
-
     function twoseconds(){
         if(idleTime >= 2){
             current = current.toLocaleTimeString();
@@ -268,6 +256,20 @@ function clearTimer(){
             twoseconds();
         }
     }
+
+function incrTimer(){
+    idleTime++; 
+    twoseconds();
+}
+
+function clearTimer(){
+    // if(idleTime >= 2000){
+    //     current = current.toLocaleTimeString();
+    localStorage.setItem('Break_Ended', current);
+    localStorage.setItem('BreakTime', idleTime);
+    clearTimeout(idleTime);
+
+    
     
 }
 };

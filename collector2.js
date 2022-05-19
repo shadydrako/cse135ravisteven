@@ -12,14 +12,12 @@ User's network connection type (DONE)
 
 */
 
-
-//w3schools
+document.addEventListener('DOMContentLoaded', (event) => {
+    //w3schools
 let userString = navigator.userAgent;
 
 localStorage.setItem('user_agent_string',userString);
 
-// sending the user String a json data
-//the user's agent
 
 let userLanguage = navigator.userLanguage || navigator.language;;
 localStorage.setItem('user_language', userLanguage);
@@ -343,6 +341,4 @@ document.addEventListener("visibilitychange", function() {
 // Which page the user was on
 // You should be able to tie this data to a specific user session
 
-
-
-
+})

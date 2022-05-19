@@ -62,18 +62,24 @@ const data = {
 console.log(data);
 //remove ips from trusted sources list from digital ocean
 //fetch
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-fetch('https://cse135ravisteven.site/json/static', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
+var urlencoded = new URLSearchParams();
+urlencoded.append("name", "poop_de_scoop23");
+urlencoded.append("value", "poop2");
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: urlencoded,
+};
+
+fetch("https://cse135ravisteven.site/json/static", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 
 // window.Buffer = window.Buffer;
 

@@ -329,7 +329,7 @@ document.addEventListener("visibilitychange", function() {
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
+/*
 var urlencoded = new URLSearchParams();
 urlencoded.append("name", "user_agent_string");
 urlencoded.append("value", String(localStorage.getItem('user_agent_string')));
@@ -344,3 +344,21 @@ fetch("https://cse135ravisteven.site/json/static", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+
+*/
+  for(let i = 0; i < localStorage.length; i++){
+      let key = localStorage.key(i);
+      let item = localStorage.getItem(key);
+      var urlencoded = new URLSearchParams();
+      urlencoded.append("name", String(key));
+      urlencoded.append("value", String(item));
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+     };
+    fetch("https://cse135ravisteven.site/json/static", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}

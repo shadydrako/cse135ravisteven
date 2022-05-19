@@ -77,28 +77,24 @@ fetch('https://cse135ravisteven.site/json/static', {
   console.log('Success:', data);
 })
 */
-window.Buffer = window.Buffer;
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic " +btoa('ravi:(Water1)s'))
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-myHeaders.append('mode', 'cors');
-
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", userString);
-
-var requestOptions = {
+fetch('/json/static', {
     method: 'POST',
-    headers: myHeaders,
-    body: urlencoded,
-};
-
- fetch("/json/static", requestOptions)
-   .then(response => response.text())
-   .then(result => console.log(result))
-   .catch(error => console.log('error', error));
-
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    credentials: 'include',
+    body: 'name=bar&value=ipsum'
+  })
+  .then(res.json())
+  .then(res => {
+    // Handle response 
+    console.log('Response: ', res);
+  })
+  .catch(err => {
+    // Handle error 
+    console.log('Error message: ', error);
+  });
 /*
 fetch('/json/static', {
   method: 'POST',

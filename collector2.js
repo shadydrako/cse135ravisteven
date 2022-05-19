@@ -246,7 +246,7 @@ var timeInactive = function () {
 
     function twoseconds(){
         if(idleTime >= 2){
-            current = current.toLocaleTimeString();
+            current = current.toLocaleTimeString;
             window.onload = clearTimer();
             document.onmousemove = clearTimer();
             document.onkeydown = clearTimer();

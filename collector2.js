@@ -72,9 +72,6 @@ fetch('https://cse135ravisteven.site/json/static', {
 .then(data => {
   console.log('Success:', data);
 })
-.catch((error) => {
-  console.error('Error:', error);
-});
 
 // var myHeaders = new Headers();
 // myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");

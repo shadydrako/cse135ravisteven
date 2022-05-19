@@ -240,16 +240,12 @@ var timeInactive = function () {
     window.onload = clearTimer();
     document.onmousemove = clearTimer();
     document.onkeydown = clearTimer();
-    
-
-    
 
 function incrTimer(){
     idleTime++; 
     if(idleTime >= 2){
         current = current.toLocaleTimeString();
-    }
-    
+    } 
 }
 
 function clearTimer(){
@@ -259,7 +255,7 @@ function clearTimer(){
     clearTimeout(idleTime);
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTimer);
-    
+    timeInactive();
 }
 };
 //setInterval(timeInactive, 1000);

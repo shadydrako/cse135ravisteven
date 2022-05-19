@@ -255,9 +255,9 @@ function incrTimer(){
 }
 
 function clearTimer(){
-    if(idleTime >= 2000){
-        current = current.toLocaleTimeString();
-    }
+    // if(idleTime >= 2000){
+    //     current = current.toLocaleTimeString();
+    // }
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);

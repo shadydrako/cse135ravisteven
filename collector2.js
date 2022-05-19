@@ -62,17 +62,25 @@ const data = {
     'user_enable_img': userEnableJS
 };
 //fetch
-fetch('/json/static', {
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+var urlencoded = new URLSearchParams();
+urlencoded.append("name", 'user_agent_string');
+urlencoded.append("value", userString);
+
+var requestOptions = {
   method: 'POST',
-  body: formData
-})
-.then(response => response.json())
-.then(result => {
-  console.log('Success:', result);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+  headers: myHeaders,
+  body: urlencoded,
+  redirect: 'follow'
+};
+
+fetch("https://cse135ravisteven.site/json/static/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log('Fetch Successful'))
+  .catch(error => console.log('error', error));
 
 let timing = performance.getEntriesByType("navigation");
 //The timing of the page load

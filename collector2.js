@@ -44,7 +44,6 @@ window.addEventListener("load", event => {
 */
 localStorage.setItem('user_enable_img', userEnableJS);
 
-
 const test = {
     'name': 'user_agent_string',
     'value': userString
@@ -60,29 +59,41 @@ const data = {
     'user_enable_img': userEnableJS
 };
 
-
-
 //fetch
+fetch('cse135ravisteven.site/json/static', {
+  method: 'POST', 
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+// var myHeaders = new Headers();
+// myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+// myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", 'user_agent_string');
-urlencoded.append("value", userString);
+// var urlencoded = new URLSearchParams();
+// urlencoded.append("name", 'user_agent_string');
+// urlencoded.append("value", userString);
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: urlencoded,
-  redirect: 'follow'
-};
+// var requestOptions = {
+//   method: 'POST',
+//   headers: myHeaders,
+//   body: urlencoded,
+//   redirect: 'follow'
+// };
 
-fetch("/json/static/", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log('Fetch Successful'))
-  .catch(error => console.log('error', error));
+// fetch("/json/static/", requestOptions)
+//   .then(response => response.text())
+//   .then(result => console.log('Fetch Successful'))
+//   .catch(error => console.log('error', error));
 
 /*
 fetch('/json/static', {

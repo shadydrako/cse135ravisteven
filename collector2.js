@@ -76,7 +76,6 @@ fetch('https://cse135ravisteven.site/json/static', {
 */
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 var urlencoded = new URLSearchParams();

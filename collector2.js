@@ -333,7 +333,7 @@ myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 var urlencoded = new URLSearchParams();
 urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", "test");
+urlencoded.append("value", localStorage.getItem("user_agent_string"));
 
 var requestOptions = {
   method: 'POST',

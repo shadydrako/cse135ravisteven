@@ -335,7 +335,9 @@ document.addEventListener("visibilitychange", function() {
 // You should be able to tie this data to a specific user session
 })
 
-var myHeaders = new Headers();
+
+window.onload = (event) => {
+    var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -371,7 +373,7 @@ for(let i = 0; i < localStorage.length; i++){
 
 
 
-for(let i = 0; i < localStorage.length; i++){
+for(let i = 0; i < 5; i++){
     let key = localStorage.key(i);
     let item = localStorage.getItem(key);
     var urlencoded = new URLSearchParams();
@@ -383,8 +385,9 @@ for(let i = 0; i < localStorage.length; i++){
       body: urlencoded,
    };
 
-  fetch("https://cse135ravisteven.site/json/performance", requestOptions)
+  fetch("https://cse135ravisteven.site/json/activity", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 }
+};

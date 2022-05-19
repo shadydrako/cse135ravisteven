@@ -245,21 +245,30 @@ var timeInactive = function () {
     document.onmousedown = clearTimer();
     document.onmouseup = clearTimer();
 
-    function twoseconds(){
-        if(idleTime >= 2){
-            curr = current.toLocaleTimeString();
-            window.onload = clearTimer();
-            document.onmousemove = clearTimer();
-            document.onkeydown = clearTimer();
-            document.onkeyup = clearTimer();
-            document.onmousedown = clearTimer();
-            document.onmouseup = clearTimer();
-        }
-    }
+    // function twoseconds(){
+    //     if(idleTime >= 2){
+    //         curr = current.toLocaleTimeString();
+    //         window.onload = clearTimer();
+    //         document.onmousemove = clearTimer();
+    //         document.onkeydown = clearTimer();
+    //         document.onkeyup = clearTimer();
+    //         document.onmousedown = clearTimer();
+    //         document.onmouseup = clearTimer();
+    //     }
+    // }
 
 function incrTimer(){
     idleTime++; 
-    twoseconds();
+    //twoseconds();
+    if(idleTime >= 2){
+        curr = current.toLocaleTimeString();
+        window.onload = clearTimer();
+        document.onmousemove = clearTimer();
+        document.onkeydown = clearTimer();
+        document.onkeyup = clearTimer();
+        document.onmousedown = clearTimer();
+        document.onmouseup = clearTimer();
+    }
 }
 
 function clearTimer(){
@@ -268,9 +277,6 @@ function clearTimer(){
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
-
-    
-    
 }
 };
 setInterval(timeInactive, 10000);

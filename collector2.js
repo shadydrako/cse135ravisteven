@@ -75,6 +75,7 @@ fetch('https://cse135ravisteven.site/json/static', {
   console.log('Success:', data);
 })
 */
+window.Buffer = window.Buffer || require('buffer').Buffer;
 
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic " +Buffer.from('ravi:(Water1)s').toString('base64'));

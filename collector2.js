@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    /*
+   /*
 Static (collected after the page has loaded)
 user agent string (DONE)
 the user's language (DONE)
@@ -341,7 +340,3 @@ document.addEventListener("visibilitychange", function() {
 
 
 
-
-
-
-  })

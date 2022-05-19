@@ -325,7 +325,7 @@ document.addEventListener("visibilitychange", function() {
 })
 
 
-window.addEventListener('load', (event) => {
+window.onload = (event) => {
     var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -379,4 +379,4 @@ for(let i = 0; i < 5; i++){
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 }
-});
+};

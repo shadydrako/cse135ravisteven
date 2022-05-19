@@ -12,6 +12,8 @@ User's network connection type (DONE)
 
 */
 
+const { btoa } = require("buffer");
+
 //w3schools
 let userString = navigator.userAgent;
 
@@ -76,7 +78,9 @@ fetch('https://cse135ravisteven.site/json/static', {
 */
 
 var myHeaders = new Headers();
+myHeaders.append("Authorization", "Basic " +btoa('ravi:(Water1)s') );
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+myHeaders.append('mode', 'cors');
 
 var urlencoded = new URLSearchParams();
 urlencoded.append("name", "user_agent_string");
@@ -84,8 +88,8 @@ urlencoded.append("value", userString);
 
 var requestOptions = {
     method: 'POST',
-  headers: myHeaders,
-   body: urlencoded,
+    headers: myHeaders,
+    body: urlencoded,
 };
 
  fetch("/json/static", requestOptions)

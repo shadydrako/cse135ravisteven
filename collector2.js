@@ -165,19 +165,24 @@ button.addEventListener('click', (event) => {
         switch (e.button) {
             case 0:
                 clickType = 'Left Button';
+                localStorage.setItem('Click_Type', clickType);
                 break;
             case 1:
                 clickType = 'Middle Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
                 break;
             case 2: 
                 clickType = 'Right Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
                 break;
             case 3:
                 clickType = 'Back Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
             case 4:
                 clickType = 'Foward Mouse Button';
+                localStorage.setItem('Click_Type', clickType);
                 break;
-            localStorage.setItem('Click_Type', clickType)    
+                
             }
         }
     }

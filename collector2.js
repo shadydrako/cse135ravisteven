@@ -258,7 +258,7 @@ function clearTimer(){
     clearTimeout(idleTime);
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTimer);
-    timeInactive();
+    
 }
 };
 setInterval(timeInactive, 1000);

@@ -254,7 +254,6 @@ var timeInactive = function () {
             document.onkeyup = clearTimer();
             document.onmousedown = clearTimer();
             document.onmouseup = clearTimer();
-            twoseconds();
         }
     }
 

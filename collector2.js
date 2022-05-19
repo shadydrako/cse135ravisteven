@@ -135,21 +135,21 @@ setInterval(Position, 33);
 
 //ONLY LEFT MOUSEBUTTON WORKS? (onclick apparently only deals with lmb?)
 let clickType;
-var button = document.body;
+let button = document.body;
 window.addEventListener('click', (event) => {
         if (event.button == 0){
             clickType = "Left Button";
         }
-        if (event.button == 1){
+        else if (event.button == 1){
             clickType = "Wheel Button";
         }
-        if(window.oncontextmenu) {
+        else if(window.oncontextmenu) {
             clickType = "Right Button";
         }
-        if (event.button == 3){
+        else if (event.button == 3){
             clickType = "Back Button";
         }
-        if (event.button == 4){
+        else if (event.button == 4){
             clickType = "Forward Button";
         }
         localStorage.setItem('Click_Type', clickType)

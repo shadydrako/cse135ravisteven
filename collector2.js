@@ -58,9 +58,9 @@ const data = {
     'user_js_enabled' : userEnableJS,
     'user_enable_img': userEnableJS
 };
-
+//remove ips from trusted sources list from digital ocean
 //fetch
-fetch('cse135ravisteven.site/json/static', {
+fetch('https://cse135ravisteven.site/json/static', {
   method: 'POST', 
   headers: {
     'Content-Type': 'application/json',

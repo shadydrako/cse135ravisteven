@@ -258,7 +258,7 @@ function clearTimer(){
     clearTimeout(idleTime);
 }
 };
-//setInterval(timeInactive, 1000);
+setInterval(timeInactive, 1000);
 
 
 // Any idle time where no activity happened for a period of 2 or more seconds:

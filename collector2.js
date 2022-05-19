@@ -272,14 +272,12 @@ function incrTimer(){
 }
 
 function clearTimer(){
-    // if(idleTime >= 2000){
-    //     current = current.toLocaleTimeString();
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
 }
 };
-setInterval(timeInactive, 10000);
+// setInterval(timeInactive, 10000);
 
 
 // Any idle time where no activity happened for a period of 2 or more seconds:

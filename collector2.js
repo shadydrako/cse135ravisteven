@@ -246,9 +246,7 @@ var timeInactive = function () {
 
 function incrTimer(){
     idleTime++; 
-    if(idleTime >= 2){
-        current = current.toLocaleTimeString();
-    } 
+    twoseconds();
 }
 
 function clearTimer(){
@@ -258,6 +256,18 @@ function clearTimer(){
     localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
 
+    function twoseconds(){
+        if(idleTime >= 2){
+            current = current.toLocaleTimeString();
+            window.onload = clearTimer();
+            document.onmousemove = clearTimer();
+            document.onkeydown = clearTimer();
+            document.onkeyup = clearTimer();
+            document.onmousedown = clearTimer();
+            document.onmouseup = clearTimer();
+            twoseconds();
+        }
+    }
     
 }
 };

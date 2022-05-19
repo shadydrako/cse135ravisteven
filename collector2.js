@@ -61,14 +61,18 @@ const data = {
     'user_js_enabled' : userEnableJS,
     'user_enable_img': userEnableJS
 };
+
+
+
 //fetch
+
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 var urlencoded = new URLSearchParams();
 urlencoded.append("name", 'user_agent_string');
-urlencoded.append("value", userString);
+urlencoded.append("value", 'test');
 
 var requestOptions = {
   method: 'POST',
@@ -77,10 +81,24 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://cse135ravisteven.site/json/static/", requestOptions)
+fetch("/json/static/", requestOptions)
   .then(response => response.text())
   .then(result => console.log('Fetch Successful'))
   .catch(error => console.log('error', error));
+
+/*
+fetch('/json/static', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(result => {
+  console.log('Success:', result);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+*/
 
 let timing = performance.getEntriesByType("navigation");
 //The timing of the page load
@@ -280,12 +298,14 @@ function incrTimer(){
 }
 
 function clearTimer(){
+    // if(idleTime >= 2000){
+    //     current = current.toLocaleTimeString();
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
 }
 };
-
+setInterval(timeInactive, 10000);
 
 
 // Any idle time where no activity happened for a period of 2 or more seconds:

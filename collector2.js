@@ -73,7 +73,7 @@ urlencoded.append("name", "test_name");
 urlencoded.append("value", "value1");
 
 var requestOptions = {
-  method: 'GET',
+  method: 'POST',
   headers: myHeaders,
   body: urlencoded,
   redirect: 'follow'

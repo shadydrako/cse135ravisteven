@@ -232,23 +232,21 @@ function keyPressed(e) {
 // let current = new Date();
 
 var timeInactive = function () {
-    let idleTime = 0;
-    let idleTimer = 0; 
+    let idleTime = 0; 
     let current = new Date();
+    setInterval(incrTimer, 1000);
 
     window.onload = clearTimer();
     document.onmousemove = clearTimer();
     document.onkeydown = clearTimer();
     
 
-    if(idleTime >= 2000){
-        setInterval(incrTimer, 1000);
-        current = current.toLocaleTimeString();  
-
+    if(idleTime >= 2){
+        current = current.toLocaleTimeString();
     }
 
 function incrTimer(){
-    idleTime++; 
+    idleTime; 
 }
 
 function clearTimer(){
@@ -256,7 +254,7 @@ function clearTimer(){
     //     current = current.toLocaleTimeString();
     // }
     localStorage.setItem('Break_Ended', current);
-    localStorage.setItem('BreakTime', idleTimer);
+    localStorage.setItem('BreakTime', idleTime);
     clearTimeout(idleTime);
 }
 };

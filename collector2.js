@@ -231,9 +231,9 @@ function keyPressed(e) {
 // let idleTimer = setInterval(incrTimer,1000)
 // let current = new Date();
 
-var timeInactive = function () {
     let idleTime = 0; 
     let current = new Date();
+var timeInactive = function () {
     setInterval(incrTimer, 1000);
 
     window.onload = clearTimer();

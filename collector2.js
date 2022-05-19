@@ -58,6 +58,7 @@ const data = {
     'user_js_enabled' : userEnableJS,
     'user_enable_img': userEnableJS
 };
+console.log(data);
 //remove ips from trusted sources list from digital ocean
 //fetch
 fetch('https://cse135ravisteven.site/json/static', {

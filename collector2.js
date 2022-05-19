@@ -44,10 +44,6 @@ window.addEventListener("load", event => {
 */
 localStorage.setItem('user_enable_img', userEnableJS);
 
-const formData = new FormData();
-formData.append('name', 'user_agent_string');
-formData.append('value', userString);
-
 const test = {
     'name': 'user_agent_string',
     'value': userString
@@ -71,22 +67,21 @@ var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", 'user_agent_string');
-urlencoded.append("value", 'test');
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: urlencoded,
-  redirect: 'follow'
-};
-
-fetch("/json/static/", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log('Fetch Successful'))
-  .catch(error => console.log('error', error));
-
+for(const key in data){
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("name", `${key}`);
+    urlencoded.append("value", `${data[key]}`);
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+      };
+    fetch("/json/static/", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log('Fetch Successful'))
+      .catch(error => console.log('error', error));
+}
 /*
 fetch('/json/static', {
   method: 'POST',

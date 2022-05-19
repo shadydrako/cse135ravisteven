@@ -392,7 +392,8 @@ for(let i = 0; i < 5; i++){
 }
 };
 
-<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+zingchart.render({  id: 'myChart', data: configuration,});
 window.addEventListener('load', function() {
 const congiguration = {
     type: 'bar',

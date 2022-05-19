@@ -322,30 +322,8 @@ document.addEventListener("visibilitychange", function() {
   });
 // Which page the user was on
 // You should be able to tie this data to a specific user session
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-
-var urlencoded = new URLSearchParams();
-urlencoded.append("name", "user_agent_string");
-urlencoded.append("value", localStorage.getItem("user_agent_string"));
-
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: urlencoded,
-};
-
-fetch("https://cse135ravisteven.site/json/performance", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-
 })
 
-/*
 var myHeaders = new Headers();
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -361,13 +339,8 @@ var requestOptions = {
   body: urlencoded,
 };
 
-fetch("https://cse135ravisteven.site/json/performance", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
 
-/*
-  for(let i = 0; i < localStorage.length; i++){
+for(let i = 0; i < localStorage.length; i++){
       let key = localStorage.key(i);
       let item = localStorage.getItem(key);
       var urlencoded = new URLSearchParams();
@@ -379,9 +352,8 @@ fetch("https://cse135ravisteven.site/json/performance", requestOptions)
         body: urlencoded,
      };
 
-    fetch("https://cse135ravisteven.site/json/performance", requestOptions)
+    fetch("https://cse135ravisteven.site/json/static", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }
-*/

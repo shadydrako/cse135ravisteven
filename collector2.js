@@ -160,7 +160,7 @@ button.addEventListener('click', (event) => {
   let clickType;
   button.addEventListener('mouseup', buttonType);
 
-  function buttonType(e)
+  function buttonType(e){
     if (typeof e === 'object') {
         switch (e.button) {
             case 0:
@@ -177,7 +177,8 @@ button.addEventListener('click', (event) => {
             case 4:
                 clickType = 'Foward Mouse Button';
                 break;
-        localStorage.setItem('Click_Type', clickType)    
+            localStorage.setItem('Click_Type', clickType)    
+            }
         }
     }
   //var button = document.body,

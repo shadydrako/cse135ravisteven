@@ -233,6 +233,7 @@ function keyPressed(e) {
 
     let idleTime = 0; 
     let current = new Date();
+    let idleTimer = 0;
 var timeInactive = function () {
     setInterval(incrTimer, 1000);
 
@@ -241,21 +242,24 @@ var timeInactive = function () {
     document.onkeydown = clearTimer();
     
 
-    if(idleTime >= 2){
-        current = current.toLocaleTimeString();
-    }
+    
 
 function incrTimer(){
     idleTime++; 
+    if(idleTime >= 2){
+        current = current.toLocaleTimeString();
+    }
+    
 }
 
 function clearTimer(){
     // if(idleTime >= 2000){
     //     current = current.toLocaleTimeString();
-    // }
+    idleTimer = idleTime;
+    clearTimeout(idleTime);
     localStorage.setItem('Break_Ended', current);
     localStorage.setItem('BreakTime', idleTime);
-    clearTimeout(idleTime);
+    
 }
 };
 setInterval(timeInactive, 1000);

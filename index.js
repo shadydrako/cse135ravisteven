@@ -2,13 +2,14 @@ const express = require('express')
 const app = express()
 const port = 3000
 const router = express.Router()
+const bodyParser = require('body-parser');
 const mysql = require('mysql')
 const session = require('express-session');
 const path = require('path');
 
 
-// app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
+//app.use(bodyParser.urlencoded({ extended: false }))
+//app.use(bodyParser.json())
 
 // all of the databases we may need to use
 //hw 4
@@ -34,7 +35,7 @@ app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname + '/login.html'));
 });
 
-app.post('/auth', function(request, response) {
+app.post('/', function(request, response) {
 	// Capture the input fields
 	let username = request.body.username;
 	let password = request.body.password;
@@ -51,6 +52,7 @@ app.post('/auth', function(request, response) {
 				request.session.username = username;
 				// Redirect to home page
                 response.redirect('https://cse135ravisteven.site/')
+				response.send("FOund USER")
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			
@@ -125,8 +127,8 @@ connection3.connect((err) => {
 'use strict';
 const fs = require('fs');
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 

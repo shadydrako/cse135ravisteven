@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 const router = express.Router()
-const bodyParser = require('body-parser');
 const mysql = require('mysql')
 const session = require('express-session');
 const path = require('path');
@@ -52,7 +51,6 @@ app.post('/auth', function(request, response) {
 				request.session.username = username;
 				// Redirect to home page
                 response.redirect('https://cse135ravisteven.site/')
-				//response.send("FOund USER")
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			

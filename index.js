@@ -51,7 +51,7 @@ app.post('/auth', function(request, response) {
 				request.session.loggedin = true;
 				request.session.username = username;
 				// Redirect to home page
-				response.redirect('/home');
+				response.send("FOund USER")
 			} else {
 				response.send('Incorrect Username and/or Password!');
 			}			

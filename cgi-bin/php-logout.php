@@ -2,11 +2,19 @@
  <head>
   <title> You have successfully logged out! </title>
  </head>
+ <meta charset="utf-8">
+ <?php  
+echo '<script type="text/javascript">';
+echo ' alert("You have successfully logged out!")'; 
+echo '</script>';
+?>
+</head>
+ <body>
+ <?php echo '<p>You have successfully logged out!</p>'; ?> 
+ </body>
 </html>
 
-
-//Heres the code to log out on click
-
+//Heres the code to log out on click  // HEYHEYHEY
 function logout(){
         var yesLogout=confirm("Do you want to logout?");
         if(yesLogout){

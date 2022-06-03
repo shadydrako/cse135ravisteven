@@ -16,13 +16,13 @@
         </style>
     </head>
     <body>
-        <form action="auth" method="post">
+        <form action="/auth" method="post">
             <label for="user"> <b> Username/ Email </b></label>
-            <input type="text" id="user" placeholder="User Name/ Email " required>
+            <input type="text" id="user" name="username" placeholder="User Name/ Email " required>
             
             <br>
             <label for="password"> <b> Password </b> </label>
-            <input type="password" id="password" placeholder="Enter Password" required>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
     
             <button type="submit" > Login </button> 
         </form>

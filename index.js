@@ -7,8 +7,8 @@ const session = require('express-session');
 const path = require('path');
 
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
 
 // all of the databases we may need to use
 //hw 4

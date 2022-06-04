@@ -57,7 +57,7 @@ app.post('/api/auth', function(request, response) {
 });
 
 // http://localhost:3000/home
-app.get('/home', function(request, response) {
+app.get('/api/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Output username

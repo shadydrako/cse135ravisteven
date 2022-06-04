@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 
 const mysql = require('mysql')
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -60,8 +60,8 @@ connection3.connect((err) => {
 'use strict';
 const fs = require('fs');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 });
 
 // http://localhost:3000/auth
-app.post('/auth', function(request, response) {
+app.post('/api/auth', function(request, response) {
 	// Capture the input fields
 	let username = request.body.username;
 	let password = request.body.password;

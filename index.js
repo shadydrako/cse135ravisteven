@@ -45,8 +45,8 @@ app.get('/', function(request, response) {
 
 app.post('/auth', (request, response)=> {
 
-    response.send("HELP");
-	// // Capture the input fields
+    console.log("AUTH USED");
+    // // Capture the input fields
 	// let username = request.body.username;
 	// let password = request.body.password;
 	// // Ensure the input fields exists and are not empty

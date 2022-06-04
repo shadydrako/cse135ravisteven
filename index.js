@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const router = express.Router()
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const mysql = require('mysql')
 const session = require('express-session');
 const path = require('path');
@@ -129,8 +129,8 @@ connection3.connect((err) => {
 'use strict';
 const fs = require('fs');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 
 

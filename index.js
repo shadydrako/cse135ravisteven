@@ -21,6 +21,14 @@ const userAccounts = mysql.createConnection({
 	database : 'accounts'
 });
 
+userAccounts.connect((err) => {
+    if (err) {
+        console.log('Connection error message: ' + err.message);
+        return;
+    }
+    console.log('Connected2!')
+});
+
 
 
 app.use(session({

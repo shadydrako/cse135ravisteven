@@ -12,7 +12,7 @@ echo '</script>';
  <body>
  <?php echo '<p>You have successfully logged out!</p>'; 
  $link = 'https://cse135ravisteven.site';
- echo Click <a href=\"$link\">here</a> to return to the homepage!";
+ echo "Click here to return to the homepage! <a href=\"$link\"> Home </a>";
  ?> 
  </body>
 </html>

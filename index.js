@@ -2,89 +2,12 @@ const express = require('express')
 const app = express()
 const port = 3000
 const router = express.Router()
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+
 const mysql = require('mysql')
-const session = require('express-session');
-const path = require('path');
 
-
-//app.use(bodyParser.urlencoded({ extended: false }))
-//app.use(bodyParser.json())
-
-// all of the databases we may need to use
-//hw 4
-
-const userAccounts = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '(Water1)s',
-	database : 'accounts'
-});
-
-userAccounts.connect((err) => {
-    if (err) {
-        console.log('Connection error message: ' + err.message);
-        return;
-    }
-    console.log('Connected2!')
-});
-
-
-
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
-
-
-app.get('/', function(request, response) {
-	// Render login template
-	response.sendFile(path.join(__dirname + '/login.html'));
-});
-
-app.post('/auth', (request, response)=> {
-
-    console.log("AUTH USED");
-    // // Capture the input fields
-	// let username = request.body.username;
-	// let password = request.body.password;
-	// // Ensure the input fields exists and are not empty
-	// if (username && password) {
-	// 	// Execute SQL query that'll select the account from the database based on the specified username and password
-	// 	userAccounts.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-	// 		// If there is an issue with the query, output the error
-	// 		if (error) throw error;
-	// 		// If the account exists
-	// 		if (results.length > 0) {
-	// 			// Authenticate the user
-	// 			request.session.loggedin = true;
-	// 			request.session.username = username;
-	// 			// Redirect to home page
-    //             response.redirect('https://cse135ravisteven.site/')
-	// 			response.send("FOund USER")
-	// 		} else {
-	// 			response.send('Incorrect Username and/or Password!');
-	// 		}			
-	// 		response.end();
-	// 	});
-	// } else {
-	// 	response.send('Please enter Username and Password!');
-	// 	response.end();
-	// }
-});
-
-app.get('/home', function(request, response) {
-	if (request.session.loggedin) {
-		response.send('Welcome back, ' + request.session.username + '!');
-	} else {
-		response.send('Please login to view this page!');
-	}
-	response.end();
-});
-
-//------------------------------------------------------------------------------------------------------------hw3
-//------------------------------------------------------------------------------------------------------------
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -137,11 +60,23 @@ connection3.connect((err) => {
 'use strict';
 const fs = require('fs');
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
+/*
+app.get('/static', (req,res) => {
+    connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
+        if(err) throw err
 
+        res.send(rows);
+    })
+    console.log("GET REQUEST HANDLED");
+})
+*/
 
 app.route('/static')
     .get((req,res) => {
@@ -175,6 +110,20 @@ app.get('/static/:name', (req, res) => {
 })
 
 
+//
+/*
+//adding new items to static
+app.post('/static', (req, res) => {
+    let query1 = "INSERT INTO tourneys (name, wins, best, size) VALUES ('" + req.body.name + "','" + req.body.wins + "','" + req.body.best + "','"  + req.body.size + "');" 
+    connection.query( query1, function(err,result){
+        if(err) throw err;
+        console.log("1 record inserted");
+    })
+    console.log("POST REQUEST HANDLED");
+})
+*/
+
+//delete something
 
 app.delete('/static/:name', (req,res)=>{
     let query1 = "DELETE FROM tourneys WHERE name='" +req.params.name+"';"
@@ -295,13 +244,10 @@ app.route('/performance/:name')
         res.send('update shit')
     })
 
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 
 

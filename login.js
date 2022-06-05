@@ -1,10 +1,35 @@
+if( process.env.NODE_ENV !== 'production'){
+	require('dotenv').config();
+}
+
 const express = require('express')
 const bcrypt = require('bcrypt')
 const app = express()
 
 
+const passport = require('passport')
+
+const flash = require('express-flash');
+const flash = require('express-session');
+
+const initializePassport = require('./passport-config')
+initializePassport(
+	passport, 
+	email => users.find( user = user.email === email))
+
+
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({extended: false }))
+app.use( flash())
+
+app.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUnitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 const users = []
 
@@ -14,6 +39,13 @@ const users = []
 app.get('/login', (req, res, next) => {
         res.render('login.ejs')
 });
+
+app.post('/login', passport.authenticate('local', {
+	//where to go if success
+	successRedirect: '/api/dashboard',
+	failureRedirect: '/api/login',
+	failureFlash: true
+}))
 
 app.get('/register', (req, res) => {
 	res.render('register.ejs');
@@ -25,7 +57,7 @@ app.post('/register', async (req, res)=>{
 		const hashedPassword = await bcrypt.hash(req.body.password, 10);
 		users.push({
 			id: Date.now().toString(),
-			name: req.body.username,
+			name: req.body.email,
 			password: hashedPassword
 		})
 		res.redirect('/api/login')

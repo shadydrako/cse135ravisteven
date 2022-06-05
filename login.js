@@ -27,10 +27,9 @@ app.get('/login', function (req, res){
 	res.sendFile('/hw4_login/login.html', {root: __dirname});
 });
 
-app.post('/login', passport.authenticate('local',
-{
-	successRedirect: 'home', failureRedirect: 'login'
-}));
+app.post('/login', function (req, res){
+	res.sendFile('index.html', {root: __dirname});
+});
 
 //this should not do anything
 app.get('/logout', function(req, res){

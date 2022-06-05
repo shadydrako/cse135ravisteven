@@ -176,6 +176,3 @@ app.get('/login', (req, res, next) => {
 });
 
 //should send to home page
-app.post('/login', function (req, res){
-	res.sendFile("index.html");
-})

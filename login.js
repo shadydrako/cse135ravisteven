@@ -170,12 +170,13 @@ app.use((req,res,next)=>{
 });
 
 /*routes*/
+//this shall load the login page
 app.get('/login', (req, res, next) => {
         res.render('login')
 });
-
+// this fucking works lets go
 app.post('/login', (req, res, next) => {
-	res.sendFile('index.html', {root:__dirname});
+	res.render('dashboarduser');
 });
 
 app.listen(3000, function() {

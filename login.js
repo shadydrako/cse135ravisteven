@@ -219,7 +219,7 @@ app.post('/register',userExists,(req,res,next)=>{
     res.redirect('/login');
 });
 
-app.post('/login',passport.authenticate('local',{failureRedirect:'/login-failure',successRedirect:'/login-success'}));
+app.post('/login',passport.authenticate('local',{failureRedirect:'/api/login-failure',successRedirect:'/login-success'}));
 
 app.get('/protected-route',isAuth,(req, res, next) => {
  

@@ -174,3 +174,8 @@ app.use((req,res,next)=>{
 app.get('/login', (req, res, next) => {
         res.render('login')
 });
+
+//should send to home page
+app.post('/login', function (req, res){
+	res.sendFile("index.html");
+})

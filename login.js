@@ -175,8 +175,8 @@ app.get('/login', (req, res, next) => {
         res.render('login')
 });
 // this fucking works lets go
-app.get('/dashboarduser', (req, res, next) => {
-	res.render('dashboarduser');
+app.get('/dashboard', (req, res, next) => {
+	res.render('dashboarduser.ejs');
 });
 
 app.listen(3000, function() {

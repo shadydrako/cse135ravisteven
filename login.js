@@ -185,7 +185,7 @@ app.get('/login-success', (req, res, next) => {
     res.send('<p>You successfully logged in. --> <a href="/protected-route">Go to protected route</a></p>');
 });
 
-app.get('/login-failure', (req, res, next) => {
+app.get('/api/login-failure', (req, res, next) => {
     res.send('You entered the wrong password.');
 });
 

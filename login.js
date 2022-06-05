@@ -175,7 +175,7 @@ app.get('/login', (req, res, next) => {
 });
 
 app.post('/login', (req, res, next) => {
-	res.sendFile('index.html');
+	res.sendFile('index.html', {root:__dirname});
 });
 
 app.listen(3000, function() {

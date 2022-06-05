@@ -62,6 +62,7 @@ if (process.env.NODE_ENV !== 'production') {
 		email: req.body.email,
 		password: hashedPassword
 	  })
+	  console.log(users)
 	  res.redirect('/api/login')
 	} catch {
 	  res.redirect('/api/register')

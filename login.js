@@ -172,7 +172,7 @@ app.use((req,res,next)=>{
 /*routes*/
 //this shall load the login page
 app.get('/login', (req, res, next) => {
-        res.render('login')
+        res.render('login.ejs')
 });
 // this fucking works lets go
 app.get('/dashboard', (req, res, next) => {

@@ -4,27 +4,17 @@
     <meta charset="utf-8">
     <title>Login System</title>
   </head>
-    <body class="background">
-      <section id='login'>
-        <form action='/api/dashboard' method='get'   style="border-color:#66bfbf">
+    <h1> Login ! </h1>
+    <form action="/api/login" method="post">
         <div>
-            <h1 class="logintitle">Login</h1>
-            <div class="inp">
-                <label>Username : </label>
-                <input type="text" placeholder="Enter Username or email" name="uname" required>          
-            </div>
-            <div  class="inp">
-                <label>Password : </label>
-                <input type="password" placeholder="Enter Password" name="pw" required>
-            </div>
-        
-           <div>
-            <button formaction="/api/dashboard" type="submit">Login</button>
-           </div>
+            <label for="username"> Name </label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password"> Name </label>
+            <input type="password" id="password" name="password" required>
         </div>
+        <button type="submit"> Login </button>
     </form>
-      </section>
-    
 
   </body>
 </html>

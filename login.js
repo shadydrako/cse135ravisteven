@@ -175,7 +175,7 @@ app.get('/login', (req, res, next) => {
         res.render('login')
 });
 // this fucking works lets go
-app.post('/dashboarduser', (req, res, next) => {
+app.get('/dashboarduser', (req, res, next) => {
 	res.render('dashboarduser');
 });
 

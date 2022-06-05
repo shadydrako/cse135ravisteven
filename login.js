@@ -170,85 +170,14 @@ app.use((req,res,next)=>{
 });
 
 /*routes*/
-app.get('/', (req, res, next) => {
-    res.send('<h1>Home</h1><p>Please <a href="/register">register</a></p>');
-});
-
 app.get('/login', (req, res, next) => {
         res.render('login')
 });
-app.get('/logout', (req, res, next) => {
-    req.logout(); //delets the user from the session
-    res.redirect('/protected-route');
-});
-app.get('/login-success', (req, res, next) => {
-    res.send('<p>You successfully logged in. --> <a href="/protected-route">Go to protected route</a></p>');
-});
 
-app.get('/login-failure', (req, res, next) => {
-    res.send('You entered the wrong password.');
-});
-
-
-app.get('/register', (req, res, next) => {
-    console.log("Inside get");
-    res.render('register')
-    
-});
-
-app.post('/register',userExists,(req,res,next)=>{
-    console.log("Inside post");
-    console.log(req.body.pw);
-    const saltHash=genPassword(req.body.pw);
-    console.log(saltHash);
-    const salt=saltHash.salt;
-    const hash=saltHash.hash;
-
-    connection.query('Insert into users(username,hash,salt,isAdmin) values(?,?,?,0) ', [req.body.uname,hash,salt], function(error, results, fields) {
-        if (error) 
-            {
-                console.log("Error");
-            }
-        else
-        {
-            console.log("Successfully Entered");
-        }
-       
-    });
-
-    res.redirect('/login');
-});
-
-app.post('/login',passport.authenticate('local',{failureRedirect:'/api/login-failure',successRedirect:'/login-success'}));
-
-app.get('/protected-route',isAuth,(req, res, next) => {
- 
-    res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
-});
-
-app.get('/admin-route',isAdmin,(req, res, next) => {
- 
-    res.send('<h1>You are admin</h1><p><a href="/logout">Logout and reload</a></p>');
-
+app.post('/login', (req, res, next) => {
+	res.sendFile('index.html');
 });
 
 app.listen(3000, function() {
     console.log('App listening on port 3000!')
-  });
-
-
-  app.get('/notAuthorized', (req, res, next) => {
-    console.log("Inside get");
-    res.send('<h1>You are not authorized to view the resource </h1><p><a href="/login">Retry Login</a></p>');
-    
-});
-app.get('/notAuthorizedAdmin', (req, res, next) => {
-    console.log("Inside get");
-    res.send('<h1>You are not authorized to view the resource as you are not the admin of the page  </h1><p><a href="/login">Retry to Login as admin</a></p>');
-    
-});
-app.get('/userAlreadyExists', (req, res, next) => {
-    console.log("Inside get");
-    res.send('<h1>Sorry This username is taken </h1><p><a href="/register">Register with different username</a></p>');
-    
 });

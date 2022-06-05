@@ -23,6 +23,11 @@ app.get('/login', function (req, res){
 	res.sendFile('login.html', {root: __dirname});
 });
 
+app.post('/login/password', passport.authenticate('local', {
+	successRedirect: '/',
+	failureRedirect: '/login'
+}));
+
 
 passport.use(new LocalStrategy(function verify(username, password, cb) {
 	db.get('SELECT * FROM users WHERE username = ?', [ username ], function(err, row) {

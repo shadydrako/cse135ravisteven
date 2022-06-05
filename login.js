@@ -16,7 +16,7 @@ app.use(session({
 	secret: 'session_cookie_secret',
 	store: new MySQLStore({
         host:'localhost',
-        port:3306,
+        port:3000,
         user:'root',
         database:'cookie_user'
     }),
@@ -44,6 +44,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     database: "user",
+	password: "(Water1)s",
     multipleStatements: true
   });
   connection.connect((err) => {
@@ -232,7 +233,7 @@ app.get('/admin-route',isAdmin,(req, res, next) => {
 });
 
 app.listen(3000, function() {
-    console.log('App listening on port 8080!')
+    console.log('App listening on port 3000!')
   });
 
 

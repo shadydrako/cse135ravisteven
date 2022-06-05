@@ -175,7 +175,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/login', (req, res, next) => {
-        res.render('login')
+        res.sendFile('/hw4_login/login.html');
 });
 app.get('/logout', (req, res, next) => {
     req.logout(); //delets the user from the session

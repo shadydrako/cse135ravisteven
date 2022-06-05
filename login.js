@@ -38,10 +38,14 @@ if (process.env.NODE_ENV !== 'production') {
   app.get('/login', checkNotAuthenticated, (req, res) => {
 	res.render('login.ejs')
   })
+
+  app.get('/dashboard', (req, res ) =>{
+	res.render('dashboarduser.ejs')
+  })
   
   app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-	successRedirect: '/',
-	failureRedirect: '/login',
+	successRedirect: '/api/dashboard',
+	failureRedirect: '/api/login',
 	failureFlash: true
   }))
   
@@ -58,15 +62,15 @@ if (process.env.NODE_ENV !== 'production') {
 		email: req.body.email,
 		password: hashedPassword
 	  })
-	  res.redirect('/login')
+	  res.redirect('/api/login')
 	} catch {
-	  res.redirect('/register')
+	  res.redirect('/api/register')
 	}
   })
   
   app.delete('/logout', (req, res) => {
 	req.logOut()
-	res.redirect('/login')
+	res.redirect('/api/login')
   })
   
   function checkAuthenticated(req, res, next) {

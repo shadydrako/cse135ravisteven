@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  
+  <script src="path/to/zinggrid.min.js" defer></script>
   <script src="https://cdn.lr-in-prod.com/LogRocket.min.js" crossorigin="anonymous"></script>
 <script>window.LogRocket && window.LogRocket.init('b397ov/cse135ravistevensite');</script>
   <meta charset="UTF-8" />
@@ -101,14 +101,7 @@
     <h2> HW3 </h2>
     <p class="hwDetails">
       <a href="database.html"> DataBase </a>
-      <a href="hellodataviz.html"> Charts</a>
-    </p>
-  </section>
-
-  <section>
-    <h2> HW4 </h2>
-    <p class="hwDetails">
-      <a href="/hw4_login/login.html"> Login </a>
+      <a href="hellodataviz.html"> Charts</a> 
     </p>
   </section>
 
@@ -119,7 +112,26 @@
   </script>
 
   <script src="collector2.js"></script>
-
+  <zing-grid>
+    <zing-grid
+  id="example-grid"
+  data='[
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 45
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "age": 44
+    },
+  ]'
+  theme="default"
+  caption="Meet the Doe Family">
+</zing-grid>
+    
+  </zing-grid>
 
 </body>
 

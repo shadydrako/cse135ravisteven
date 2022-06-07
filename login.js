@@ -1,12 +1,9 @@
 const express = require('express');
 const path = require('path');
-
+const app = express();
 //using views lfg
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
-const app = express();
 
 app.use('/', express.static(path.join(__dirname, 'static')))
 

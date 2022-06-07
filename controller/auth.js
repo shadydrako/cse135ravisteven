@@ -19,9 +19,7 @@ exports.register = (req, res) => {
     db.query('SELECT user FROM users WHERE user = ?', [username], async (error, results) =>{
         if(error){
             console.log(error);
-        }
-
-        if(results.length > 0){
+        } else if(results.length > 0){
             //already a user in the thing
             return res.render('register.ejs'); //will deal with message later;
         }
@@ -29,10 +27,23 @@ exports.register = (req, res) => {
         let hashedPassword = await bcrypt.hash( password, 10);
         console.log( hashedPassword); 
 
+        db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword}, (error, results) => {
+            if(error){
+                console.log(error)
+            }else {
+                con
+            }
+            
+        })
+
     })
+}
 
+exports.login = async (req,res) => {
+    try {
 
+    }catch (error){
+        console.log(error)
+    }
 
-
-    res.send("Form successfuly submit");
 }

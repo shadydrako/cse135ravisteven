@@ -2,7 +2,6 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport')
-const bodyParser = require('body-parser')
 const LocalStrategy = require('passport-local')
 const port = 3000;
 

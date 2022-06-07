@@ -26,22 +26,13 @@ db.connect( (error) => {
   }
 })
 
+
+
 //using views lfg
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 
-app.get('/login', (req, res) => {
-  res.render('login');
-})
-
-app.get('/register', (req, res) => {
-  res.render('register');
-})
-
-app.post('/register', async (req, res) => {
-  console.log(req.body);
-  res.json({status: 'ok'})
-})
+app.use('/', require('./routes/p'))
 
 app.listen(3000, () => {
   console.log("We are listening");

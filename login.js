@@ -50,3 +50,11 @@ app.use('/a', require('./routes/auth'))
 app.listen(3000, () => {
   console.log("We are listening");
 })
+
+//I JUST PUT THIS HERE
+app.get('/mydb', function(req, res) {
+  connection.query(queryString, function(err, rows, fields) {
+    if (err) throw err;
+    res.send(rows);
+  });
+});

@@ -10,6 +10,8 @@
 <script>
   let form = document.getElementById('register-form');
 
+  form.addEventListener('submit', registerUser);
+
   // sending data as JSON
   async function registerUser(e){
     e.preventDefault();//does not immediately refresh

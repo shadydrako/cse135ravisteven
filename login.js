@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 //using views lfg
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));

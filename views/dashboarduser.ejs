@@ -1,11 +1,64 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> Dashboard </title>
-  </head>
-  <body>
-      <h1> Hi User </h1>
+<!doctype html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid Demo</title>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js"></script>
+  <link href="database.css" rel="stylesheet">
+</head>
+ 
+<body>
+    <h1> Static  </h1>
+  <zing-grid id="table1" src="https://cse135ravisteven.site/api/static"> </zing-grid>
+  <br>
+  <br>
+  <h1> Performance </h1>
+  <zing-grid id="table2" src="https://cse135ravisteven.site/api/performance"> </zing-grid>
+  <br>
+  <br>
+  <h1> Activity </h1>
+  <zing-grid id="table3" src="https://cse135ravisteven.site/api/activity"> </zing-grid>  
+</body>
 
-  </body>
+<script>
+window.addEventListener('load', () => {
+  // Javascript code to execute after DOM content
+  const ref1 = document.getElementById("table1");
+  const ref2 = document.getElementById("table2");
+  const ref3 = document.getElementById("table3");
+
+  let intervalTimeoutId = setInterval(() => {
+    fetch('https://cse135ravisteven.site/api/static')
+      .then(res => res.json())
+      .then(data => {
+        // in this use case our endpoint is not updating so
+        // we fake an endpoint update by manipulating the data
+        // update data
+        ref1.setData(data);
+      })
+      .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+    fetch('https://cse135ravisteven.site/api/performance')
+      .then(res => res.json())
+      .then(data => {
+        // in this use case our endpoint is not updating so
+        // we fake an endpoint update by manipulating the data
+        // update data
+        ref2.setData(data);
+      })
+      .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+    fetch('https://cse135ravisteven.site/api/activity')
+      .then(res => res.json())
+      .then(data => {
+        // in this use case our endpoint is not updating so
+        // we fake an endpoint update by manipulating the data
+        // update data
+        ref3.setData(data);
+      })
+      .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+  }, 1000000000000);
+ 
+});
+  </script>
+  <script src="../hw4_login/hw4_collector.js"> </script> 
 </html>

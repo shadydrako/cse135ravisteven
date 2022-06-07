@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login System</title>
-  </head>
-    <h1> Login ! </h1>
-    <% if (messages.error) { %>
-        <%= messages.error %>
-    <% } %>
-    <form action="/api/login" method="post">
-        <div>
-            <label for="email"> Name </label>
-            <input type="text" id="email" name="email" required>
-            <br>
-            <label for="password"> Password </label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit"> Login </button>
-    </form>
-    <a href="/index.html"> Back to Home Site </a>
-  </body>
-</html>
+<h1>login</h1>
+ 
+<form action="/login" method="POST">
+    <input type="text" name="username"
+        placeholder="username">
+    <input type="password" name="password"
+        placeholder="password">
+    <button>login</button>
+</form>
+ 
+<h1>This is home page</h1>
+ 
+<li><a href="/register">Sign up!!</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/logout">Logout</a></li>

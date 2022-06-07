@@ -1,92 +1,94 @@
-if (process.env.NODE_ENV !== 'production') {
-	require('dotenv').config()
-  }
-  
-  const express = require('express')
-  const app = express()
-  const bcrypt = require('bcrypt')
-  const passport = require('passport')
-  const flash = require('express-flash')
-  const session = require('express-session')
-  const methodOverride = require('method-override')
-  
-  const initializePassport = require('./passport-config')
-  initializePassport(
-	passport,
-	email => users.find(user => user.email === email),
-	id => users.find(user => user.id === id)
-  )
-  
-  const users = []
-  
-  app.set('view-engine', 'ejs')
-  app.use(express.urlencoded({ extended: false }))
-  app.use(flash())
-  app.use(session({
-	secret: process.env.SESSION_SECRET,
-	resave: false,
-	saveUninitialized: false
-  }))
-  app.use(passport.initialize())
-  app.use(passport.session())
-  app.use(methodOverride('_method'))
-  
-  app.get('/', checkAuthenticated, (req, res) => {
-	res.render('index.ejs', { name: req.user.name })
-  })
-  
-  app.get('/login', checkNotAuthenticated, (req, res) => {
-	res.render('login.ejs')
-  })
+const bodyParser = require('body-parser')
+const express = require('express')
+const mongoose = require('mongoose')
+const passport = require('passport')
+const bodyParser = require('body-parser')
+const LocalStrategy = require('passport-local')
+const port = 3000;
 
-  app.get('/dashboard', (req, res ) =>{
-	res.render('dashboarduser.ejs')
-  })
-  
-  app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-	successRedirect: '/api/dashboard',
-	failureRedirect: '/api/login',
-	failureFlash: true
-  }))
-  
-  app.get('/register', checkNotAuthenticated, (req, res) => {
-	res.render('register.ejs')
-  })
-  
-  app.post('/register', checkNotAuthenticated, async (req, res) => {
-	try {
-	  const hashedPassword = await bcrypt.hash(req.body.password, 10)
-	  users.push({
-		id: Date.now().toString(),
-		name: req.body.name,
-		email: req.body.email,
-		password: hashedPassword
-	  })
-	  console.log(users)
-	  res.redirect('/api/login')
-	} catch {
-	  res.redirect('/api/register')
-	}
-  })
-  
-  app.delete('/logout', (req, res) => {
-	req.logOut()
-	res.redirect('/api/login')
-  })
-  
-  function checkAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
-	  return next()
-	}
-  
-	res.redirect('/login')
-  }
-  
-  function checkNotAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
-	  return res.redirect('/')
-	}
-	next()
-  }
-  
-  app.listen(3000)
+passportLocalMongoose = 
+  require("passport-local-mongoose")
+
+
+const user = require('./models/user')
+
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
+mongoose.set('useUnifiedTopology', true)
+mongoose.connect("mongodb://cse135ravisteven.site/api/auth_demo_app") //edit for our app 
+
+const app = express();
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(require("express-session")({
+  secret: "app secret",
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+//routes
+app.get("/", function (req, res) {
+  res.sendFile('index.html');
+});
+
+app.get("/secret", isLoggedIn, function (req, res) {
+  res.render("secret");
+});
+
+
+app.get("/register", function (req, res) {
+  res.render("register");
+});
+
+app.post("/register", function (req, res) {
+  var username = req.body.username
+  var password = req.body.password
+  User.register(new User({ username: username }),
+          password, function (err, user) {
+      if (err) {
+          console.log(err);
+          return res.render("register");
+      }
+
+      passport.authenticate("local")(
+          req, res, function () {
+          res.render("secret");
+      });
+  });
+});
+
+app.get("/login", function (req, res) {
+  res.render("login");
+});
+
+app.post("/login", passport.authenticate("local", {
+  successRedirect: "/api/secret",
+  failureRedirect: "/api/login"
+}), function (req, res) {
+});
+
+
+app.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/api/");
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/api/login");
+}
+
+app.listen(port, function () {
+  console.log("Server Has Started!");
+});

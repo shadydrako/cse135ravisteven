@@ -32,7 +32,9 @@ db.connect( (error) => {
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 
+//THESE ARE WHERE THE ROUTES ARE
 app.use('/', require('./routes/p'))
+app.use('/a', require('./routes/auth'))
 
 app.listen(3000, () => {
   console.log("We are listening");

@@ -4,11 +4,15 @@ const app = express();
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 
+const dotenv = require('dotenv');
+
+dotenv.config({ path: './.env'})
+
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '(Water1)s',
-  database: 'login'
+  host: process.env.HOST,
+  user:  process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE
 })
 
 db.connect( (error) => {

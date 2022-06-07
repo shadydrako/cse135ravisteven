@@ -51,12 +51,13 @@ exports.login = async (req,res) => {
                     expiresIn: process.env.JWT_EXPIRE_IN
                 } )
 
-                const cookieOptions = {
-                    expires: new date (
-                        Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-                    ),
-                    httponly: true,
-                }
+                // const cookieOptions = {
+                //     expires: new date (
+                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+                //     ),
+                //     httponly: true,
+                // }
+                console.log("THIS USER EXITS");
 
                 res.send("THIS USER EXITS AND IS REAL");
             }else{

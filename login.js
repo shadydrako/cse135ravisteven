@@ -15,6 +15,9 @@ const db = mysql.createConnection({
   database: process.env.DATABASE
 })
 
+
+
+
 db.connect( (error) => {
   if(error){
     console.log("Error connecting")
@@ -26,8 +29,6 @@ db.connect( (error) => {
 //using views lfg
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
-
-app.use('/', express.static(path.join(__dirname, 'static')))
 
 app.get('/login', (req, res) => {
   res.render('login');

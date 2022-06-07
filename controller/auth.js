@@ -31,7 +31,7 @@ exports.register = (req, res) => {
             if(error){
                 console.log(error)
             }else {
-                con
+                console.log("yay");
             }
             
         })
@@ -41,6 +41,29 @@ exports.register = (req, res) => {
 
 exports.login = async (req,res) => {
     try {
+        const username = req.body.username; 
+        const password = req.body.password;
+
+        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
+            if( await bcrypt.compare(password, results[0].password)) {
+                const id = results[0].id; 
+                const token = jwt.sign({id}, process.env.JWT_SECRET, {
+                    expiresIn: process.env.JWT_EXPIRE_IN
+                } )
+
+                const cookieOptions = {
+                    expires: new date (
+                        Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+                    ),
+                    httponly: true,
+                }
+
+                res.send("THIS USER EXITS AND IS REAL");
+            }else{
+                res.render('login.ejs')
+            }
+
+        })
 
     }catch (error){
         console.log(error)

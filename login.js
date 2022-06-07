@@ -12,6 +12,10 @@ app.get('/login', (req, res) => {
   res.render('login');
 })
 
+app.get('/register', (req, res) => {
+  res.render('register');
+})
+
 app.listen(3000, () => {
   console.log("We are listening");
 })

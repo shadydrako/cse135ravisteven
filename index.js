@@ -9,6 +9,7 @@ const mysql = require('mysql')
 // app.use(bodyParser.urlencoded({ extended: false }))
 // app.use(bodyParser.json())
 
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -30,6 +31,14 @@ const connection3 = mysql.createConnection({
     database: 'activity'
 })
 
+//I JUST PUT THIS NOT SURE IF WORKS
+var connection4 = mysql.createConnection({
+    host: 'localhost',
+    port: 3306,
+    user: 'user',
+    password: 'password',
+    database: 'mydb'
+  })
 
 connection.connect((err) => {
     if (err) {

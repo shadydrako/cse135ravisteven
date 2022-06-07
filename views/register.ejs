@@ -12,28 +12,3 @@
     <input type="submit" value="Register" />
 
 </form>
-
-<script>
-  let form = document.getElementById('register-form');
-
-  form.addEventListener('submit', registerUser);
-
-  // sending data as JSON
-  async function registerUser(e){
-    e.preventDefault();//does not immediately refresh
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    let result = await fetch('/api/register',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username,password
-      })
-    }).then((res) => res.json())
-    console.log("USER DID SMTN");
-  }
-
-</script>

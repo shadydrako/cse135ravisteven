@@ -121,7 +121,6 @@ router.post('/static', (req,res )=>{
     //     JS_en: req.body.js_en,
     //     network_connection: req.body.networkConnection
     // }
-    let result = (typeof req.body);
     console.log(result);
     var items;
 

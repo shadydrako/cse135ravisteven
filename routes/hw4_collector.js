@@ -62,7 +62,7 @@ function ready(startTime){
 
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Content-Type", "application/json");
 
     fetch('/api/data/static', {
         method: 'POST',

@@ -52,8 +52,7 @@ exports.login = async (req,res) => {
              });
             }else if( await bcrypt.compare(password, results[0].password)) {
                 try {
-                    const id = results[0].id; 
-                    const username = results[0].user
+                    
                     return res.send("THIS USER EXITS AND IS REAL");
                 }catch(error){
                     console.log(error);

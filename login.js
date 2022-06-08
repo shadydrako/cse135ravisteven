@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const mysql = require("mysql");
 //session stuff
 const session = require('express-session');
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 
 const dotenv = require('dotenv');
 

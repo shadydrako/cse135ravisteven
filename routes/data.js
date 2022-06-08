@@ -47,6 +47,7 @@ router.put("/users/:id", async (req, res ) => {
     let password = req.body.password;
     let username = req.body.user;
     var isAdmin;
+    console.log(req.body.isAdmin);
     if( req.body.admin == null){
         isAdmin = 0;
     }else{

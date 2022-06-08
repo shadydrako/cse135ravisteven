@@ -54,7 +54,6 @@ router.put("/users/:id", async (req, res ) => {
         console.log("UPDATED ROW");
         res.end();
     })
-    
 })
 /*
 zgRef.addEventListener('data:record:delete', (e) => {

@@ -45,7 +45,7 @@ exports.login = async (req,res) => {
         let password = req.body.password;
         console.log(req.body);
         //FROM users WHERE user = ?
-        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
+        db.query('SELECT * FROM users WHERE user = potato', [username], async (error, results) => {
             console.log(results);
             if( results.length <= 0 ){
                 console.log("This user does not exist");

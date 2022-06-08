@@ -15,6 +15,14 @@ const db = mysql.createConnection({
   database: process.env.DATABASE
 })
 
+//I JUST PUT THIS NOT SURE IF WORKS
+var connection = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+  user: 'user',
+  password: 'password',
+  database: 'logindb'
+})
 
 
 
@@ -27,7 +35,7 @@ db.connect( (error) => {
 })
 
 //Just put this, not sure if works!!!
-app.get('/mydb', function(req, res) {
+app.get('/logindb', function(req, res) {
   connection.query(queryString, function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
@@ -52,7 +60,7 @@ app.listen(3000, () => {
 })
 
 //I JUST PUT THIS HERE
-app.get('/mydb', function(req, res) {
+app.get('/login', function(req, res) {
   connection.query(queryString, function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);

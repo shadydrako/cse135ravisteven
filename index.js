@@ -31,14 +31,6 @@ const connection3 = mysql.createConnection({
     database: 'activity'
 })
 
-//I JUST PUT THIS NOT SURE IF WORKS
-var connection4 = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'user',
-    password: 'password',
-    database: 'logindb'
-  })
 
 connection.connect((err) => {
     if (err) {

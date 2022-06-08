@@ -1,7 +1,7 @@
 
 const mysql = require('mysql'); 
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');''
 
 const db = mysql.createConnection({
     host: process.env.HOST,
@@ -44,26 +44,28 @@ exports.login = async (req,res) => {
         const username = req.body.username; 
         const password = req.body.password;
 
-        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, request, results) => {
+        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
             if( results.length <= 0 ){
                 console.log("This user does not exist");
-                res.render('login.ejs',{
-                    errorMessage: 'This useer does not exist'
-                });
+                return res.render('login.ejs',{
+                    errorMessage: 'This user does not exist'
+             });
             }else if( await bcrypt.compare(password, results[0].password)) {
                 const id = results[0].id; 
                 const username = results[0].user
-                //making a session for this user
-                request.session.loggedin = true;
-                request.session.username = username;
 
-
+                // const cookieOptions = {
+                //     expires: new date (
+                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+                //     ),
+                //     httponly: true,
+                // }
                 console.log("THIS USER EXITS");
 
-                res.send("THIS USER EXITS AND IS REAL");
+                return res.send("THIS USER EXITS AND IS REAL");
             }else{
                 console.log("This user does not exist");
-                res.render('login.ejs',{
+                return res.render('login.ejs',{
                     errorMessage: 'Your email/password is incorrect'
                 });
             }

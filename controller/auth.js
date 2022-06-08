@@ -68,10 +68,8 @@ exports.login = async (req,res) => {
                 //     ),
                 //     httponly: true,
                 // }
-                
-                sessionStuff(id,username, req);
 
-                return res.send("THIS USER EXITS AND IS REAL");
+                return res.render('dashboarduser.ejs');
             }else{
                 console.log("This user does not exist");
                 return res.render('login.ejs',{

@@ -41,6 +41,15 @@ app.use(express.json())
 app.use('/', require('./routes/p'))
 app.use('/a', require('./routes/auth'))
 
+//tmp START
+app.get('/mydb', function(req, res) {
+  db.query(queryString, function(err, rows, fields) {
+    if (err) throw err;
+    res.send(rows);
+  });
+});
+// END
+
 app.listen(3000, () => {
   console.log("We are listening");
 })

@@ -87,7 +87,7 @@ exports.logout = async(req,res)=> {
             res.session.loggedin = false; 
             req.session.destroy();
 
-            res.render('login', {
+            res.render('login.ejs', {
                 errorMessage: "Logged Out!"
             })
 

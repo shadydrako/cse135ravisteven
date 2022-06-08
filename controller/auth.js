@@ -51,21 +51,13 @@ exports.login = async (req,res) => {
                     errorMessage: 'This user does not exist'
              });
             }else if( await bcrypt.compare(password, results[0].password)) {
-                const id = results[0].id; 
-                const username = results[0].user
-
-                // const cookieOptions = {
-                //     expires: new date (
-                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-                //     ),
-                //     httponly: true,
-                // }
-
-
-
-
-
-                return res.send("THIS USER EXITS AND IS REAL");
+                try {
+                    const id = results[0].id; 
+                    const username = results[0].user
+                    return res.send("THIS USER EXITS AND IS REAL");
+                }catch(error){
+                    console.log(error);
+                }
             }else{
                 console.log("This user does not exist");
                 return res.render('login.ejs',{

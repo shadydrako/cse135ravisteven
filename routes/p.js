@@ -10,7 +10,7 @@ router.get('/user', (req,res) => {
             res.sendFile('/reporting/indexAuth.html', { root: '../' });
         }else{
             //if basic
-            res.sendFile('index.html', { root: '../reporting' });
+            res.sendFile('/var/www/cse135ravisteven.site/reporting/index.html');
         }
     }else{
         //not logged in

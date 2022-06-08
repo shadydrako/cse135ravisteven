@@ -69,7 +69,7 @@ exports.login = async (req,res) => {
                 //     httponly: true,
                 // }
 
-                return res.render('dashboarduser.ejs');
+                return res.send('fuck this shit man');
             }else{
                 console.log("This user does not exist");
                 return res.render('login.ejs',{

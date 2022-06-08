@@ -41,7 +41,19 @@ router.delete('/users/:id', (req, res) => {
     })
 })
 
-router.put("/users")
+router.put("/users/:id", (req, res ) => {
+    let ogId = req.params.id;
+    let id = req.body.id;
+    let password = req.body.password;
+    let username = req.body.user;
+
+    db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: hashedPassword}, ogId], (err,rows, fields) => {
+        if(err) throw err;
+        console.log("UPDATED ROW");
+        res.end();
+    })
+    
+})
 /*
 zgRef.addEventListener('data:record:delete', (e) => {
     result.textContent = `"data:record:delete" triggered ${++count} times, view console for full event data.`;

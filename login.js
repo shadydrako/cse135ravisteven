@@ -17,6 +17,7 @@ const db = mysql.createConnection({
 
 
 
+
 db.connect( (error) => {
   if(error){
     console.log("Error connecting")
@@ -26,7 +27,7 @@ db.connect( (error) => {
 })
 
 //Just put this, not sure if works!!!
-app.get('/login', function(req, res) {
+app.get('/mydb', function(req, res) {
   connection.query(queryString, function(err, rows, fields) {
     if (err) throw err;
     res.send(rows);
@@ -49,3 +50,4 @@ app.use('/a', require('./routes/auth'))
 app.listen(3000, () => {
   console.log("We are listening");
 })
+

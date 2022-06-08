@@ -2,24 +2,33 @@
 const express = require('express');
 const router = express.Router();
 
-
+//this will load when user logs in
 router.get('/user', (req,res) => {
     if(req.session.loggedin){
         if(req.session.isAdmin){
-            res.render('dashboarduser.ejs', {
-                errorMessage: req.session.username
-            })
+            //if admin
+            res.sendFile('../reporting/indexAuth.html');
         }else{
-            res.render('dashboard.ejs', {
-                errorMessage: req.session.username
-            })
+            //if basic
+            res.sendFile('../reporting/index.html');
         }
     }else{
+        //not logged in
         res.render('login.ejs', {
             errorMessage: 'Please log in'
         })
     }
 });
+
+router.get('/dashboard', (req,res)=> {
+    if(req.session.loggedin){
+        if(req.session.isAdmin){
+            res.render('dashboarduser.ejs', {
+                errorMessage: req.session.username
+            })
+        }
+    }
+})
 
 router.get('/login', (req,res) => {
     if( req.session.loggedin){

@@ -28,27 +28,10 @@ function ready(){
     localStorage.setItem('window_dimension_width', windowDimensionWidth);
     localStorage.setItem('window_dimension_height', windowDimensionHeight);
 
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    localStorage.setItem('JS Enabled', true);
 
-    for(let i = 0; i < localStorage.length; i++){
-        let key = localStorage.key(i)
-        let item = localStorage.getItem(key)
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("name", String(key));
-        urlencoded.append("value", String(item));
-        var requestOptions ={
-            method: "POST",
-            headers: myHeaders,
-            body: urlencoded
-        }
-        
-        fetch("https://cse135ravisteven.site/api/static". requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error))
-    }
+    let networkConnection = navigator.connection.effectiveType;
+    localStorage.setItem('network_connection_type', networkConnection);
 
 }
 

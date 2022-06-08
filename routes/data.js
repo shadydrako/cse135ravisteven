@@ -57,6 +57,10 @@ router.put("/users/:id", async (req, res ) => {
 
     let hashedPassword = await bcrypt.hash(password,10);
 
+    //id exists
+
+    //username exists
+
     db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: hashedPassword, admin: isAdmin}, ogId], (err,rows, fields) => {
         if(err) throw err;
         console.log("UPDATED ROW");

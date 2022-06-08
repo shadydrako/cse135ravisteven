@@ -29,4 +29,6 @@ router.delete('/users/:id', (req, res) => {
     })
 })
 
+document.location.reload()
+
 module.exports = router;

@@ -4,7 +4,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 //session stuff
-const session = require('express-session');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -18,12 +17,6 @@ const db = mysql.createConnection({
   password: process.env.PASSWORD,
   database: process.env.DATABASE
 })
-
-app.use(session({
-	secret: 'secret_sauce',
-	resave: true,
-	saveUninitialized: true
-}));
 
 
 

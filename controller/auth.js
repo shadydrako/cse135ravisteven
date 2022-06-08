@@ -65,7 +65,7 @@ exports.login = async (req,res) => {
 
                 console.log(req.session.loggedin);
 
-                return res.send("THIS USER EXITS AND IS REAL");
+                return res.redirect('/api/user');
             }else{
                 console.log("Incorrect Email/Password");
                 res.render('login.ejs',{

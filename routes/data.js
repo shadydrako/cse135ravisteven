@@ -32,7 +32,7 @@ router.delete('/users/:id', (req, res) => {
 })
 
 //adding user from admin control
-router.post('/users', (req, res ) =>  {
+router.post('/users', async (req, res ) =>  {
     let id = req.body.id;
     let passport = req.body.password;
     let user = req.body.username;

@@ -66,7 +66,7 @@ function ready(startTime){
     fetch('/api/data/static', {
         method: 'POST',
         headers: myHeaders,
-        body: data
+        body: JSON.stringify(data)
 
     }).then(response => response.json())
     .then(response => response.text())

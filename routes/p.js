@@ -7,10 +7,10 @@ router.get('/user', (req,res) => {
     if(req.session.loggedin){
         if(req.session.isAdmin){
             //if admin
-            res.sendFile('../reporting/indexAuth.html');
+            res.sendFile('/reporting/indexAuth.html', { root: __dirname });
         }else{
             //if basic
-            res.sendFile('../reporting/index.html');
+            res.sendFile('/reporting/index.html');
         }
     }else{
         //not logged in

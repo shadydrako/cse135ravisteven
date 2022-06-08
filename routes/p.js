@@ -10,9 +10,7 @@ router.get('/user', (req,res) => {
                 errorMessage: req.session.username
             })
         }else{
-            res.render('dashboard.ejs', {
-                errorMessage: req.session.username
-            })
+            res.redirect('reporting.cse135ravisteven.site');
         }
     }else{
         res.render('login.ejs', {

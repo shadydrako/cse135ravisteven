@@ -83,8 +83,8 @@ exports.login = async (req,res) => {
 
 exports.logout = async(req,res)=> {
     try{
-        if(req.session.id){
-            res.session.loggedin = false; 
+        if(req.session.loggedin){
+            
             req.session.destroy();
 
             res.render('login.ejs', {

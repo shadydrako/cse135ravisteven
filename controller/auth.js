@@ -56,7 +56,6 @@ exports.login = async (req,res) => {
                 console.log("THIS USER EXITS");
 
                 req.session.loggedin = true;
-                req.session.username = username;
 
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{

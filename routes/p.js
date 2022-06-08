@@ -10,8 +10,7 @@ router.get('/user', (req,res) => {
                 errorMessage: req.session.username
             })
         }else{
-            window.location.replace('https://reporting.cse135ravisteven.site/');
-            res.end();
+            res.redirect('https://reporting.cse135ravisteven.site');
         }
     }else{
         res.render('login.ejs', {

@@ -3,6 +3,7 @@ const { appendFile } = require('fs');
 //const authController = require('../controller/auth')
 const router = express.Router();
 const mysql = require('mysql'); 
+const { route } = require('./p');
 
 
 
@@ -26,6 +27,28 @@ router.delete('/users/:id', (req, res) => {
     db.query('DELETE FROM users WHERE id = ?', [req.params.id], (err,rows, fields)=>{
         if(err) throw err;
         res.end();
+    })
+})
+
+//adding user from admin control
+router.post('/users', (req, res ) =>  {
+    let id = req.body.id;
+    let passport = req.body.password;
+    let user = req.body.username;
+    
+    let hashedPassword = await bcrypt.hash(password,10);
+    
+    db.query('SELECT user FROM users WHERE user = ? ', [username], async (error,results) => {
+        if(results.length <= 0){
+            res.end();
+        }else{
+            db.query('INSERT INTO users ?', {id: id, user: username,  password: hashedPassword}, (error, results) => {
+                if(error){
+                    console.log(error)
+                }
+                res.end();
+            })
+        }
     })
 })
 

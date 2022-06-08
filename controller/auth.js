@@ -31,7 +31,9 @@ exports.register = (req, res) => {
             if(error){
                 console.log(error)
             }else {
-                console.log("yay");
+                res.render('login.ejs', {
+                    errorMessage: "Account Made Please Log In"
+                })
             }
             
         })

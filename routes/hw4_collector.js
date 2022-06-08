@@ -8,6 +8,7 @@
 // users' winodw dimensions
 //user's network connection type
 
+const { response } = require('express');
 const mysql = require('mysql'); 
 const db = mysql.createConnection({
     host: process.env.HOST,
@@ -46,11 +47,34 @@ function ready(startTime){
     localStorage.setItem('network_connection_type', networkConnection);
     
 
-    let items = [userString, userLanguage, userCookieEnabled, screenDimensionWidth, screenDimensionHeight, windowDimensionWidth, windowDimensionHeight, js_en, networkConnection];
 
-    db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
-        console.log("Completed Insertion!");
-    })
+    const data = {
+        userString: userString,
+        userLanguage: userLanguage,
+        userCookieEnabled:  userCookieEnabled, 
+        screenDimensionWidth: screenDimensionWidth, 
+        screenDimensionHeight: screenDimensionHeight,
+        windowDimensionWidth: windowDimensionWidth,
+        windowDimensionHeight: windowDimensionHeight, 
+        js_en: js_en,networkConnection: networkConnection
+    }
+
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    fetch('/api/data/static', {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data)
+
+    }).then(response => response.json())
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+    // db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
+    //     console.log("Completed Insertion!");
+    // })
 
 }
 

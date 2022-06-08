@@ -108,5 +108,11 @@ router.post('/users', async (req, res ) =>  {
     })
 })
 
+router.post('/static', (req,res )=>{
+
+    console.log(req.body);
+
+})
+
 
 module.exports = router;

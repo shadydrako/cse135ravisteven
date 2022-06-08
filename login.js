@@ -7,6 +7,8 @@ const mysql = require("mysql");
 const session = require('express-session');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const dotenv = require('dotenv');
 

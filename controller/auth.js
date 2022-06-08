@@ -44,7 +44,7 @@ exports.login = async (req,res) => {
         const username = req.body.username; 
         const password = req.body.password;
 
-        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
+        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, req, results) => {
             if( results.length <= 0 ){
                 console.log("This user does not exist");
                 return res.render('login.ejs',{
@@ -63,6 +63,9 @@ exports.login = async (req,res) => {
                 console.log("THIS USER EXITS");
                 console.log(id)
                 console.log(username)
+                
+                req.session.id = id;
+
 
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{

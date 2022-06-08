@@ -4,6 +4,7 @@ const { appendFile } = require('fs');
 const router = express.Router();
 const mysql = require('mysql'); 
 const { route } = require('./p');
+const bcrypt = require('bcryptjs');
 
 
 

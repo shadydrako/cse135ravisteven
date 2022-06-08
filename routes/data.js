@@ -26,12 +26,22 @@ router.get('/users',(req, res)  => {
     })
 })
 
+router.get('/users/:id',(req, res)  => {
+    //SENDING TABLE DATA TO WHATEVER
+    db.query('SELECT * FROM users WHERE id =?',[req.params.id] , (err, rows, fields ) =>{
+        if(err) throw err;
+        res.send(rows);
+    })
+})
+
 router.delete('/users/:id', (req, res) => {
     db.query('DELETE FROM users WHERE id = ?', [req.params.id], (err,rows, fields)=>{
         if(err) throw err;
         res.end();
     })
 })
+
+router.put("/users")
 /*
 zgRef.addEventListener('data:record:delete', (e) => {
     result.textContent = `"data:record:delete" triggered ${++count} times, view console for full event data.`;
@@ -65,5 +75,6 @@ router.post('/users', async (req, res ) =>  {
         }
     })
 })
+
 
 module.exports = router;

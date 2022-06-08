@@ -53,7 +53,7 @@ exports.login = async (req,res) => {
             }else if( await bcrypt.compare(password, results[0].password)) {
                 const id = results[0].id; 
                 console.log("THIS USER EXITS");
-                req.session.loggedin = true;
+                // req.session.loggedin = true;
 
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{

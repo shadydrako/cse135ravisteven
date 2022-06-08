@@ -10,7 +10,7 @@ router.get('/user', (req,res) => {
             res.sendFile('/reporting/indexAuth.html', { root: '../' });
         }else{
             //if basic
-            res.sendFile('/reporting/index.html', { root: '../' });
+            res.sendFile('index.html', { root: '../reporting' });
         }
     }else{
         //not logged in

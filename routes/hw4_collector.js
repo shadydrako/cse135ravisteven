@@ -8,7 +8,9 @@
 // users' winodw dimensions
 //user's network connection type
 
-function ready(){
+const { start } = require("repl");
+
+function ready(startTime){
     let userString = navigator.userAgent;
     localStorage.setItem('user_agent_string',userString);
 
@@ -35,5 +37,9 @@ function ready(){
 
 }
 
-document.addEventListener("DOMContentLoaded", ready)
+var startTime = new Date().getTime();
+
+window.onload = ready(startTime)
+
+// document.addEventListener("DOMContentLoaded", ready)
 

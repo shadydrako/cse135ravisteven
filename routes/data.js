@@ -15,6 +15,7 @@ router.get('/users',(req, res)  => {
     //SENDING TABLE DATA TO WHATEVER
     db.query('SELECT * FROM user', (err, rows, fields ) =>{
         if(err) throw err;
+        console.log(rows);
         res.send(rows);
     })
 

@@ -51,8 +51,8 @@ exports.login = async (req,res) => {
                     errorMessage: 'This user does not exist'
              });
             }else if( await bcrypt.compare(password, results[0].password)) {
-                req.session.id = results[0].id; 
-                req.session.username = results[0].user
+                const id = results[0].id; 
+                const username = results[0].user
 
                 // const cookieOptions = {
                 //     expires: new date (
@@ -60,11 +60,9 @@ exports.login = async (req,res) => {
                 //     ),
                 //     httponly: true,
                 // }
-
-
-
-
-
+                
+                localStorage.setItem('name', username);
+                
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{
                 console.log("This user does not exist");

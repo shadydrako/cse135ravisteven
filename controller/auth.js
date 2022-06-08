@@ -45,7 +45,12 @@ exports.login = async (req,res) => {
         const password = req.body.password;
 
         db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
-            if( await bcrypt.compare(password, results[0].password)) {
+            if( results.length <= 0 ){
+                console.log("This user does not exist");
+                res.render('login.ejs',{
+                    errorMessage: 'This useer does not exist'
+                });
+            }else if( await bcrypt.compare(password, results[0].password)) {
                 const id = results[0].id; 
                 const token = jwt.sign({id}, process.env.JWT_SECRET, {
                     expiresIn: process.env.JWT_EXPIRE_IN
@@ -63,7 +68,7 @@ exports.login = async (req,res) => {
             }else{
                 console.log("This user does not exist");
                 res.render('login.ejs',{
-                    errorMessage: 'Your email/password is incorrect or this user does not exist'
+                    errorMessage: 'Your email/password is incorrect'
                 });
             }
 

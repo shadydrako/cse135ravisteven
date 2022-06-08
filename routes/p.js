@@ -19,7 +19,7 @@ const conn2 = mysql.createConnection({
     }
   })
 
-app.get('/static', (req, res )=> {
+  router.get('/static', (req, res )=> {
     connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
         if(err) throw err
         res.send(rows);

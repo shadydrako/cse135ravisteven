@@ -33,7 +33,7 @@ router.delete('/users/:id', (req, res) => {
     })
 })
 
-zgRef.addEventListener('data:record:delete', (e) => {
+zgRef.addEventListener('data:users:delete', (e) => {
     result.textContent = `"data:record:delete" triggered ${++count} times, view console for full event data.`;
     console.log(`--- Event Detail ---`, e.detail);
   });

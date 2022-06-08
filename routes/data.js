@@ -38,7 +38,7 @@ router.post('/users', async (req, res ) =>  {
     console.log(req.body);
     let id = req.body.id;
     let password = req.body.password;
-    let user = req.body.user;
+    let username = req.body.user;
 
     
     let hashedPassword = await bcrypt.hash(password,10);

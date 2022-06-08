@@ -70,6 +70,7 @@ router.post('/users', async (req, res ) =>  {
     let id = req.body.id;
     let password = req.body.password;
     let username = req.body.user;
+    let isAdmin = req.body.admin;
 
     
     let hashedPassword = await bcrypt.hash(password,10);
@@ -79,7 +80,7 @@ router.post('/users', async (req, res ) =>  {
             console.log("THERE EXISTS THIS USER");
             res.end();
         }else{
-            db.query('INSERT INTO users SET ?', {id: id, user: username,  password: hashedPassword}, (error, results) => {
+            db.query('INSERT INTO users SET ?', {id: id, user: username,  password: hashedPassword, admin: isAdmin}, (error, results) => {
                 if(error){
                     console.log(error)
                     res.end();

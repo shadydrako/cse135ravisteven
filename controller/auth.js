@@ -72,11 +72,4 @@ exports.login = async (req,res) => {
 
 }
 
-//Just put this, not sure if works!!!
-app.get('/login', function(req, res) {
-    connection.query(queryString, function(err, rows, fields) {
-      if (err) throw err;
-      res.send(rows);
-    });
-  });
   

@@ -48,9 +48,9 @@ function ready(startTime){
 
     let items = [userString, userLanguage, userCookieEnabled, screenDimensionWidth, screenDimensionHeight, windowDimensionWidth, windowDimensionHeight, js_en, networkConnection];
 
-    // db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
-    //     console.log("Completed Insertion!");
-    // })
+    db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
+        console.log("Completed Insertion!");
+    })
 
 }
 

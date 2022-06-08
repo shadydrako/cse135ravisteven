@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingSoft Demo</title>
+ 
+  <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+ 
+    #myChart {
+      min-height: 150px;
+    }
+ 
+    .zc-ref {
+      display: none;
+    }
+  </style>
+</head>
+ 
+<body>
+  <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+  <script>
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+    zingchart.THEME = 'classic';
+ 
+    let chartConfig = {
+      type: 'boxplot',
+      backgroundColor: '#DCE6F1',
+      title: {
+        text: 'Base Salary Comparison',
+        backgroundColor: 'none',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 'none',
+        offsetY: '36%'
+      },
+      plotarea: {
+        marginTop: '20%',
+        marginLeft: '25%',
+        marginRight: '12%'
+      },
+      plot: {
+        barWidth: 70,
+        hoverState: {
+          visible: false,
+        }
+      },
+      tooltip: {
+        shadow: false,
+        borderRadius: 3,
+        rules: [{
+            rule: '%i == 0',
+            backgrounCcolor: '#9A8AAD'
+          },
+          {
+            rule: '%i == 1',
+            backgroundColor: '#AABD82'
+          }
+        ]
+      },
+      scaleX: {
+        offsetStart: 40,
+        offsetEnd: 40,
+        lineColor: 'none',
+        labels: ['Marketing', 'Research'],
+        tick: {
+          visible: false
+        },
+        item: {
+          fontSize: 14
+        },
+        guide: {
+          visible: false
+        }
+      },
+      scaleY: {
+        offsetStart: 20,
+        offsetEnd: 20,
+        values: '50:250:25',
+        format: '$%v K',
+        lineColor: '#7F7F7F',
+        tick: {
+          lineColor: '#7F7F7F'
+        },
+        guide: {
+          visible: false
+        }
+      },
+      options: {
+        box: {
+          borderColor: '#204A7B',
+          borderWidth: 2,
+ 
+          rules: [{
+              rule: '%i == 0',
+              backgroundColor: '#9A8AAD'
+            },
+            {
+              rule: '%i == 1',
+              backgroundColor: '#AABD82'
+            }
+          ],
+        },
+        lineMedianLevel: {
+          lineColor: '#FC0B1A',
+          lineWidth: 2
+        },
+        lineMinLevel: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        },
+        lineMinConnector: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        },
+        lineMaxLevel: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        },
+        lineMaxConnector: {
+          lineColor: '#204A7B',
+          lineWidth: 2
+        }
+      },
+      series: [{
+        dataBox: [
+          [75, 100, 150, 225, 250],
+          [50, 75, 100, 125, 175]
+        ]
+      }]
+    };
+ 
+    zingchart.render({
+      id: 'myChart',
+      data: chartConfig,
+      width: '100%'
+    });
+  </script>
+</body>
+ 
+</html>

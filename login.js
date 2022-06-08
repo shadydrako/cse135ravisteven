@@ -41,6 +41,8 @@ app.use(express.json())
 app.use('/', require('./routes/p'))
 app.use('/a', require('./routes/auth'))
 
+app.use('/data', require('./routes/data'))
+
 app.listen(3000, () => {
   console.log("We are listening");
 })

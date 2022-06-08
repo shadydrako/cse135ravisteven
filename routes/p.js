@@ -3,12 +3,22 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/', (req,res) => {
-    res.render('login.ejs')
+router.get('/user', (req,res) => {
+    if( req.session.loggedin){
+        res.render('dasboarduser.ejs')
+    }else{
+        res.render('login.ejs', {
+            errorMessage: 'Please login'
+        })
+    }
 });
 
 router.get('/login', (req,res) => {
-    res.render('login.ejs')
+    if(req.session.loggedin){
+        res.render('dasboarduser.ejs')
+    }else{
+        res.render('login.ejs')
+    }
 });
 
 router.get('/register', (req, res) => {

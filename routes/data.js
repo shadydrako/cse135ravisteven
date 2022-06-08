@@ -34,9 +34,12 @@ router.delete('/users/:id', (req, res) => {
 
 //adding user from admin control
 router.post('/users', async (req, res ) =>  {
+
+    console.log(req.body);
     let id = req.body.id;
-    let passport = req.body.password;
+    let password = req.body.password;
     let user = req.body.username;
+
     
     let hashedPassword = await bcrypt.hash(password,10);
     

@@ -72,9 +72,7 @@ function ready(startTime){
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log(error));
-    // db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
-    //     console.log("Completed Insertion!");
-    // })
+
 
 }
 

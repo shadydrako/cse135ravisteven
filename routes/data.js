@@ -4,6 +4,8 @@ const { appendFile } = require('fs');
 const router = express.Router();
 const mysql = require('mysql'); 
 
+const zgRef = document.querySelector('zing-grid');
+let count = 0;
 
 
 const db = mysql.createConnection({
@@ -29,6 +31,14 @@ router.delete('/users/:id', (req, res) => {
     })
 })
 
-document.location.reload()
+router.post('/users/:id', (req, res) => {
+    db.query('CREATE FROM users ')
+})
+
+
+zgRef.addEventListener('data:record:delete', (e) => {
+    result.textContent = `"data:record:delete" triggered ${++count} times, view console for full event data.`;
+    console.log(`--- Event Detail ---`, e.detail);
+  });
 
 module.exports = router;

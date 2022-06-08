@@ -91,7 +91,6 @@ exports.logout = async(req,res)=> {
                 errorMessage: "Logged Out!"
             })
 
-
         }else{
             res.redirect('/api/login')
         }

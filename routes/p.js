@@ -16,7 +16,11 @@ router.get('/user', (req,res) => {
 });
 
 router.get('/login', (req,res) => {
-    res.render('login.ejs')
+    if( req.session.loggedin){
+        res.redirect('/api/user');
+    }else{
+        res.render('login.ejs')
+    }
 });
 
 router.get('/register', (req, res) => {

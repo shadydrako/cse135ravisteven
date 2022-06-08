@@ -4,7 +4,11 @@ const router = express.Router();
 
 
 router.get('/user', (req,res) => {
-    res.render('dasboarduser.ejs')
+    if(req.session.loggedin){
+        res.render('dasboarduser.ejs')
+    }else{
+        res.render('login.ejs')
+    }
 });
 
 router.get('/login', (req,res) => {

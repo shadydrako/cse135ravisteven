@@ -10,7 +10,7 @@ router.get('/user', (req,res) => {
                 errorMessage: req.session.username
             })
         }else{
-            res.render('dashboard .ejs', {
+            res.render('dashboard.ejs', {
                 errorMessage: req.session.username
             })
         }

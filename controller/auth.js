@@ -58,13 +58,12 @@ exports.login = async (req,res) => {
                 const id = results[0].id; 
                 const username = results[0].user
 
-                // const cookieOptions = {
-                //     expires: new date (
-                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-                //     ),
-                //     httponly: true,
-                // }
+
                 console.log("THIS USER EXITS");
+                req.session.loggedin = true; 
+                req.session.username = username
+
+                console.log(req.session.loggedin);
 
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{

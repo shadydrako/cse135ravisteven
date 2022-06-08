@@ -8,14 +8,14 @@
 // users' winodw dimensions
 //user's network connection type
 
-const { response } = require('express');
-const mysql = require('mysql'); 
-const db = mysql.createConnection({
-    host: process.env.HOST,
-    user:  process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
-  })
+// const { response } = require('express');
+// const mysql = require('mysql'); 
+// const db = mysql.createConnection({
+//     host: process.env.HOST,
+//     user:  process.env.USER,
+//     password: process.env.PASSWORD,
+//     database: process.env.DATABASE
+//   })
 
   //id, userstring, user lang, cookie_en, user sc width, user height, window width, window height, js en, network conn type
 

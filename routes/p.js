@@ -7,7 +7,7 @@ router.get('/user', (req,res) => {
     if(req.session.loggedin){
         if(req.session.isAdmin){
             //if admin
-            res.sendFile('/reporting/indexAuth.html', { root: '../' });
+            res.sendFile('indexAuth.html', { root: __dirname });
         }else{
             //if basic
             res.sendFile('index.html', {root: __dirname});
@@ -26,7 +26,14 @@ router.get('/dashboard', (req,res)=> {
             res.render('dashboarduser.ejs', {
                 errorMessage: req.session.username
             })
+        }else{
+            //not admin so no acess
+            res.sendFile('index.html', {root: __dirname});
         }
+    }else{
+        res.render('login.ejs', {
+            errorMessage: 'Please log in'
+        })
     }
 })
 

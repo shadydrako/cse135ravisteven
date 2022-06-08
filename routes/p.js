@@ -37,6 +37,7 @@ router.get('/user', (req,res) => {
         }else{
             //if basic
             res.sendFile('index.html', {root: __dirname});
+            console.log("FUCK");
         }
     }else{
         //not logged in

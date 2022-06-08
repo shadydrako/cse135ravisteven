@@ -8,13 +8,13 @@
 // users' winodw dimensions
 //user's network connection type
 
-const mysql = require('mysql'); 
-const db = mysql.createConnection({
-    host: process.env.HOST,
-    user:  process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
-  })
+// const mysql = require('mysql'); 
+// const db = mysql.createConnection({
+//     host: process.env.HOST,
+//     user:  process.env.USER,
+//     password: process.env.PASSWORD,
+//     database: process.env.DATABASE
+//   })
 
   //id, userstring, user lang, cookie_en, user sc width, user height, window width, window height, js en, network conn type
 
@@ -48,9 +48,9 @@ function ready(startTime){
 
     let items = [userString, userLanguage, userCookieEnabled, screenDimensionWidth, screenDimensionHeight, windowDimensionWidth, windowDimensionHeight, js_en, networkConnection];
 
-    db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
-        console.log("Completed Insertion!");
-    })
+    // db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
+    //     console.log("Completed Insertion!");
+    // })
 
 }
 

@@ -22,4 +22,11 @@ router.get('/users',(req, res)  => {
     })
 })
 
+router.delete('/users/:id', (req, res) => {
+    db.query('DELETE * FROM users WHERE id = ?', [req.params.id], (err,rows, fields)=>{
+        if(err) throw err;
+        res.end();
+    })
+})
+
 module.exports = router;

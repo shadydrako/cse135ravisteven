@@ -51,7 +51,7 @@ router.post('/users', async (req, res ) =>  {
     let hashedPassword = await bcrypt.hash(password,10);
     
     db.query('SELECT user FROM users WHERE user = ? ', [username], async (error,results) => {
-        if(results.length <= 0){
+        if(results.length == 0){
             res.end();
         }else{
             db.query('INSERT INTO users ?', {id: id, user: username,  password: hashedPassword}, (error, results) => {

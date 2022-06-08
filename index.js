@@ -37,7 +37,7 @@ var connection4 = mysql.createConnection({
     port: 3306,
     user: 'user',
     password: 'password',
-    database: 'mydb'
+    database: 'logindb'
   })
 
 connection.connect((err) => {

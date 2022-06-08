@@ -1,6 +1,7 @@
 //organize all the routes for all the different pages
 const express = require('express');
 const router = express.Router();
+const mysql = require('mysql');
 
 
 const conn2 = mysql.createConnection({

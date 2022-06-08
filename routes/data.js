@@ -26,6 +26,7 @@ router.get('/users',(req, res)  => {
 router.delete('/users/:id', (req, res) => {
     db.query('DELETE FROM users WHERE id = ?', [req.params.id], (err,rows, fields)=>{
         if(err) throw err;
+        document.location.reload()
         res.end();
     })
 })
@@ -45,7 +46,9 @@ router.post('/users', (req, res ) =>  {
             db.query('INSERT INTO users ?', {id: id, user: username,  password: hashedPassword}, (error, results) => {
                 if(error){
                     console.log(error)
+                    res.end();
                 }
+                document.location.reload()
                 res.end();
             })
         }

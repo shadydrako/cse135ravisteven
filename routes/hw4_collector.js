@@ -52,9 +52,6 @@ function ready(startTime){
         console.log("Completed Insertion!");
     })
 
-
-
-
 }
 
 var startTime = new Date().getTime();

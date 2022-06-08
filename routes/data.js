@@ -42,9 +42,25 @@ router.delete('/users/:id', (req, res) => {
 })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 zgRef.addEventListener('data:users:delete', (e) => {
 =======
 router.put("/users")
+=======
+router.put("/users/:id", (req, res ) => {
+    let ogId = req.params.id;
+    let id = req.body.id;
+    let password = req.body.password;
+    let username = req.body.user;
+
+    db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: hashedPassword}, ogId], (err,rows, fields) => {
+        if(err) throw err;
+        console.log("UPDATED ROW");
+        res.end();
+    })
+    
+})
+>>>>>>> 4725f7ca1f938859149c826d55b3bf8f57a15029
 /*
 zgRef.addEventListener('data:record:delete', (e) => {
 >>>>>>> a40c98a555dbbb6401dcd4f913befbd6539475f2

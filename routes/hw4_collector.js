@@ -8,7 +8,6 @@
 // users' winodw dimensions
 //user's network connection type
 
-const { start } = require("repl");
 
 function ready(startTime){
     let userString = navigator.userAgent;

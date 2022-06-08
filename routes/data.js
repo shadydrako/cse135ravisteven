@@ -6,8 +6,8 @@ const mysql = require('mysql');
 const { route } = require('./p');
 const bcrypt = require('bcryptjs');
 
-const zgRef = document.querySelector('zing-grid');
-let count = 0;
+//const zgRef = document.querySelector('zing-grid');
+//let count = 0;
 
 
 const db = mysql.createConnection({
@@ -26,6 +26,14 @@ router.get('/users',(req, res)  => {
     })
 })
 
+router.get('/users/:id',(req, res)  => {
+    //SENDING TABLE DATA TO WHATEVER
+    db.query('SELECT * FROM users WHERE id =?', [req.params.id] , (err, rows, fields ) =>{
+        if(err) throw err;
+        res.send(rows);
+    })
+})
+
 router.delete('/users/:id', (req, res) => {
     db.query('DELETE FROM users WHERE id = ?', [req.params.id], (err,rows, fields)=>{
         if(err) throw err;
@@ -33,11 +41,17 @@ router.delete('/users/:id', (req, res) => {
     })
 })
 
+<<<<<<< HEAD
 zgRef.addEventListener('data:users:delete', (e) => {
+=======
+router.put("/users")
+/*
+zgRef.addEventListener('data:record:delete', (e) => {
+>>>>>>> a40c98a555dbbb6401dcd4f913befbd6539475f2
     result.textContent = `"data:record:delete" triggered ${++count} times, view console for full event data.`;
     console.log(`--- Event Detail ---`, e.detail);
   });
-
+*/
 
 //adding user from admin control
 router.post('/users', async (req, res ) =>  {
@@ -65,5 +79,6 @@ router.post('/users', async (req, res ) =>  {
         }
     })
 })
+
 
 module.exports = router;

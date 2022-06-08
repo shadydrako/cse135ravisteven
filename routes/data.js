@@ -128,7 +128,7 @@ router.post('/static', (req,res )=>{
     for (const property in req.body) {
 
         console.log(`${property}: ${req.body[property]}`);
-        items.property = req.body[property];
+        console.log('potato');
     }
 
     console.log(items);

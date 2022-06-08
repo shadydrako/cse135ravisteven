@@ -125,8 +125,8 @@ router.post('/static', (req,res )=>{
 
     console.log(data);
 
-    (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?
-    db.query('INSERT INTO static SET ? ', {user_string: }, (error, result)=>{
+    // (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?
+    db.query('INSERT INTO static SET ? ', data, (error, result)=>{
         if(error){
             console.log(error)
         }else{

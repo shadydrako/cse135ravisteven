@@ -49,4 +49,8 @@ router.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
+router.get('/collector', (req, res) => {
+    res.sendFile('hw4_collector.js', {root: __dirname});
+})
+
 module.exports = router;

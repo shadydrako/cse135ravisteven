@@ -1,4 +1,5 @@
 const express = require('express');
+const { appendFile } = require('fs');
 //const authController = require('../controller/auth')
 const router = express.Router();
 const mysql = require('mysql'); 
@@ -20,6 +21,5 @@ router.get('/users',(req, res)  => {
         res.send(rows);
     })
 })
-
 
 module.exports = router;

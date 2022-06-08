@@ -44,7 +44,7 @@ exports.login = async (req,res) => {
         const username = req.body.username; 
         const password = req.body.password;
 
-        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
+        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, request, results) => {
             if( results.length <= 0 ){
                 console.log("This user does not exist");
                 return res.render('login.ejs',{
@@ -53,14 +53,10 @@ exports.login = async (req,res) => {
             }else if( await bcrypt.compare(password, results[0].password)) {
                 const id = results[0].id; 
                 const username = results[0].user
-
-                // const cookieOptions = {
-                //     expires: new date (
-                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-                //     ),
-                //     httponly: true,
-                // }
                 console.log("THIS USER EXITS");
+
+                req.session.loggedin = true;
+                req.session.username = username;
 
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{

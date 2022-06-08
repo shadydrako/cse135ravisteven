@@ -28,7 +28,7 @@ router.get('/users',(req, res)  => {
 
 router.get('/users/:id',(req, res)  => {
     //SENDING TABLE DATA TO WHATEVER
-    db.query('SELECT * FROM users WHERE id =?',[req.params.id] , (err, rows, fields ) =>{
+    db.query('SELECT * FROM users WHERE id =?', [req.params.id] , (err, rows, fields ) =>{
         if(err) throw err;
         res.send(rows);
     })

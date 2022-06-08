@@ -121,7 +121,7 @@ router.post('/static', (req,res )=>{
     //     JS_en: req.body.js_en,
     //     network_connection: req.body.networkConnection
     // }
-    console.log(req.body);
+    console.log(req.body.userString);
 
     let items = [req.body.userString, req.body.userLanguage, req.body.userCookieEnabled, req.body.screenDimensionWidth, req.body.screenDimensionHeight, req.body.windowDimensionWidth, req.body.windowDimensionHeight, req.body.js_en, req.body.networkConnection];
     // (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?

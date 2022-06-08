@@ -1,7 +1,8 @@
 <h1> Login </h1>
 
-
-<p> <%= errorMessage %> </p>
+<% if (typeof errorMessage != "undefined" && errorMessage ){ %>
+  <p> <%= errorMessage %> </p>
+<% } %>
 
 <form id="login-form" action="/api/a/login" method="POST">
   <label for="username"> Username </label>

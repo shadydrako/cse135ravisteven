@@ -37,7 +37,6 @@ router.get('/user', (req,res) => {
         }else{
             //if basic
             res.sendFile('index.html', {root: __dirname});
-            console.log(localStorage.getItem('window_dimension_width'));
         }
     }else{
         //not logged in

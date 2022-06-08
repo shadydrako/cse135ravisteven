@@ -41,10 +41,10 @@ exports.register = (req, res) => {
 
 exports.login = async (req,res) => {
     try {
-        const username = req.body.username; 
-        const password = req.body.password;
+        let username = req.body.username; 
+        let password = req.body.password;
         //FROM users WHERE user = ?
-        db.query('SELECT * FROM users', [username], async (error, results) => {
+        db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
             console.log(results);
             if( results.length <= 0 ){
                 console.log("This user does not exist");

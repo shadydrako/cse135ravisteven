@@ -5,9 +5,15 @@ const router = express.Router();
 
 router.get('/user', (req,res) => {
     if(req.session.loggedin){
-        res.render('dashboarduser.ejs', {
-            errorMessage: req.session.username
-        })
+        if(req.session.isAdmin){
+            res.render('dashboarduser.ejs', {
+                errorMessage: req.session.username
+            })
+        }else{
+            res.render('dashboard.ejs', {
+                errorMessage: req.session.username
+            })
+        }
     }else{
         res.render('login.ejs', {
             errorMessage: 'Please log in'

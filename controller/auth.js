@@ -45,23 +45,23 @@ exports.login = async (req,res) => {
         const password = req.body.password;
 
         db.query('SELECT * FROM users WHERE user = ?', [username], async (error, req, results) => {
-            if( results.length <= 0 ){
-                console.log("This user does not exist");
-                return res.render('login.ejs',{
-                    errorMessage: 'This user does not exist'
-             });
-            }else if( await bcrypt.compare(password, results[0].password)) {
-                try {
-                    
+            try{
+                if( results.length <= 0 ){
+                    console.log("This user does not exist");
+                    return res.render('login.ejs',{
+                        errorMessage: 'This user does not exist'
+                 });
+                }else if( await bcrypt.compare(password, results[0].password)) {
+    
                     return res.send("THIS USER EXITS AND IS REAL");
-                }catch(error){
-                    console.log(error);
+                }else{
+                    console.log("This user does not exist");
+                    return res.render('login.ejs',{
+                        errorMessage: 'Your email/password is incorrect'
+                    });
                 }
-            }else{
-                console.log("This user does not exist");
-                return res.render('login.ejs',{
-                    errorMessage: 'Your email/password is incorrect'
-                });
+            }catch(error){
+                console.log(error);
             }
 
         })

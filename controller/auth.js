@@ -64,7 +64,7 @@ exports.login = async (req,res) => {
                 console.log("THIS USER EXITS");
                 req.session.loggedin = true; 
                 req.session.username = username
-                if( results[0].isAdmin){
+                if( results[0].admin ){
                     req.session.isAdmin = true;
                 }else{
                     req.session.isAdmin = false;

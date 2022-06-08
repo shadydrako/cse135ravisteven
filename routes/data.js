@@ -6,6 +6,8 @@ const mysql = require('mysql');
 const { route } = require('./p');
 const bcrypt = require('bcryptjs');
 
+const zgRef = document.querySelector('zing-grid');
+let count = 0;
 
 
 const db = mysql.createConnection({
@@ -30,6 +32,11 @@ router.delete('/users/:id', (req, res) => {
         res.end();
     })
 })
+
+zgRef.addEventListener('data:record:delete', (e) => {
+    result.textContent = `"data:record:delete" triggered ${++count} times, view console for full event data.`;
+    console.log(`--- Event Detail ---`, e.detail);
+  });
 
 //adding user from admin control
 router.post('/users', async (req, res ) =>  {

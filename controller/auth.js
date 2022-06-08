@@ -39,6 +39,14 @@ exports.register = (req, res) => {
     })
 }
 
+
+async function sessionStuff ( id, username, request ){
+    request.session.id = id;
+    request.session.username = username;
+    return;
+}
+
+
 exports.login = async (req,res) => {
     try {
         const username = req.body.username; 
@@ -61,8 +69,8 @@ exports.login = async (req,res) => {
                 //     httponly: true,
                 // }
                 
-                localStorage.setItem('name', username);
-                
+                sessionStuff(id,username, req);
+
                 return res.send("THIS USER EXITS AND IS REAL");
             }else{
                 console.log("This user does not exist");
@@ -76,6 +84,10 @@ exports.login = async (req,res) => {
     }catch (error){
         console.log(error)
     }
+
+}
+
+async function session ( id, username, request ){
 
 }
 

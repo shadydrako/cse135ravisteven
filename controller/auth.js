@@ -81,4 +81,24 @@ exports.login = async (req,res) => {
 
 }
 
+exports.logout = async(req,res)=> {
+    try{
+        if(req.session.id){
+            res.session.loggedin = false; 
+            req.session.destroy();
+
+            res.render('login', {
+                errorMessage: "Logged Out!"
+            })
+
+
+        }else{
+            res.redirect('/api/login')
+        }
+
+    }catch(error){
+        console.log(error);
+    }
+
+}
   

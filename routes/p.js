@@ -26,7 +26,14 @@ router.get('/dashboard', (req,res)=> {
             res.render('dashboarduser.ejs', {
                 errorMessage: req.session.username
             })
+        }else{
+            //not admin so no acess
+            res.sendFile('index.html', {root: __dirname});
         }
+    }else{
+        res.render('login.ejs', {
+            errorMessage: 'Please log in'
+        })
     }
 })
 

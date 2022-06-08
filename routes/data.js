@@ -125,7 +125,7 @@ router.post('/static', (req,res )=>{
     console.log(result);
 
     for (const property in req.body) {
-        console.log(`${property}: ${object[property]}`);
+        console.log(`${property}: ${req.body[property]}`);
       }
 
     let items = [req.body.userString, req.body.userLanguage, req.body.userCookieEnabled, req.body.screenDimensionWidth, req.body.screenDimensionHeight, req.body.windowDimensionWidth, req.body.windowDimensionHeight, req.body.js_en, req.body.networkConnection];

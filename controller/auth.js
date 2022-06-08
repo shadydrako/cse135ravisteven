@@ -43,6 +43,7 @@ exports.login = async (req,res) => {
     try {
         let username = req.body.username; 
         let password = req.body.password;
+        console.log(req.body);
         //FROM users WHERE user = ?
         db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
             console.log(results);

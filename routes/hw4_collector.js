@@ -49,14 +49,15 @@ function ready(startTime){
 
 
     const data = {
-        userString: userString,
-        userLanguage: userLanguage,
-        userCookieEnabled:  userCookieEnabled, 
-        screenDimensionWidth: screenDimensionWidth, 
-        screenDimensionHeight: screenDimensionHeight,
-        windowDimensionWidth: windowDimensionWidth,
-        windowDimensionHeight: windowDimensionHeight, 
-        js_en: js_en,networkConnection: networkConnection
+        'userString': userString,
+        'userLanguage': userLanguage,
+        'userCookieEnabled':  userCookieEnabled, 
+        'screenDimensionWidth': screenDimensionWidth, 
+        'screenDimensionHeight': screenDimensionHeight,
+        'windowDimensionWidth': windowDimensionWidth,
+        'windowDimensionHeight': windowDimensionHeight, 
+        'js_en': js_en,
+        'networkConnection': networkConnection
     }
 
     var myHeaders = new Headers();

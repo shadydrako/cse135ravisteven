@@ -19,6 +19,9 @@ const db = mysql.createConnection({
   database: process.env.DATABASE
 })
 
+
+
+
 app.use(session({
 	secret: 'secret_sauce',
 	resave: true,

@@ -2,6 +2,31 @@
 const express = require('express');
 const router = express.Router();
 
+
+const conn2 = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: 'static'
+  })
+  
+  conn2.connect( (error)=> {
+    if(error){
+      console.log("Error connecting")
+    }else{
+      console.log("Database connection successful");
+    }
+  })
+
+app.get('/static', (req, res )=> {
+    connection.query('SELECT * FROM tourneys', (err, rows, fields) => {
+        if(err) throw err
+        res.send(rows);
+    })
+    console.log("GET REQUEST HANDLED");
+    return;
+})
+
 //this will load when user logs in
 router.get('/user', (req,res) => {
     if(req.session.loggedin){

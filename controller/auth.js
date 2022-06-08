@@ -61,7 +61,10 @@ exports.login = async (req,res) => {
 
                 res.send("THIS USER EXITS AND IS REAL");
             }else{
-                res.render('login.ejs')
+                console.log("This user does not exist");
+                res.render('login.ejs',{
+                    errorMessage: 'Your email/password is incorrect or this user does not exist'
+                });
             }
 
         })

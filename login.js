@@ -44,8 +44,8 @@ db.connect( (error) => {
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
+// app.use(express.urlencoded({ extended: false }))
+// app.use(express.json())
 
 //THESE ARE WHERE THE ROUTES ARE
 app.use('/', require('./routes/p'))

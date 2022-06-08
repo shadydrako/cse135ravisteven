@@ -41,10 +41,14 @@ exports.register = (req, res) => {
 
 exports.login = async (req,res) => {
     try {
-        const username = req.body.username; 
-        const password = req.body.password;
+        let username = req.body.username; 
+        let password = req.body.password;
+        console.log(req.body);
+        // we have a request.body
 
+        //FROM users WHERE user = ?
         db.query('SELECT * FROM users WHERE user = ?', [username], async (error, results) => {
+            console.log(results);
             if( results.length <= 0 ){
                 console.log("This user does not exist");
                 return res.render('login.ejs',{
@@ -54,20 +58,17 @@ exports.login = async (req,res) => {
                 const id = results[0].id; 
                 const username = results[0].user
 
-                // const cookieOptions = {
-                //     expires: new date (
-                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-                //     ),
-                //     httponly: true,
-                // }
-                console.log("THIS USER EXITS");
-                console.log(id)
-                console.log(username)
 
-                return res.send("THIS USER EXITS AND IS REAL");
+                console.log("THIS USER EXITS");
+                req.session.loggedin = true; 
+                req.session.username = username
+
+                console.log(req.session.loggedin);
+
+                return res.redirect('/api/user');
             }else{
-                console.log("This user does not exist");
-                return res.render('login.ejs',{
+                console.log("Incorrect Email/Password");
+                res.render('login.ejs',{
                     errorMessage: 'Your email/password is incorrect'
                 });
             }

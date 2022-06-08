@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/user', (req,res) => {
     if(req.session.loggedin){
-        res.render('dasboarduser.ejs')
+        res.render('dashboarduser.ejs')
     }else{
         res.render('login.ejs')
     }

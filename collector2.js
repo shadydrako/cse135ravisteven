@@ -394,7 +394,7 @@ fetch("https://cse135ravisteven.site/api/performance", requestOptions)
 .catch(error => console.log('error', error))
 
 };
-
+/*
 
 zingchart.render({  id: 'myChart', data: configuration,});
 window.addEventListener('load', function() {
@@ -451,3 +451,5 @@ const congiguration = {
     width: '100%'
   });
 });
+
+*/

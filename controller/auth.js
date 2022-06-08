@@ -52,16 +52,12 @@ exports.login = async (req,res) => {
                 });
             }else if( await bcrypt.compare(password, results[0].password)) {
                 const id = results[0].id; 
-                const token = jwt.sign({id}, process.env.JWT_SECRET, {
-                    expiresIn: process.env.JWT_EXPIRE_IN
-                } )
+                const username = results[0].user
+                //making a session for this user
+                request.session.loggedin = true;
+                request.session.username = username;
 
-                // const cookieOptions = {
-                //     expires: new date (
-                //         Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-                //     ),
-                //     httponly: true,
-                // }
+
                 console.log("THIS USER EXITS");
 
                 res.send("THIS USER EXITS AND IS REAL");

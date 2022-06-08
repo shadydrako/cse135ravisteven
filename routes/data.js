@@ -51,6 +51,7 @@ router.post('/users', async (req, res ) =>  {
     
     db.query('SELECT user FROM users WHERE user = ? ', [username], async (error,results) => {
         if(results.length > 0){
+            console.log("THERE EXISTS THIS USER");
             res.end();
         }else{
             db.query('INSERT INTO users ?', {id: id, user: username,  password: hashedPassword}, (error, results) => {

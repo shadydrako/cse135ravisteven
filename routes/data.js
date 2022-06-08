@@ -5,6 +5,7 @@ const router = express.Router();
 const mysql = require('mysql'); 
 const { route } = require('./p');
 const bcrypt = require('bcryptjs');
+const { error } = require('console');
 
 //const zgRef = document.querySelector('zing-grid');
 //let count = 0;
@@ -80,6 +81,12 @@ router.post('/users', async (req, res ) =>  {
 
     
     let hashedPassword = await bcrypt.hash(password,10);
+
+    db.query('SELECT id FROM users WHERE id = ?', [id], async (error, results)=>{
+        if(results.length >= 1){
+            return res.end();
+        }
+    })
     
     db.query('SELECT user FROM users WHERE user = ? ', [username], async (error,results) => {
         if(results.length > 0){

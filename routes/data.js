@@ -109,9 +109,21 @@ router.post('/users', async (req, res ) =>  {
 })
 
 router.post('/static', (req,res )=>{
+    const data = {
+        user_string: req.body.userString,
+        user_lang: req.body.userLanguage,
+        cookie_en:  req.body.userCookieEnabled, 
+        user_sc_width: req.body.screenDimensionWidth, 
+        use_sc_height: req.body.screenDimensionHeight,
+        window_width: req.body.windowDimensionWidth,
+        window_height: req.body.windowDimensionHeight, 
+        JS_en: req.body.js_en,
+        network_connection: req.body.networkConnection
+    }
 
     let items = [req.body.userString, req.body.userLanguage, req.body.userCookieEnabled, req.body.screenDimensionWidth, req.body.screenDimensionHeight, req.body.windowDimensionWidth, req.body.windowDimensionHeight, req.body.js_en, req.body.networkConnection];
-    db.query('INSERT INTO static (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?', items, (error, result)=>{
+    // (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?
+    db.query('INSERT INTO static SET ? ', data, (error, result)=>{
         if(error){
             console.log(error)
         }else{

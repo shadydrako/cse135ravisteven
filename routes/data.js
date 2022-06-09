@@ -3,9 +3,9 @@ const { appendFile } = require('fs');
 //const authController = require('../controller/auth')
 const router = express.Router();
 const mysql = require('mysql'); 
-const { route } = require('./p');
-const bcrypt = require('bcryptjs');
-const { error, Console } = require('console');
+// const { route } = require('./p');
+// const bcrypt = require('bcryptjs');
+// const { error, Console } = require('console');
 
 //const zgRef = document.querySelector('zing-grid');
 //let count = 0;

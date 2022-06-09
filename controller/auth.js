@@ -1,7 +1,6 @@
 
 const mysql = require('mysql'); 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');''
+
 
 const db = mysql.createConnection({
     host: process.env.HOST,
@@ -11,35 +10,7 @@ const db = mysql.createConnection({
   })
 
 
-exports.register = (req, res) => {
-    console.log(req.body);
-    const username = req.body.username; //came from the form
-    const password = req.body.password; // came from the form
 
-    db.query('SELECT user FROM users WHERE user = ?', [username], async (error, results) =>{
-        if(error){
-            console.log(error);
-        } else if(results.length > 0){
-            //already a user in the thing
-            return res.render('register.ejs'); //will deal with message later;
-        }
-
-        let hashedPassword = await bcrypt.hash( password, 10);
-        console.log( hashedPassword); 
-
-        db.query('INSERT INTO users SET ?', {user: username, password: hashedPassword}, (error, results) => {
-            if(error){
-                console.log(error)
-            }else {
-                res.render('login.ejs', {
-                    errorMessage: "Account Made Please Log In"
-                })
-            }
-            
-        })
-
-    })
-}
 
 exports.login = async (req,res) => {
     try {

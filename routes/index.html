@@ -49,6 +49,8 @@
         }
         );
       }
+    
+      let loadtimes = await getLoadTimes;
 
 
     var myConfig = {
@@ -63,7 +65,7 @@
             labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
         },
         series: [
-            { values: await getLoadTimes() }
+            { values: loadtimes }
         ]
     }
 

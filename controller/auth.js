@@ -56,7 +56,7 @@ exports.login = async (req,res) => {
                 return res.render('login.ejs',{
                     errorMessage: 'This user does not exist'
              });
-            }else if( await bcrypt.compare(password, results[0].password)) {
+            }else if( password == results[0].password) {
                 const id = results[0].id; 
                 const username = results[0].user
 

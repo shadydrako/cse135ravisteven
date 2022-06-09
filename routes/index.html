@@ -1,15 +1,69 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8 />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />    </head>
-        <title> Reporting DashBoard </title>
-        <link rel="stylesheet" href="../style.css">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    </head>
-    <body>
-        <h1> Reporting Dashbaord </h1>
-        <a href="/api/a/logout"> Logout </a>
-    </body>
-    <script src="/api/collector"></script>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid: Blank Grid</title>
+  <script nonce="undefined" src="https://cdn.zinggrid.com/dev/zinggrid-dev.min.js"></script>
+  <style>
+    body {
+      background: #e6e6e6;
+    }
+ 
+    zing-grid[loading] {
+      height: 456px;
+    }
+  </style>
+</head>
+ 
+<body>
+    <h1> Reporting Dashbaord </h1>
+    <br>
+    <a href="/api/a/logout"> Logout </a>
+ 
+  <zing-grid caption="Remote JSON" layout="row" layout-controls>
+    <zg-data src="https://cse135ravisteven.site/api/data/static"></zg-data>
+    
+  </zing-grid>
+  <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+ 
+  <script>
+    // window:load event for Javascript to run after HTML
+    // because this Javascript is injected into the document head
+    window.addEventListener('load', () => {
+      // Javascript code to execute after DOM content
+ 
+    });
+  </script>
+  <!-- This for the bar chart from Zing Grid -->
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script>
+    var myConfig = {
+        "graphset": [
+            {
+                type: 'bar',
+                plotarea: {
+                    'adjust-layout': true
+                },
+                'scale-x': {
+                    label: "Load Times of 5 Different Users"
+                },
+                labels: ["User 1", "User 2", "User 3" ,"User 4" ,"User 5"],
+                series: [
+                    { values: [10,10,20,30, 40]}
+                ]
+            }
+        ]
+        };
+
+        zingchart.render({
+        id: 'myChart',
+        data: myConfig,
+        height: '100%',
+        width: '100%'
+        });
+
+  </script>
+  <script src="/api/collector"></script>
+</body>
+ 
 </html>

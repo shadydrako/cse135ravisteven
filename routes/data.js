@@ -5,7 +5,7 @@ const router = express.Router();
 const mysql = require('mysql'); 
 const { route } = require('./p');
 const bcrypt = require('bcryptjs');
-const { error } = require('console');
+const { error, Console } = require('console');
 
 //const zgRef = document.querySelector('zing-grid');
 //let count = 0;
@@ -55,13 +55,13 @@ router.put("/users/:id", async (req, res ) => {
         isAdmin = req.body.admin
     }
 
-    let hashedPassword = await bcrypt.hash(password,10);
+    // let hashedPassword = await bcrypt.hash(password,10);
 
     //id exists
 
     //username exists
 
-    db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: hashedPassword, admin: isAdmin}, ogId], (err,rows, fields) => {
+    db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: password, admin: isAdmin}, ogId], (err,rows, fields) => {
         if(err) throw err;
         console.log("UPDATED ROW");
         res.end();
@@ -84,7 +84,7 @@ router.post('/users', async (req, res ) =>  {
     let isAdmin = req.body.admin;
 
     
-    let hashedPassword = await bcrypt.hash(password,10);
+    // let hashedPassword = await bcrypt.hash(password,10);
 
     db.query('SELECT id FROM users WHERE id = ?', [id], async (error, results)=>{
         if(results.length >= 1){
@@ -97,7 +97,7 @@ router.post('/users', async (req, res ) =>  {
             console.log("THERE EXISTS THIS USER");
             res.end();
         }else{
-            db.query('INSERT INTO users SET ?', {id: id, user: username,  password: hashedPassword, admin: isAdmin}, (error, results) => {
+            db.query('INSERT INTO users SET ?', {id: id, user: username,  password: password, admin: isAdmin}, (error, results) => {
                 if(error){
                     console.log(error)
                     res.end();
@@ -119,18 +119,29 @@ router.post('/static', (req,res )=>{
         window_width: req.body.windowDimensionWidth,
         window_height: req.body.windowDimensionHeight, 
         JS_en: req.body.js_en,
-        network_connection: req.body.networkConnection
+        network_connection: req.body.networkConnection,
+        username: req.session.username
     }
 
 
-    console.log(data);
 
     // (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?
-    db.query('INSERT INTO static SET ? ', data, (error, result)=>{
-        if(error){
-            console.log(error)
+    //we have this dude's info 
+    db.query('SELECT * FROM static WHERE username = ? ', [req.session.username], async (error,results)=>{
+        if(results.length > 0){
+            db.query('UPDATE static SET ? WHERE username = ?', [data, req.session.username], (error,result)=> {
+                console.log("update complete");
+            })
+            res.end();
         }else{
-            console.log("Completed Insertion!");
+            db.query('INSERT INTO static SET ? ', data, (error, result)=>{
+                if(error){
+                    console.log(error)
+                }else{
+                    console.log("Completed Insertion!");
+                }
+            })
+
         }
     })
 })
@@ -142,5 +153,47 @@ router.get('/static', (req,res )=>{
     })
 })
 
+
+router.post('/performance', (req,res)=>{
+
+    console.log("booty");
+    console.log(req.body.timing_page_load)
+    console.log("booty");
+    console.log(req.body.page_end_time)
+    const data = {
+        'username': req.session.username, 
+        'timing_page_load': req.body.timing_page_load,
+        'page_start_load': req.body.page_start_load_time,
+        'page_end_time': req.body.page_end_time,
+        'total_load_time': req.body.total_load_time
+    }
+
+    db.query('SELECT * FROM performance WHERE username = ?', [req.session.username], (error,results)=>{
+        if(results.length > 0) {
+            db.query('UPDATE performance SET ? WHERE username = ?', [data, req.session.username], (error,result)=> {
+                console.log("update complete");
+            })
+            res.end();
+        }else{
+            db.query('INSERT INTO performance SET ? ', data, (error, result)=>{
+                if(error){
+                    console.log(error)
+                }else{
+                    console.log("Completed Insertion!");
+                }
+            })
+
+        }
+    })
+
+
+})
+
+router.get('/performance', (req,res) => {
+    db.query('SELECT * FROM performance', [req.params.id] , (err, rows, fields ) =>{
+        if(err) throw err;
+        res.send(rows);
+    })
+})
 
 module.exports = router;

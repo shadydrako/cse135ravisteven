@@ -156,7 +156,7 @@ router.get('/static', (req,res )=>{
 
 router.post('/performance', (req,res)=>{
     console.log("booty");
-    console.log(req.body);
+    console.log(req.body.timing_page_load);
 })
 
 module.exports = router;

@@ -18,7 +18,9 @@
 //   })
 
   //id, userstring, user lang, cookie_en, user sc width, user height, window width, window height, js en, network conn type
-
+var myHeaders = new Headers();
+  myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
+  myHeaders.append("Content-Type", "application/json");
 
 function ready(){
     let userString = navigator.userAgent;
@@ -59,10 +61,6 @@ function ready(){
         'js_en': js_en,
         'networkConnection': networkConnection
     }
-
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-    myHeaders.append("Content-Type", "application/json");
 
     fetch('/api/data/static', {
         method: 'POST',
@@ -110,9 +108,6 @@ fetch('/api/data/performance', {
 .then(result => console.log(result))
 .catch(error => console.log(error));
 
-
-myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
-myHeaders.append("Content-Type", "application/json");
 
 window.onload = ready()
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Collecting static
 //user agent string
 //user's language
@@ -84,3 +85,6 @@ window.onload = ready(startTime)
 
 
 
+=======
+ 
+>>>>>>> 7a48be1821ea9b645bc8d5a9910d2586828fad14

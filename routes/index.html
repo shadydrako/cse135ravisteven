@@ -38,29 +38,27 @@
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
     var myConfig = {
-        "graphset": [
-            {
-                type: 'bar',
-                plotarea: {
-                    'adjust-layout': true
-                },
-                'scale-x': {
-                    label: "Load Times of 5 Different Users"
-                },
-                labels: ["User 1", "User 2", "User 3" ,"User 4" ,"User 5"],
-                series: [
-                    { values: [10,10,20,30, 40]}
-                ]
-            }
+        type: 'bar',
+        plotarea: {
+            'adjust-layout': true
+        },
+        'scale-x': {
+            label: {
+                text: "Load Times",
+            },
+            labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
+        },
+        series: [
+            { values: [10 , 25, 40 , 50 , 60 ]}
         ]
-        };
-
-        zingchart.render({
-        id: 'myChart',
-        data: myConfig,
-        height: '100%',
-        width: '100%'
-        });
+    }
+    
+    zingchart.render({
+    id: 'myChart',
+    data: myConfig,
+    height: '100%',
+    width: '100%'
+    });
 
   </script>
   <script src="/api/collector"></script>

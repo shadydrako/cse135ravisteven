@@ -37,7 +37,7 @@
   <!-- This for the bar chart from Zing Grid -->
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
-      async function getLoadTimes() {
+     function getLoadTimes() {
         fetch('/api/data/performance/loadtimes')
         .then(response => response.json())
         .then(data => {
@@ -50,7 +50,8 @@
         );
       }
     
-      let loadtimes = await getLoadTimes();
+      let loadtimes = getLoadTimes();
+      console.log(loadtimes);
 
 
     var myConfig = {

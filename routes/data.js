@@ -156,7 +156,7 @@ router.get('/static', (req,res )=>{
 
 
 router.post('/performance', (req,res)=>{
-    
+    console.log(req.body);
 })
 
 module.exports = router;

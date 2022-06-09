@@ -20,7 +20,7 @@
   //id, userstring, user lang, cookie_en, user sc width, user height, window width, window height, js en, network conn type
 
 
-function ready(startTime){
+function ready(){
     let userString = navigator.userAgent;
     localStorage.setItem('user_agent_string',userString);
 
@@ -114,9 +114,7 @@ fetch('/api/data/performance', {
 myHeaders.append("Authorization", "Basic cmF2aTooV2F0ZXIxKXM=");
 myHeaders.append("Content-Type", "application/json");
 
-var startTime = new Date().getTime();
-
-window.onload = ready(startTime)
+window.onload = ready()
 
 // document.addEventListener("DOMContentLoaded", ready)
 

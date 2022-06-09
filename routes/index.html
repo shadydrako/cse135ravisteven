@@ -36,45 +36,22 @@
   </script>
   <!-- This for the bar chart from Zing Grid -->
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-  <script>
-     
-     let loadtimes = [];
-     function getLoadTimes() {
-        fetch('/api/data/performance/loadtimes')
-        .then(response => response.json())
-        .then(data => {
-            for( let i = 0; i < data.length; i++){
-                loadtimes.push(data[i]['timing_page_load'])
-            }
-            var myConfig = {
-                    type: 'bar',
-                    plotarea: {
-                        'adjust-layout': true
-                    },
-                    'scale-x': {
-                        label: {
-                            text: "Load Times",
-                        },
-                        labels: [ "user 1 ", "user 1", "user 1", "user 1" ]
-                    },
-                    series: [
-                        { values: loadtimes }
-                    ]
-             }
-             zingchart.render({
-            id: 'myChart',
-            data: myConfig,
-            height: '100%',
-            width: '100%'
-    });
+  <?php
+    $mysqli = new mysqli("localhost", "root", "(Water1)s", "login");
 
-        }
-        );
-      }
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
+
+    $data=mysqli_query($mysqli, "SELECT * FROM performance LIMIT 4");
+    ?>  
     
-
-
-
+  <script>
+     var myData=[<?php
+        while($info=mysqli_fetch_array($data))
+        echo $info[ 'timing_page_load' ].','; 
+     ?>];
     // var myConfig = {
     //     type: 'bar',
     //     plotarea: {
@@ -99,6 +76,11 @@
     // });
 
   </script>
+  <?php
+    /* Close the connection */
+    $mysqli->close();
+    ?>
+  
   <script src="/api/collector"></script>
 </body>
  

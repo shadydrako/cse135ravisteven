@@ -38,11 +38,12 @@
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
      
-     let loadtimes = [];
+     
      function getLoadTimes() {
         fetch('/api/data/performance/loadtimes')
         .then(response => response.json())
         .then(data => {
+            let loadtimes = [];
             for( let i = 0; i < data.length; i++){
                 loadtimes.push(data[i]['timing_page_load'])
             }
@@ -55,48 +56,24 @@
                         label: {
                             text: "Load Times",
                         },
-                        labels: [ "user 1 ", "user 1", "user 1", "user 1" ]
+                        labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
                     },
                     series: [
                         { values: loadtimes }
                     ]
              }
              zingchart.render({
-            id: 'myChart',
-            data: myConfig,
-            height: '100%',
-            width: '100%'
-    });
-
+                id: 'myChart',
+                data: myConfig,
+                height: '100%',
+                width: '100%'
+        });
+        console.log("finished");
         }
         );
       }
-    
 
-
-
-    // var myConfig = {
-    //     type: 'bar',
-    //     plotarea: {
-    //         'adjust-layout': true
-    //     },
-    //     'scale-x': {
-    //         label: {
-    //             text: "Load Times",
-    //         },
-    //         labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
-    //     },
-    //     series: [
-    //         { values: [1,4,5,66] }
-    //     ]
-    // }
-
-    // zingchart.render({
-    // id: 'myChart',
-    // data: myConfig,
-    // height: '100%',
-    // width: '100%'
-    // });
+      getLoadTimes();
 
   </script>
   <script src="/api/collector"></script>

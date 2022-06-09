@@ -23,6 +23,17 @@ router.get('/user', (req,res) => {
     }
 });
 
+router.get('/detailedReport', (req,res) => {
+    if(req.session.loggedin){
+        res.render('metricName.ejs');
+    }else{
+        //not logged in
+        res.render('login.ejs', {
+            errorMessage: 'Please log in'
+        })
+    }
+});
+
 router.get('/dashboard', (req,res)=> {
     if(req.session.loggedin){
         if(req.session.isAdmin){
@@ -55,5 +66,7 @@ router.get('/register', (req, res) => {
 router.get('/collector', (req, res) => {
     res.sendFile('hw4_collector.js', {root: __dirname});
 })
+
+
 
 module.exports = router;

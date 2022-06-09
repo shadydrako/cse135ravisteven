@@ -82,5 +82,5 @@ var startTime = new Date().getTime();
 
 window.onload = ready(startTime)
 
-// document.addEventListener("DOMContentLoaded", ready)
+
 

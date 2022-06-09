@@ -196,8 +196,16 @@ router.get('/performance', (req,res) => {
     })
 })
 
-router.get('/performance/4g' , (req, res) => {
-    db.query("SELECT SUM(CASE WHEN network_connection = '4g' THEN 1 END) AS 'total 3g' FROM static;", (err,rows, fields) => {
+router.get('/performance/4gs' , (req, res) => {
+    db.query("SELECT SUM(CASE WHEN network_connection = '4g' THEN 1 END) AS 'total 4g' FROM static;", (err,rows, fields) => {
+        if(err) throw err;
+        console.log(rows);
+        res.send(rows);
+    })
+})
+
+router.get('/performance/3gs' , (req, res) => {
+    db.query("SELECT SUM(CASE WHEN network_connection = '3g' THEN 1 END) AS 'total 3g' FROM static;", (err,rows, fields) => {
         if(err) throw err;
         console.log(rows);
         res.send(rows);

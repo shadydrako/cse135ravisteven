@@ -196,4 +196,12 @@ router.get('/performance', (req,res) => {
     })
 })
 
+router.get('/performance/loadtimes' , (req, res) => {
+    db.query('SELECT username, timing_page_load FROM performance', (err,rows, fields) => {
+        if(err) throw err;
+        console.log(rows);
+        res.send(rows);
+    })
+})
+
 module.exports = router;

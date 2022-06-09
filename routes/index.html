@@ -56,7 +56,7 @@
                         label: {
                             text: "Load Times",
                         },
-                        labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
+                        labels: [ "user 1 ", "user 2", "user 3", "user 4", "user 5" ]
                     },
                     series: [
                         { values: loadtimes }
@@ -73,6 +73,18 @@
         );
       }
 
+      function getgs(){
+        let num4;
+        fetch('/api/data/performance/4gs')
+        .then(response => response.json() )
+        .then(data => 
+            console.log(data)
+        )
+      }
+
+
+
+      getgs();
       getLoadTimes();
      
      

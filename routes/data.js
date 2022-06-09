@@ -55,13 +55,13 @@ router.put("/users/:id", async (req, res ) => {
         isAdmin = req.body.admin
     }
 
-    let hashedPassword = await bcrypt.hash(password,10);
+    // let hashedPassword = await bcrypt.hash(password,10);
 
     //id exists
 
     //username exists
 
-    db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: hashedPassword, admin: isAdmin}, ogId], (err,rows, fields) => {
+    db.query('UPDATE users SET ? WHERE id = ?', [{id: id, user: username,  password: password, admin: isAdmin}, ogId], (err,rows, fields) => {
         if(err) throw err;
         console.log("UPDATED ROW");
         res.end();
@@ -84,7 +84,7 @@ router.post('/users', async (req, res ) =>  {
     let isAdmin = req.body.admin;
 
     
-    let hashedPassword = await bcrypt.hash(password,10);
+    // let hashedPassword = await bcrypt.hash(password,10);
 
     db.query('SELECT id FROM users WHERE id = ?', [id], async (error, results)=>{
         if(results.length >= 1){
@@ -97,7 +97,7 @@ router.post('/users', async (req, res ) =>  {
             console.log("THERE EXISTS THIS USER");
             res.end();
         }else{
-            db.query('INSERT INTO users SET ?', {id: id, user: username,  password: hashedPassword, admin: isAdmin}, (error, results) => {
+            db.query('INSERT INTO users SET ?', {id: id, user: username,  password: password, admin: isAdmin}, (error, results) => {
                 if(error){
                     console.log(error)
                     res.end();
@@ -155,7 +155,7 @@ router.get('/static', (req,res )=>{
 
 
 router.post('/performance', (req,res)=>{
-    
+
     console.log("booty");
     console.log(req.body.timing_page_load)
     console.log("booty");
@@ -187,6 +187,13 @@ router.post('/performance', (req,res)=>{
     })
 
 
+})
+
+router.get('/performance', (req,res) => {
+    db.query('SELECT * FROM performance', [req.params.id] , (err, rows, fields ) =>{
+        if(err) throw err;
+        res.send(rows);
+    })
 })
 
 module.exports = router;

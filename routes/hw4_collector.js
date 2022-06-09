@@ -139,9 +139,6 @@
   }
   
   
-  
+  //efef
   window.onload = ready()
-  
-  
-  
-  
+    

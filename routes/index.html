@@ -45,13 +45,11 @@
             for( let i = 0; i < data.length; i++){
                 loadtimes.push(data[i]['timing_page_load'])
             }
-            return loadtimes
         }
         );
       }
     
-      let load = loadtimes;
-      console.log(load);
+
 
 
     var myConfig = {
@@ -66,7 +64,7 @@
             labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
         },
         series: [
-            { values: load }
+            { values: loadtimes }
         ]
     }
 

@@ -72,9 +72,10 @@ function ready(startTime){
     }).then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log(error));
-
-
 }
+
+
+
 
 var startTime = new Date().getTime();
 

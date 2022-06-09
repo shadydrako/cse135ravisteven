@@ -142,5 +142,5 @@ function ready(){
 
 window.onload = ready()
 
-// document.addEventListener("DOMContentLoaded", ready)
+
 

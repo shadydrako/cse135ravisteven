@@ -128,7 +128,7 @@ router.post('/static', (req,res )=>{
 
     // (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?
     //we have this dude's info 
-    db.query('SELECT * FROM static WHERE username = ', [req.session.username], async (error,results)=>{
+    db.query('SELECT * FROM static WHERE username = ? ', [req.session.username], async (error,results)=>{
         if(results.length > 0){
             db.query('UPDATE static SET ? WHERE username = ?', [data, req.session.username], (error,result)=> {
                 console.log("update complete");

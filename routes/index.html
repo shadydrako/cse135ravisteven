@@ -25,6 +25,7 @@
     
   </zing-grid>
   <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+  <div id='myChart2'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
  
   <script>
     // window:load event for Javascript to run after HTML
@@ -35,6 +36,7 @@
     });
   </script>
   <!-- This for the bar chart from Zing Grid -->
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
      
@@ -86,6 +88,29 @@
                 num3 = data[0]['total 3g'];
                 console.log(num4);
                 console.log(num3);
+
+                var myConfig = {
+                    graphset: [{
+                        type: 'pie',
+                        title: {
+                            text: "4g vs 3g"
+                        },
+                        "series": [{
+                            "values": [num4],
+                            "text": "Num of 4g users"
+                        },{
+                            "values": [num3],
+                            "text": "Num of 3g users"
+                        }]
+                    }]
+                }
+                zingchart.render({
+                    id: 'myChart2',
+                    data: myConfig,
+                    height: 400,
+                    width: "100%"
+                });
+                
             }) 
         })
       }

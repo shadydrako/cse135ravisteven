@@ -197,7 +197,7 @@ router.get('/performance', (req,res) => {
 })
 
 router.get('/performance/username' , (req, res) => {
-    db.query('SELECT TOP 4 username FROM performance', (err,rows, fields) => {
+    db.query('SELECT username FROM performance LIMIT 4', (err,rows, fields) => {
         if(err) throw err;
         console.log(rows);
         res.send(rows);
@@ -205,7 +205,7 @@ router.get('/performance/username' , (req, res) => {
 })
 
 router.get('/performance/loadtimes' , (req, res) => {
-    db.query('SELECT TOP 4 timing_page_load FROM performance', (err,rows, fields) => {
+    db.query('SELECT timing_page_load FROM performance LIMIT 4', (err,rows, fields) => {
         if(err) throw err;
         console.log(rows);
         res.send(rows);

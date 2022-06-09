@@ -91,28 +91,49 @@ function ready(){
         //The total load time (manually calculated - in milliseconds)
         totalLoad = timing[0].duration; //returns timestamp in milliseconds
         localStorage.setItem('total_load_time',totalLoad); 
+
+        
+        let timing = performance.getEntriesByType("navigation");
+
+        const data1 = {
+            "timing_object" : timing,
+            "timing_page_load" : pageLoad,
+            "page_start_load_time" : pageStart,
+            "page_end_time": pageEnd,
+            "total_load_time": totalLoad
+        };
+
+        fetch('/api/data/performance', {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(data1)
+    
+        }).then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log(error));
+
     }, 5000);
 
 
-    let timing = performance.getEntriesByType("navigation");
-// }, 5000);
+//     let timing = performance.getEntriesByType("navigation");
+// // }, 5000);
 
-    const data1 = {
-        "timing_object" : timing,
-        "timing_page_load" : pageLoad,
-        "page_start_load_time" : pageStart,
-        "page_end_time": pageEnd,
-        "total_load_time": totalLoad
-    };
+//     const data1 = {
+//         "timing_object" : timing,
+//         "timing_page_load" : pageLoad,
+//         "page_start_load_time" : pageStart,
+//         "page_end_time": pageEnd,
+//         "total_load_time": totalLoad
+//     };
 
-    fetch('/api/data/performance', {
-        method: 'POST',
-        headers: myHeaders,
-        body: JSON.stringify(data1)
+//     fetch('/api/data/performance', {
+//         method: 'POST',
+//         headers: myHeaders,
+//         body: JSON.stringify(data1)
 
-    }).then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
+//     }).then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log(error));
 
 }
 

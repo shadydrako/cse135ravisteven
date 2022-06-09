@@ -1,0 +1,4 @@
+https://cse135ravisteven.site/
+
+
+We decided to do our detailed report on a specific part of our Grid metric on our dashboard. We are specifically looking at the network_connection column. We want to see how much our users network connection affects the page loading speed. To show this, we have created a pie chart to display the percentage of users that have differing network connection speeds (2g,3g,4g). Using a pie chart would allow us to discern the user composition on network speed with ease and is super intuitive to users seeing the graph for the first time. We also created a bar chart that displays the page load times from the varying users. This was pivotal to showcase because there is a direct correlation to those who have 3G network connection to be significantly slower than those who posess 4G internet. 

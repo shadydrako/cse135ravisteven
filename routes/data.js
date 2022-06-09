@@ -156,7 +156,32 @@ router.get('/static', (req,res )=>{
 
 router.post('/performance', (req,res)=>{
     console.log("booty");
-    console.log(req.body.timing_page_load);
+    const data = {
+        'username': req.session.username, 
+        'page_start_load': req.body.page_start_load_time,
+        'page_end_time': req.body.page_end_timem,
+        'total_load_time': req.body.total_load_time
+    }
+
+    db.query('SELECT * FROM performance WHERE username = ?', [req.session.username], (error,results)=>{
+        if(results.length > 0) {
+            db.query('UPDATE performance SET ? WHERE username = ?', [data, req.session.username], (error,result)=> {
+                console.log("update complete");
+            })
+            res.end();
+        }else{
+            db.query('INSERT INTO performance SET ? ', data, (error, result)=>{
+                if(error){
+                    console.log(error)
+                }else{
+                    console.log("Completed Insertion!");
+                }
+            })
+
+        }
+    })
+
+
 })
 
 module.exports = router;

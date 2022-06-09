@@ -1,0 +1,148 @@
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid: Blank Grid</title>
+  <script nonce="undefined" src="https://cdn.zinggrid.com/dev/zinggrid-dev.min.js"></script>
+  <style>
+    body {
+      background: #e6e6e6;
+    }
+ 
+    zing-grid[loading] {
+      height: 456px;
+    }
+  </style>
+</head>
+ 
+<body>
+    <h1> Detailed Report  </h1>
+    <br>
+    <a href="/api/a/logout"> Logout </a>
+ 
+  <zing-grid caption="Remote JSON" layout="row" layout-controls>
+    <zg-data src="https://cse135ravisteven.site/api/data/static"></zg-data>
+    
+  </zing-grid>
+  <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+  <div id='myChart2'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
+ 
+  <script>
+    // window:load event for Javascript to run after HTML
+    // because this Javascript is injected into the document head
+    window.addEventListener('load', () => {
+      // Javascript code to execute after DOM content
+ 
+    });
+  </script>
+  <!-- This for the bar chart from Zing Grid -->
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script>
+     
+     let loadtimes = [];
+     function getLoadTimes() {
+        fetch('/api/data/performance/bottom')
+        .then(response => response.json())
+        .then(data => {
+            for( let i = 0; i < data.length; i++){
+                loadtimes.push(data[i]['timing_page_load'])
+            }
+            var myConfig = {
+                    type: 'bar',
+                    plotarea: { 
+                        'adjust-layout': true
+                    },
+                    'scale-x': {
+                        label: {
+                            text: "Fastest Load Times",
+                        },
+                        labels: [ "user 1 ", "user 2", "user 3", "user 4" ]
+                    },
+                    series: [
+                        { values: loadtimes }
+                    ]
+             }
+             zingchart.render({
+            id: 'myChart',
+            data: myConfig,
+            height: '100%',
+            width: '100%'
+    });
+
+        }
+        );
+      }
+    
+
+      function getgs(){
+        var num4;
+        let num3;
+        fetch('/api/data/performance/4gs')
+        .then(response => response.json() )
+        .then(data => {
+            num4 = data[0]['total 4g']
+            fetch('/api/data/performance/3gs')
+            .then(response => response.json() ) 
+            .then(data => {
+                num3 = data[0]['total 3g'];
+                console.log(num4);
+                console.log(num3);
+
+                var myConfig = {
+                    graphset: [{
+                        type: 'pie',
+                        title: {
+                            text: "4g(BLUE) vs 3g(RED)"
+                        },
+                        "series": [{
+                            "text": "Num of 4g users",
+                            "values": [num4],
+                        },{
+                            "values": [num3],
+                            "text": "Num of 3g users"
+                        }]
+                    }]
+                }
+                zingchart.render({
+                    id: 'myChart2',
+                    data: myConfig,
+                    height: 400,
+                    width: "100%"
+                });
+                
+            }) 
+        })
+      }
+
+      getLoadTimes();
+      getgs();
+
+    // var myConfig = {
+    //     type: 'bar',
+    //     plotarea: {
+    //         'adjust-layout': true
+    //     },
+    //     'scale-x': {
+    //         label: {
+    //             text: "Load Times",
+    //         },
+    //         labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
+    //     },
+    //     series: [
+    //         { values: [1,4,5,66] }
+    //     ]
+    // }
+
+    // zingchart.render({
+    // id: 'myChart',
+    // data: myConfig,
+    // height: '100%',
+    // width: '100%'
+    // });
+
+  </script>
+  <script src="/api/collector"></script>
+</body>
+ 
+</html>

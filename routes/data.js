@@ -220,5 +220,12 @@ router.get('/performance/loadtimes' , (req, res) => {
     })
 })
 
+router.get('/performance/bottom', (req,res) => {
+    db.query('SELECT timing_page_load FROM performance ORDER BY timing_page_load LIMIT 4', (err,rows, fields) => {
+        if(err) throw err
+        res.send(rows);
+    })
+})
+
 
 module.exports = router;

@@ -37,6 +37,14 @@
   <!-- This for the bar chart from Zing Grid -->
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
+
+      var loadtimes;
+      fetch('/api/data/performance/loadtimes')
+      .then(response => response.json())
+      .then(data => console.log(data));
+
+
+    
     var myConfig = {
         type: 'bar',
         plotarea: {
@@ -52,7 +60,7 @@
             { values: [10 , 25, 40 , 50 , 60 ]}
         ]
     }
-    
+
     zingchart.render({
     id: 'myChart',
     data: myConfig,

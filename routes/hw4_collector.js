@@ -80,6 +80,8 @@ function ready(){
     var totalLoad;
 
     setTimeout(function(){
+        let timing = performance.getEntriesByType("navigation");
+
         pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
         localStorage.setItem('timing_page_load', pageLoad);
         //Specifically when the page started loading
@@ -93,8 +95,7 @@ function ready(){
         localStorage.setItem('total_load_time',totalLoad); 
 
         
-        let timing = performance.getEntriesByType("navigation");
-
+        
         const data1 = {
             "timing_object" : timing,
             "timing_page_load" : pageLoad,

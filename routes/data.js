@@ -134,14 +134,15 @@ router.post('/static', (req,res )=>{
                 console.log("update complete");
             })
             res.end();
-        }
-    })
-
-    db.query('INSERT INTO static SET ? ', data, (error, result)=>{
-        if(error){
-            console.log(error)
         }else{
-            console.log("Completed Insertion!");
+            db.query('INSERT INTO static SET ? ', data, (error, result)=>{
+                if(error){
+                    console.log(error)
+                }else{
+                    console.log("Completed Insertion!");
+                }
+            })
+
         }
     })
 })

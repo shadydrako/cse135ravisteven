@@ -46,6 +46,28 @@
             for( let i = 0; i < data.length; i++){
                 loadtimes.push(data[i]['timing_page_load'])
             }
+            var myConfig = {
+                    type: 'bar',
+                    plotarea: {
+                        'adjust-layout': true
+                    },
+                    'scale-x': {
+                        label: {
+                            text: "Load Times",
+                        },
+                        labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
+                    },
+                    series: [
+                        { values: loadtimes }
+                    ]
+             }
+             zingchart.render({
+            id: 'myChart',
+            data: myConfig,
+            height: '100%',
+            width: '100%'
+    });
+
         }
         );
       }
@@ -53,28 +75,28 @@
 
 
 
-    var myConfig = {
-        type: 'bar',
-        plotarea: {
-            'adjust-layout': true
-        },
-        'scale-x': {
-            label: {
-                text: "Load Times",
-            },
-            labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
-        },
-        series: [
-            { values: [1,4,5,66] }
-        ]
-    }
+    // var myConfig = {
+    //     type: 'bar',
+    //     plotarea: {
+    //         'adjust-layout': true
+    //     },
+    //     'scale-x': {
+    //         label: {
+    //             text: "Load Times",
+    //         },
+    //         labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
+    //     },
+    //     series: [
+    //         { values: [1,4,5,66] }
+    //     ]
+    // }
 
-    zingchart.render({
-    id: 'myChart',
-    data: myConfig,
-    height: '100%',
-    width: '100%'
-    });
+    // zingchart.render({
+    // id: 'myChart',
+    // data: myConfig,
+    // height: '100%',
+    // width: '100%'
+    // });
 
   </script>
   <script src="/api/collector"></script>

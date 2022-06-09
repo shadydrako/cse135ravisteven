@@ -73,6 +73,22 @@
       }
     
 
+      function getgs(){
+        var num4;
+        let num3;
+        fetch('/api/data/performance/4gs')
+        .then(response => response.json() )
+        .then(data => {
+            num4 = data[0]['total 4g']
+            fetch('/api/data/performance/3gs')
+            .then(response => response.json() ) 
+            .then(data => {
+                num3 = data[0]['total 3g'];
+                console.log(num4);
+                console.log(num3);
+            }) 
+        })
+      }
 
 
     // var myConfig = {

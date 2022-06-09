@@ -163,7 +163,7 @@ router.post('/performance', (req,res)=>{
         'username': req.session.username, 
         'timing_page_load': req.body.timing_page_load,
         'page_start_load': req.body.page_start_load_time,
-        'page_end_time': req.body.page_end_timem,
+        'page_end_time': req.body.page_end_time,
         'total_load_time': req.body.total_load_time
     }
 

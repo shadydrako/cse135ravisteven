@@ -70,14 +70,13 @@ function ready(){
     }).then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log(error));
-}
 
 
-
-let timing = performance.getEntriesByType("navigation");
-localStorage.setItem('timing_object', performance.getEntriesByType("navigation"));
-//The timing of the page load
-// setTimeout(function(){
+    //performance!! 
+    let timing = performance.getEntriesByType("navigation");
+    localStorage.setItem('timing_object', performance.getEntriesByType("navigation"));
+    //The timing of the page load
+    // setTimeout(function(){
     let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
     localStorage.setItem('timing_page_load', pageLoad);
     //Specifically when the page started loading
@@ -91,22 +90,25 @@ localStorage.setItem('timing_object', performance.getEntriesByType("navigation")
     localStorage.setItem('total_load_time',totalLoad); 
 // }, 5000);
 
-const data1 = {
-    "timing_object" : timing,
-    "timing_page_load" : pageLoad,
-    "page_start_load_time" : pageStart,
-    "page_end_time": pageEnd,
-    "total_load_time": totalLoad
-};
+    const data1 = {
+        "timing_object" : timing,
+        "timing_page_load" : pageLoad,
+        "page_start_load_time" : pageStart,
+        "page_end_time": pageEnd,
+        "total_load_time": totalLoad
+    };
 
-fetch('/api/data/performance', {
-    method: 'POST',
-    headers: myHeaders,
-    body: JSON.stringify(data1)
+    fetch('/api/data/performance', {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data1)
 
-}).then(response => response.json())
-.then(result => console.log(result))
-.catch(error => console.log(error));
+    }).then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+
+}
+
 
 
 window.onload = ready()

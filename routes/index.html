@@ -41,7 +41,14 @@
       var loadtimes;
       fetch('/api/data/performance/loadtimes')
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+          for( let i = 0; i < data.length; i++){
+              loadtimes.push(data[i]['timing_page_load'])
+          }
+      }
+      );
+
+      console.log(loadtimes);
 
 
     

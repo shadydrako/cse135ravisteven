@@ -17,12 +17,14 @@
  
 <body>
     <h1> Reporting Dashbaord </h1>
+    <br>
     <a href="/api/a/logout"> Logout </a>
  
   <zing-grid caption="Remote JSON" layout="row" layout-controls>
     <zg-data src="https://cse135ravisteven.site/api/data/static"></zg-data>
     
   </zing-grid>
+  <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a></div>
  
   <script>
     // window:load event for Javascript to run after HTML
@@ -31,6 +33,33 @@
       // Javascript code to execute after DOM content
  
     });
+  </script>
+  <!-- This for the bar chart from Zing Grid -->
+  <script>
+    var myConfig = {
+        "graphset": [
+            {
+                type: 'bar',
+                plotarea: {
+                    'adjust-layout': true
+                },
+                'scale-x': {
+                    label: "Load Times of 5 Different Users"
+                },
+                labels: ["User 1", "User 2", "User 3" ,"User 4" ,"User 5"],
+                series: [
+                    { values: [10,10,20,30, 40]}
+                ]
+            }
+        ]
+        };
+        zingchart.render({
+        id: 'myChart',
+        data: myConfig,
+        height: '100%',
+        width: '100%'
+        });
+
   </script>
   <script src="/api/collector"></script>
 </body>

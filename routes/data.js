@@ -5,7 +5,7 @@ const router = express.Router();
 const mysql = require('mysql'); 
 const { route } = require('./p');
 const bcrypt = require('bcryptjs');
-const { error } = require('console');
+const { error, Console } = require('console');
 
 //const zgRef = document.querySelector('zing-grid');
 //let count = 0;
@@ -119,13 +119,24 @@ router.post('/static', (req,res )=>{
         window_width: req.body.windowDimensionWidth,
         window_height: req.body.windowDimensionHeight, 
         JS_en: req.body.js_en,
-        network_connection: req.body.networkConnection
+        network_connection: req.body.networkConnection,
+        username: req.session.username
     }
 
 
     console.log(data);
 
     // (user_string,user_lang, cookie_en, user_sc_width, use_sc_height, window_width, window_height, JS_en, network_connection) VALUES ?
+    //we have this dude's info 
+    db.query('SELECT * FROM static WHERE username = ', [req.session.username], (error,result)=>{
+        if(result.length > 0){
+            db.query('UPDATE static SET ? WHERE username = ?', [data, req.session.username], (error,result)=> {
+                Console.log("update complete");
+            })
+            res.end();
+        }
+    })
+
     db.query('INSERT INTO static SET ? ', data, (error, result)=>{
         if(error){
             console.log(error)

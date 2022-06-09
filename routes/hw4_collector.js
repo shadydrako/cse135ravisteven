@@ -79,7 +79,7 @@ function ready(){
 let timing = performance.getEntriesByType("navigation");
 localStorage.setItem('timing_object', performance.getEntriesByType("navigation"));
 //The timing of the page load
-setTimeout(function(){
+// setTimeout(function(){
     let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
     localStorage.setItem('timing_page_load', pageLoad);
     //Specifically when the page started loading
@@ -91,7 +91,7 @@ setTimeout(function(){
     //The total load time (manually calculated - in milliseconds)
     let totalLoad = timing[0].duration; //returns timestamp in milliseconds
     localStorage.setItem('total_load_time',totalLoad); 
-}, 5000);
+// }, 5000);
 
 const data1 = {
     "timing_object" : timing,

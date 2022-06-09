@@ -95,7 +95,6 @@
         localStorage.setItem('total_load_time',totalLoad); 
   
         
-        
         const data1 = {
             "timing_object" : timing,
             "timing_page_load" : pageLoad,
@@ -104,6 +103,8 @@
             "total_load_time": totalLoad
         };
   
+
+
         fetch('/api/data/performance', {
             method: 'POST',
             headers: myHeaders,

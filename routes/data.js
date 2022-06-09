@@ -133,7 +133,13 @@ router.post('/static', (req,res )=>{
             console.log("Completed Insertion!");
         }
     })
+})
 
+router.get('/static', (req,res )=>{
+    db.query('SELECT * FROM static', [req.params.id] , (err, rows, fields ) =>{
+        if(err) throw err;
+        res.send(rows);
+    })
 })
 
 

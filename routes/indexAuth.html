@@ -1,22 +1,41 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8 />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />    </head>
-        <title> Reporting DashBoard </title>
-        <link rel="stylesheet" href="../style.css">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    </head>
-    <body>
-        <h1> Reporting Dashbaord Admin  </h1>
-
-
-        <a href="/api/dashboard"> User Management Dashboard </a>
-        <br>
-        <a href="/api/a/logout"> Logout </a>
-    </body>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid: Blank Grid</title>
+  <script nonce="undefined" src="https://cdn.zinggrid.com/dev/zinggrid-dev.min.js"></script>
+  <style>
+    body {
+      background: #e6e6e6;
+    }
+ 
+    zing-grid[loading] {
+      height: 456px;
+    }
+  </style>
+</head>
+ 
+<body>
+    <h1> Admin Reporting Dashbaord </h1>
+    <br> 
+    <a href="/api/dashboard"> User Management Dashboard </a>
+    <br>
+    <a href="/api/a/logout"> Logout </a>
+ 
+  <zing-grid caption="Remote JSON" layout="row" layout-controls>
+    <zg-data src="https://cse135ravisteven.site/api/data/static"></zg-data>
     
-    <script src="/api/collector"></script>
-    
-
+  </zing-grid>
+ 
+  <script>
+    // window:load event for Javascript to run after HTML
+    // because this Javascript is injected into the document head
+    window.addEventListener('load', () => {
+      // Javascript code to execute after DOM content
+ 
+    });
+  </script>
+  <script src="/api/collector"></script>
+</body>
+ 
 </html>

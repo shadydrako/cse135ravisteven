@@ -95,6 +95,7 @@ setTimeout(function(){
 
 const data1 = {
     "timing_object" : timing,
+    "timing_page_load" : pageLoad,
     "page_start_load_time" : pageStart,
     "page_end_time": pageEnd,
     "total_load_time": totalLoad

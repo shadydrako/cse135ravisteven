@@ -73,21 +73,28 @@ function ready(){
 
 
     //performance!! 
+
+    var pageLoad;
+    var pageStart;
+    var pageEnd;
+    var totalLoad;
+
+    setTimeout(function(){
+        pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
+        localStorage.setItem('timing_page_load', pageLoad);
+        //Specifically when the page started loading
+        pageStart = timing[0].domContentLoadedEventStart;
+        localStorage.setItem('page_start_load_time', pageStart);
+        //Specifically when the page ended loading
+        pageEnd = timing[0].loadEventEnd;
+        localStorage.setItem('page_end_time', pageEnd);
+        //The total load time (manually calculated - in milliseconds)
+        totalLoad = timing[0].duration; //returns timestamp in milliseconds
+        localStorage.setItem('total_load_time',totalLoad); 
+    }, 5000);
+
+
     let timing = performance.getEntriesByType("navigation");
-    localStorage.setItem('timing_object', performance.getEntriesByType("navigation"));
-    //The timing of the page load
-    // setTimeout(function(){
-    let pageLoad = timing[0].loadEventEnd - timing[0].responseEnd;
-    localStorage.setItem('timing_page_load', pageLoad);
-    //Specifically when the page started loading
-    let pageStart = timing[0].domContentLoadedEventStart;
-    localStorage.setItem('page_start_load_time', pageStart);
-    //Specifically when the page ended loading
-    let pageEnd = timing[0].loadEventEnd;
-    localStorage.setItem('page_end_time', pageEnd);
-    //The total load time (manually calculated - in milliseconds)
-    let totalLoad = timing[0].duration; //returns timestamp in milliseconds
-    localStorage.setItem('total_load_time',totalLoad); 
 // }, 5000);
 
     const data1 = {

@@ -37,11 +37,11 @@
   <!-- This for the bar chart from Zing Grid -->
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
+      let loadtimes = []
      function getLoadTimes() {
         fetch('/api/data/performance/loadtimes')
         .then(response => response.json())
         .then(data => {
-            let loadtimes = []
             for( let i = 0; i < data.length; i++){
                 loadtimes.push(data[i]['timing_page_load'])
             }
@@ -50,8 +50,8 @@
         );
       }
     
-      let loadtimes = getLoadTimes();
-      console.log(loadtimes);
+      let load = loadtimes;
+      console.log(load);
 
 
     var myConfig = {
@@ -66,7 +66,7 @@
             labels: [ "user 1 ", "user 1", "user 1", "user 1", "user 1" ]
         },
         series: [
-            { values: loadtimes }
+            { values: load }
         ]
     }
 
